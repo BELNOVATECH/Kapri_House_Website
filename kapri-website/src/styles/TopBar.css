@@ -1,0 +1,30 @@
+.topbar {
+  background: #d77984;
+  height: 35px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.marquee {
+  display: inline-flex;
+  animation: scroll-right 25s linear infinite;
+}
+
+.marquee span {
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  margin-right: 80px;
+}
+
+@keyframes scroll-right {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
