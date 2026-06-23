@@ -13,7 +13,8 @@ import CelebApprovedLooks from './pages/CelebApprovedLooks';
 import WomenOfBunaai from './pages/WomenOfBunaai';
 import FeaturedOn from './pages/FeaturedOn';
 import Footer from './pages/Footer';
-
+import ReelsStrip from './pages/Reelsstrips'; 
+import NewArrivalsBanner from "./components/NewArrivalsBanner";
 function App() {
   return (
     <>
@@ -22,6 +23,8 @@ function App() {
       <Navbar />
       <HeroSlider />
       <CategorySlider/>
+  <ReelsStrip />
+      <NewArrivalsBanner />
        <ProductSection />
        <FestiveWear/>
        <EverydayKurtaSets/>
