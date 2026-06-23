@@ -9,6 +9,7 @@ import HeroSlider from "./components/HeroSlider";
 
 import ProductSection from "./pages/ProductSection";
 import CategorySlider from "./pages/CategorySlider";
+import ReelsStrip from "./pages/Reelsstrips";
 import FestiveWear from "./pages/FestiveWear";
 import EverydayKurtaSets from "./pages/EverydayKurtaSets";
 import HolidayDresses from "./pages/HolidayDresses";
@@ -28,6 +29,7 @@ function HomePage() {
 
       <HeroSlider />
       <CategorySlider />
+      <ReelsStrip />
       <ProductSection />
       <FestiveWear />
       <EverydayKurtaSets />

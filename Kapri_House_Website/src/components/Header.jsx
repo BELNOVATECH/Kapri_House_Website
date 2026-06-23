@@ -23,12 +23,12 @@ export default function Header() {
 
         <img
           src={logo}
-          alt="Kapri"
+          alt="Kapri House"
           className="header-logo"
         />
 
       <h2 className="brand-name">
-  Kap<span>ri</span>
+  Kap<span>ri</span> House
 </h2>
 
       </div>

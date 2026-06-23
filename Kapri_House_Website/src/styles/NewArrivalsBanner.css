@@ -1,0 +1,84 @@
+/* ============ New Arrivals Banner ============ */
+.new-arrivals-banner {
+  position: relative;
+  width: 100%;
+ 
+  aspect-ratio: 1782 / 550;
+  overflow: hidden;
+  margin-top: 0; /* sits right under .reels-strip, adjust if you want a gap */
+}
+
+.new-arrivals-img {
+  width: 100%;
+  height: 70%;
+  object-fit: cover;
+  /* Anchor crop toward the top so faces stay visible; cover crops
+     evenly from top+bottom by default, this biases it upward. */
+  object-position: center top;
+  display: block;
+}
+
+/* Overlay wrapper, positioned to match the "Shop Now" button area
+   baked into the image (roughly 68%-78% across, ~55%-60% down) */
+.new-arrivals-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* let clicks pass through except on the button */
+}
+
+.new-arrivals-cta {
+  position: absolute;
+  left: 71.5%;
+  top: 82%;
+  transform: translate(-50%, -50%);
+  width: 10.3%;       /* scales with banner width */
+  min-width: 110px;
+  padding: 14px 0;
+  background: transparent; /* image already shows the teal button */
+  border: none;
+  cursor: pointer;
+  pointer-events: auto;
+  font-size: 0; /* hide text, button is invisible hotspot over baked-in art */
+}
+
+/* If you'd rather render a REAL button instead of an invisible hotspot
+   (recommended for accessibility / SEO), use this version instead and
+   remove font-size:0 above, plus delete the teal "Shop Now" from the
+   source image if you go this route */
+.new-arrivals-cta--visible {
+  background: #1c5d63;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 14px 36px;
+  border-radius: 2px;
+  transition: background 0.2s ease;
+}
+
+.new-arrivals-cta--visible:hover {
+  background: #154a4f;
+}
+
+/* ============ Mobile ============ */
+@media (max-width: 768px) {
+  .new-arrivals-banner {
+    /* On small screens the wide banner gets very short if cropped to the
+       same ratio, so let it grow taller and crop the sides instead */
+    aspect-ratio: 4 / 5;
+  }
+
+  .new-arrivals-img {
+    object-position: center 20%; /* keep the models + text in frame */
+  }
+
+  .new-arrivals-cta {
+    left: 50%;
+    top: 78%;
+    width: 40%;
+  }
+}
