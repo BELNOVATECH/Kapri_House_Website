@@ -6,6 +6,7 @@ import Header from "./components/Header";
 import Navbar from "./components/Navbar";
 
 import HeroSlider from "./components/HeroSlider";
+import NewArrivalsBanner from "./components/NewArrivalsBanner";
 
 import ProductSection from "./pages/ProductSection";
 import CategorySlider from "./pages/CategorySlider";
@@ -19,6 +20,20 @@ import FeaturedOn from "./pages/FeaturedOn";
 import Footer from "./pages/Footer";
 import NewArrivals from "./pages/NewArrivals";
 import ProductDetails from "./pages/ProductDetails";
+import Dresses from "./pages/Dresses"; // ✅ already imported
+
+// Reusable layout wrapper
+function Layout({ children }) {
+  return (
+    <>
+      <TopBar />
+      <Header />
+      <Navbar />
+      {children}
+      <Footer />
+    </>
+  );
+}
 
 function HomePage() {
   return (
@@ -26,10 +41,10 @@ function HomePage() {
       <TopBar />
       <Header />
       <Navbar />
-
       <HeroSlider />
       <CategorySlider />
       <ReelsStrip />
+      <NewArrivalsBanner />
       <ProductSection />
       <FestiveWear />
       <EverydayKurtaSets />
@@ -37,7 +52,6 @@ function HomePage() {
       <CelebApprovedLooks />
       <WomenOfBunaai />
       <FeaturedOn />
-      <ProductDetails/>
       <Footer />
     </>
   );
@@ -48,43 +62,36 @@ function App() {
     <BrowserRouter>
       <Routes>
 
-        <Route
-          path="/"
-          element={<HomePage />}
-        />
+        <Route path="/" element={<HomePage />} />
 
         <Route
           path="/new-arrivals"
           element={
-            <>
-              <TopBar />
-              <Header />
-              <Navbar />
+            <Layout>
               <NewArrivals />
-              <Footer />
-            </>
+            </Layout>
           }
         />
 
-    
+        <Route
+          path="/dresses"                  
+          element={
+            <Layout>
+              <Dresses />
+            </Layout>
+          }
+        />
 
-
-      <Route
+        <Route
           path="/product-details"
           element={
-            <>
-              <TopBar />
-              <Header />
-              <Navbar />
-            <ProductDetails/>
-              <Footer />
-            </>
+            <Layout>
+              <ProductDetails />
+            </Layout>
           }
         />
 
       </Routes>
-
-
     </BrowserRouter>
   );
 }

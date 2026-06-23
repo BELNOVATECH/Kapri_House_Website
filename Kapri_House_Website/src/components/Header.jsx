@@ -50,7 +50,7 @@ export default function Header() {
           <FiHeart />
         </button>
 
-        <button className="icon-btn cart-btn">
+        <button className="icon-btn carty-btn">
           <FiShoppingCart />
 
           <span className="cart-count">

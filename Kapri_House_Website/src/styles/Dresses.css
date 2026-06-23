@@ -1,0 +1,77 @@
+/* src/styles/Dresses.css */
+
+.dresses-page {
+  width: 100%;
+}
+
+.dresses-banner {
+  width: 100%;
+  height: 370px;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+.breadcrumb {
+  padding: 10px 20px;
+  font-size: 13px;
+  color: #888;
+}
+
+.dresses-title {
+  text-align: center;
+  font-size: 22px;
+  letter-spacing: 2px;
+  margin: 10px 0 20px;
+}
+
+.dresses-layout {
+  display: flex;
+  gap: 20px;
+  padding: 0 20px 40px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  flex: 1;
+}
+
+.dress-card {
+  cursor: pointer;
+}
+
+.dress-card img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  display: block;
+}
+
+.dress-card h4 {
+  margin: 8px 0 4px;
+  font-size: 14px;
+}
+
+.price {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 13px;
+}
+
+.mrp {
+  text-decoration: line-through;
+  color: #999;
+}
+
+.sale-price {
+  font-weight: 600;
+  color: #222;
+}
+
+.discount {
+  color: green;
+  font-size: 12px;
+}
