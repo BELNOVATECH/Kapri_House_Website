@@ -1,0 +1,177 @@
+.celeb-section {
+  width: 100%;
+  padding: 35px 3%;
+  background: #fff;
+  position: relative;
+}
+
+.celeb-heading {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 25px;
+  letter-spacing: 0.5px;
+}
+
+.celeb-slider-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.celeb-slider {
+  display: flex;
+  gap: 15px;
+  overflow: hidden;
+  scroll-behavior: smooth;
+}
+
+.celeb-card {
+  flex: 0 0 calc(25% - 12px);
+  min-width: calc(25% - 12px);
+  cursor: pointer;
+}
+
+.celeb-card img {
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+  border-radius: 4px;
+  transition: all 0.4s ease;
+}
+
+.celeb-card:hover img {
+  transform: scale(1.03);
+}
+
+.celeb-card h4 {
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #111;
+  line-height: 1.4;
+  text-align: center;
+}
+
+/* ARROWS */
+.celeb-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 26px;
+  height: 26px;
+
+  border-radius: 50%;
+  border: none;
+
+  background: rgba(0, 0, 0, 0.85);
+  color: #fff;
+
+  font-size: 10px;
+  font-weight: 600;
+
+  cursor: pointer;
+  z-index: 10;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: all 0.3s ease;
+}
+
+.celeb-arrow:hover {
+  background: #000;
+  transform: translateY(-50%) scale(1.08);
+}
+
+.celeb-arrow.left {
+  left: 12px;
+}
+
+.celeb-arrow.right {
+  right: 12px;
+}
+
+/* LAPTOP */
+
+@media (max-width: 1200px) {
+  .celeb-card {
+    flex: 0 0 calc(33.333% - 12px);
+    min-width: calc(33.333% - 12px);
+  }
+
+  .celeb-card img {
+    height: 300px;
+  }
+
+  .celeb-heading {
+    font-size: 26px;
+  }
+
+  .celeb-card h4 {
+    font-size: 13px;
+  }
+}
+
+/* TABLET */
+
+@media (max-width: 768px) {
+  .celeb-section {
+    padding: 25px 12px;
+  }
+
+  .celeb-heading {
+    font-size: 20px;
+    margin-bottom: 18px;
+  }
+
+  .celeb-card {
+    flex: 0 0 calc(50% - 8px);
+    min-width: calc(50% - 8px);
+  }
+
+  .celeb-card img {
+    height: 230px;
+  }
+
+  .celeb-card h4 {
+    font-size: 12px;
+  }
+
+  .celeb-arrow {
+    width: 34px;
+    height: 34px;
+    font-size: 12px;
+  }
+
+  .celeb-arrow.left {
+    left: -5px;
+  }
+
+  .celeb-arrow.right {
+    right: -5px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 480px) {
+  .celeb-card {
+    flex: 0 0 100%;
+    min-width: 100%;
+  }
+
+  .celeb-card img {
+    height: 320px;
+  }
+
+  .celeb-heading {
+    font-size: 18px;
+  }
+
+  .celeb-card h4 {
+    font-size: 12px;
+  }
+}
