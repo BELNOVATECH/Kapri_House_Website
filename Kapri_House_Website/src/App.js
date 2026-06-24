@@ -21,7 +21,11 @@ import Footer from "./pages/Footer";
 import NewArrivals from "./pages/NewArrivals";
 import ProductDetails from "./pages/ProductDetails";
 import Dresses from "./pages/Dresses"; // ✅ already imported
-
+import CategoryArchGrid from "./pages/CategoryArchGrid";
+import festiveBanner from "./assets/festivebanner.jpeg";
+import kurtaBanner from "./assets/kurta.webp"; 
+import dressesBanner from "./assets/dressban.webp";
+import CoordSets from "./pages/CoordSets"; // ← add this import// ← add this import
 // Reusable layout wrapper
 function Layout({ children }) {
   return (
@@ -46,11 +50,25 @@ function HomePage() {
       <ReelsStrip />
       <NewArrivalsBanner />
       <ProductSection />
+     <div className="banner-wrapper">
+  <img src={festiveBanner} alt="Festive Wear" className="banner-img" />
+</div>
+
       <FestiveWear />
+      
+<div className="banner-wrapper">
+  <img src={kurtaBanner} alt="Everyday Kurta Sets" className="banner-img" />
+</div>
       <EverydayKurtaSets />
+
+
+<div className="banner-wrapper">
+  <img src={dressesBanner} alt="Holiday Dresses" className="banner-img" />
+</div>
       <HolidayDresses />
       <CelebApprovedLooks />
       <WomenOfBunaai />
+      <CategoryArchGrid />
       <FeaturedOn />
       <Footer />
     </>
@@ -81,7 +99,14 @@ function App() {
             </Layout>
           }
         />
-
+<Route
+  path="/coord-sets"
+  element={
+    <Layout>
+      <CoordSets />
+    </Layout>
+  }
+/>
         <Route
           path="/product-details"
           element={

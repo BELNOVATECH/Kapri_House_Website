@@ -1,4 +1,5 @@
-import "../styles/FestiveWear.css";
+import "../styles/HolidayDresses.css";
+import { useRef, useEffect } from "react";
 
 import hd1 from "../assets/fd1.jpg";
 import hd2 from "../assets/fd2.jpg";
@@ -10,136 +11,101 @@ import hd7 from "../assets/fd7.jpg";
 import hd8 from "../assets/fd8.jpg";
 
 const products = [
-  {
-    id: 1,
-    image: hd1,
-    title: "White Shift Dress",
-    mrp: 4200,
-    price: 3150,
-    discount: "25% OFF",
-  },
-  {
-    id: 2,
-    image: hd2,
-    title: "Float White Cotton Dress",
-    mrp: 4200,
-    price: 2499,
-    discount: "40% OFF",
-  },
-  {
-    id: 3,
-    image: hd3,
-    title: "White Cotton Midi Dress",
-    mrp: 4500,
-    price: 3500,
-    discount: "22% OFF",
-  },
-  {
-    id: 4,
-    image: hd4,
-    title: "Lime Green Cotton Dress",
-    mrp: 5000,
-    price: 4000,
-    discount: "20% OFF",
-  },
-  {
-    id: 5,
-    image: hd5,
-    title: "Indigo Shirt Cotton Dress",
-    mrp: 4200,
-    price: 2499,
-    discount: "40% OFF",
-  },
-  {
-    id: 6,
-    image: hd6,
-    title: "Black Embroidered Dress",
-    mrp: 4500,
-    price: 3500,
-    discount: "22% OFF",
-  },
-  {
-    id: 7,
-    image: hd7,
-    title: "Black Floral Dress",
-    mrp: 4200,
-    price: 3150,
-    discount: "25% OFF",
-  },
-  {
-    id: 8,
-    image: hd8,
-    title: "Black Daisy Dress",
-    mrp: 4200,
-    price: 2999,
-    discount: "29% OFF",
-  },
+  { id: 1, image: hd1, title: "White Shift Dress",          mrp: 4200, price: 3150, discount: "25% OFF" },
+  { id: 2, image: hd2, title: "Float White Cotton Dress",   mrp: 4200, price: 2499, discount: "40% OFF" },
+  { id: 3, image: hd3, title: "White Cotton Midi Dress",    mrp: 4500, price: 3500, discount: "22% OFF" },
+  { id: 4, image: hd4, title: "Lime Green Cotton Dress",    mrp: 5000, price: 4000, discount: "20% OFF" },
+  { id: 5, image: hd5, title: "Indigo Shirt Cotton Dress",  mrp: 4200, price: 2499, discount: "40% OFF" },
+  { id: 6, image: hd6, title: "Black Embroidered Dress",    mrp: 4500, price: 3500, discount: "22% OFF" },
+  { id: 7, image: hd7, title: "Black Floral Dress",         mrp: 4200, price: 3150, discount: "25% OFF" },
+  { id: 8, image: hd8, title: "Black Daisy Dress",          mrp: 4200, price: 2999, discount: "29% OFF" },
 ];
 
 export default function HolidayDresses() {
-  return (
-    <section className="festive-section">
+  const sliderRef = useRef(null);
+  const cardRefs  = useRef([]);
 
-      <div className="section-title">
+  // drag-to-scroll
+  let isDown = false;
+  let startX;
+  let scrollLeft;
+
+  const handleMouseDown = (e) => {
+    isDown = true;
+    sliderRef.current.classList.add("dragging");
+    startX = e.pageX - sliderRef.current.offsetLeft;
+    scrollLeft = sliderRef.current.scrollLeft;
+  };
+  const handleMouseLeave = () => { isDown = false; sliderRef.current.classList.remove("dragging"); };
+  const handleMouseUp    = () => { isDown = false; sliderRef.current.classList.remove("dragging"); };
+  const handleMouseMove  = (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - sliderRef.current.offsetLeft;
+    sliderRef.current.scrollLeft = scrollLeft - (x - startX) * 1.5;
+  };
+
+  // scroll-triggered slide-up
+  useEffect(() => {
+    const observers = [];
+    cardRefs.current.forEach((card, i) => {
+      if (!card) return;
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => card.classList.add("hd-card--visible"), i * 80);
+            observer.disconnect();
+          }
+        },
+        { threshold: 0.15 }
+      );
+      observer.observe(card);
+      observers.push(observer);
+    });
+    return () => observers.forEach((o) => o.disconnect());
+  }, []);
+
+  return (
+    <section className="hd-section">
+
+      <div className="hd-title">
         <h2>HOLIDAY DRESSES</h2>
         <p>Women's dresses in different designs & colors.</p>
       </div>
 
-      <div className="products-grid">
-        {products.map((item) => (
-          <div className="product-card" key={item.id}>
-            <div className="product-image-wrapper">
-
-              <span className="sale-badge">
-                SALE
-              </span>
-
-              <img
-                src={item.image}
-                alt={item.title}
-              />
-
-              <div className="size-options">
-                <span>XS</span>
-                <span>S</span>
-                <span>M</span>
-                <span>L</span>
-                <span>XL</span>
-              </div>
-
+      <div
+        className="hd-scroll-row"
+        ref={sliderRef}
+        onMouseDown={handleMouseDown}
+        onMouseLeave={handleMouseLeave}
+        onMouseUp={handleMouseUp}
+        onMouseMove={handleMouseMove}
+      >
+        {products.map((item, i) => (
+          <div
+            className="hd-card"
+            key={item.id}
+            ref={(el) => (cardRefs.current[i] = el)}
+          >
+            <div className="hd-image-wrapper">
+              <img src={item.image} alt={item.title} />
+              <span className="hd-badge">{item.discount}</span>
             </div>
 
-            <div className="product-content">
-
-              <div className="stars">
-                ★★★★★
-              </div>
-
+            <div className="hd-info">
+              <div className="hd-stars">★★★★★</div>
               <h4>{item.title}</h4>
-
-              <div className="price-box">
-                <span className="mrp">
-                  ₹{item.mrp}
-                </span>
-
-                <span className="price">
-                  ₹{item.price}
-                </span>
-
-                <span className="discount">
-                  ({item.discount})
-                </span>
+              <div className="hd-price">
+                <span className="hd-mrp">₹{item.mrp}</span>
+                ₹{item.price}
               </div>
-
             </div>
           </div>
         ))}
       </div>
 
-      <div className="view-all-wrap">
-        <button className="view-all-btn">
-          VIEW ALL
-        </button>
+      <div className="hd-view-all-wrap">
+        <button className="hd-view-all-btn">VIEW ALL</button>
       </div>
 
     </section>

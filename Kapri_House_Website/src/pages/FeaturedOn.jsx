@@ -1,4 +1,4 @@
-import { useRef } from "react";
+// import { useRef } from "react";
 import "../styles/FeaturedOn.css";
 
 import logo1 from "../assets/featured1.png";
@@ -13,7 +13,7 @@ import logo9 from "../assets/featured9.png";
 import logo10 from "../assets/featured10.png";
 
 export default function FeaturedOn() {
-  const sliderRef = useRef(null);
+  // const sliderRef = useRef(null);
 
   const logos = [
     logo1,
@@ -28,19 +28,19 @@ export default function FeaturedOn() {
     logo10,
   ];
 
-  const slideLeft = () => {
-    sliderRef.current.scrollBy({
-      left: -1000,
-      behavior: "smooth",
-    });
-  };
+  // const slideLeft = () => {
+  //   sliderRef.current.scrollBy({
+  //     left: -1000,
+  //     behavior: "smooth",
+  //   });
+  // };
 
-  const slideRight = () => {
-    sliderRef.current.scrollBy({
-      left: 1000,
-      behavior: "smooth",
-    });
-  };
+  // const slideRight = () => {
+  //   sliderRef.current.scrollBy({
+  //     left: 1000,
+  //     behavior: "smooth",
+  //   });
+  // };
 
   return (
     <>
@@ -61,7 +61,7 @@ export default function FeaturedOn() {
 
           <div
             className="featured-logos"
-            ref={sliderRef}
+            // ref={sliderRef}
           >
             {logos.map((logo, index) => (
               <div

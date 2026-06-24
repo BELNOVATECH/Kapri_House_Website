@@ -117,7 +117,7 @@ export default function WomenOfBunaai() {
     <section className="women-section">
 
       <h2 className="women-title">
-        ♡ WOMEN OF BUNAAI ♡
+        ♡ WOMEN OF KH ♡
       </h2>
 
       <div className="women-slider">
