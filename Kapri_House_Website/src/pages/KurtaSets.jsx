@@ -301,48 +301,37 @@ const sorted = [...filteredProducts].sort((a, b) => {
 </aside>
         <div className="product-grid">
 
-          {sorted.map((item) => (
-            <div
-              className="kurta-card"
-              key={item.id}
-              onClick={() =>
-                navigate("/product-details", {
-                  state: item,
-                })
-              }
-            >
-              <img
-                src={item.image}
-                alt={item.title}
-              />
+       {sorted.map((item) => {
+  console.log(item);
 
-              <h4>{item.title}</h4>
+  return (
+    <div
+      className="kurta-card"
+      key={item.id}
+      onClick={() =>
+        navigate("/product-details", {
+          state: item,
+        })
+      }
+    >
+      <img src={item.image} alt={item.title} />
 
-              <div className="price">
+      <h4>{item.title}</h4>
 
-                <span className="mrp">
-                  ₹{item.mrp}
-                </span>
-
-                <span className="sale-price">
-                  ₹{item.price}
-                </span>
-
-                {item.discount && (
-                  <span className="discount">
-                    {item.discount}
-                  </span>
-                )}
-
-              </div>
+<div className="price">
+  <span className="mrp">₹{item.mrp}</span>
+  <span className="sale-price">₹{item.price}</span>
+  <span className="offer-badge">{item.discount}</span>
+</div>
+    </div>
+  );
+})}
 
             </div>
-          ))}
 
         </div>
 
       </div>
 
-    </div>
   );
 }

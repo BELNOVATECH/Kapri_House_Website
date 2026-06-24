@@ -636,3 +636,269 @@
 .no-products p {
   color: #666;
 }
+
+
+/* =========================
+   LAPTOP (1200px & below)
+========================= */
+@media (max-width: 1200px) {
+  .arrival-layout {
+    gap: 20px;
+  }
+
+  .filter-sidebar {
+    width: 240px;
+    min-width: 240px;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+
+  .arrival-card img {
+    height: 320px;
+  }
+}
+
+/* =========================
+   TABLET (992px & below)
+========================= */
+@media (max-width: 992px) {
+  .breadcrumb {
+    padding: 10px 20px;
+  }
+
+  .arrival-title {
+    font-size: 32px;
+    margin-bottom: 25px;
+  }
+
+  .arrival-layout {
+    flex-direction: column;
+    padding: 0 20px 30px;
+  }
+
+  .filter-sidebar {
+    width: 100%;
+    min-width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #ececec;
+    padding-right: 0;
+    padding-bottom: 20px;
+    max-height: none;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .arrival-toolbar {
+    padding: 0;
+  }
+}
+
+/* =========================
+   MOBILE (768px & below)
+========================= */
+@media (max-width: 768px) {
+  .arrival-banner {
+    height: 160px;
+  }
+
+  .breadcrumb {
+    padding: 10px 15px;
+    font-size: 10px;
+  }
+
+  .arrival-title {
+    font-size: 26px;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+  }
+
+  .arrival-layout {
+    padding: 0 12px 25px;
+    gap: 20px;
+  }
+
+  .arrival-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding: 0;
+  }
+
+  .arrival-count {
+    text-align: center;
+  }
+
+  .arrival-sort {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .arrival-sort select {
+    width: 140px;
+  }
+
+  .filter-sidebar {
+    padding-bottom: 15px;
+  }
+
+  .filter-block {
+    margin-bottom: 18px;
+    padding-bottom: 18px;
+  }
+
+  .filter-block h4 {
+    font-size: 13px;
+  }
+
+  .filter-block label {
+    font-size: 13px;
+  }
+
+  .size-btn {
+    min-width: 45px;
+    height: 36px;
+    font-size: 13px;
+  }
+
+  .color-list span {
+    width: 24px;
+    height: 24px;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .arrival-card img {
+    height: 240px;
+  }
+
+  .arrival-card h4 {
+    font-size: 13px;
+  }
+
+  .sale-price {
+    font-size: 14px;
+  }
+
+  .mrp,
+  .discount {
+    font-size: 11px;
+  }
+
+  .price {
+    gap: 4px;
+  }
+}
+
+/* =========================
+   SMALL MOBILE (480px & below)
+========================= */
+@media (max-width: 480px) {
+  .arrival-banner {
+    height: 120px;
+  }
+
+  .breadcrumb {
+    padding: 8px 10px;
+  }
+
+  .arrival-title {
+    font-size: 22px;
+    margin-bottom: 15px;
+  }
+
+  .arrival-layout {
+    padding: 0 10px 20px;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .arrival-card img {
+    height: 180px;
+  }
+
+  .arrival-card h4 {
+    font-size: 12px;
+    line-height: 1.4;
+  }
+
+  .sale-price {
+    font-size: 13px;
+  }
+
+  .mrp,
+  .discount {
+    font-size: 10px;
+  }
+
+  .arrival-sort {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .arrival-sort select {
+    width: 100%;
+  }
+
+  .filter-btn {
+    width: 100%;
+  }
+
+  .size-btn {
+    min-width: 40px;
+    height: 34px;
+    font-size: 12px;
+  }
+
+  .color-list span {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* =========================
+   EXTRA SMALL DEVICES
+========================= */
+@media (max-width: 360px) {
+  .arrival-title {
+    font-size: 20px;
+  }
+
+  .product-grid {
+    gap: 8px;
+  }
+
+  .arrival-card img {
+    height: 160px;
+  }
+
+  .arrival-card h4 {
+    font-size: 11px;
+  }
+
+  .sale-price {
+    font-size: 12px;
+  }
+
+  .mrp,
+  .discount {
+    font-size: 9px;
+  }
+
+  .size-btn {
+    min-width: 36px;
+    height: 32px;
+    font-size: 11px;
+  }
+}
