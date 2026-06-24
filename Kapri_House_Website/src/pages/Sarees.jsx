@@ -1,0 +1,177 @@
+import "../styles/Sarees.css";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+import sr1  from "../assets/sr1.webp";
+import sr2  from "../assets/sr2.jpg";
+import sr3  from "../assets/sr3.jpg";
+import sr4  from "../assets/sr4.jpg";
+import sr5  from "../assets/sr5.webp";
+import sr6  from "../assets/sr6.webp";
+import sr7  from "../assets/sr7.webp";
+import sr8  from "../assets/sr8.webp";
+import sr9  from "../assets/sr9.webp";
+import sr10 from "../assets/sr10.webp";
+import sr11 from "../assets/sr11.webp";
+import sr12 from "../assets/sr12.webp";
+import sareeBanner from "../assets/sareeban.webp";
+
+const products = [
+  { id: 1,  name: "Banarasi Silk Saree",         mrp: 6999, price: 4499, discount: "36% OFF", image: sr1  },
+  { id: 2,  name: "Printed Georgette Saree",     mrp: 3999, price: 2499, discount: "37% OFF", image: sr2  },
+  { id: 3,  name: "Embroidered Net Saree",       mrp: 5999, price: 3999, discount: "33% OFF", image: sr3  },
+  { id: 4,  name: "Cotton Handloom Saree",       mrp: 3500, price: 2199, discount: "37% OFF", image: sr4  },
+  { id: 5,  name: "Chiffon Floral Saree",        mrp: 4200, price: 2799, discount: "33% OFF", image: sr5  },
+  { id: 6,  name: "Linen Solid Saree",           mrp: 3800, price: 2499, discount: "34% OFF", image: sr6  },
+  { id: 7,  name: "Organza Sequin Saree",        mrp: 6500, price: 4499, discount: "31% OFF", image: sr7  },
+  { id: 8,  name: "Kanjivaram Silk Saree",       mrp: 8999, price: 5999, discount: "33% OFF", image: sr8  },
+  { id: 9,  name: "Tussar Silk Saree",           mrp: 5500, price: 3799, discount: "31% OFF", image: sr9  },
+  { id: 10, name: "Zari Border Saree",           mrp: 4999, price: 3299, discount: "34% OFF", image: sr10 },
+  { id: 11, name: "Printed Crepe Saree",         mrp: 3600, price: 2299, discount: "36% OFF", image: sr11 },
+  { id: 12, name: "Bandhani Print Saree",        mrp: 4400, price: 2899, discount: "34% OFF", image: sr12 },
+];
+
+const categories = ["New Arrivals", "Silk Sarees", "Cotton Sarees", "Printed Sarees", "Embroidered"];
+const colors     = ["#fff","#000","#e8c9a0","#d97882","#6b8e6b","#b8860b","#4a6fa5","#c49a6c"];
+const sizes      = ["XS","S","M","L","XL","XXL"];
+
+export default function Sarees() {
+  const navigate = useNavigate();
+
+  const [selectedColor,    setSelectedColor]    = useState(null);
+  const [selectedSize,     setSelectedSize]     = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [priceRange,       setPriceRange]       = useState(9000);
+  const [sortBy,           setSortBy]           = useState("featured");
+  const [filterOpen,       setFilterOpen]       = useState(true);
+
+  const sorted = [...products].sort((a, b) => {
+    if (sortBy === "price-asc")  return a.price - b.price;
+    if (sortBy === "price-desc") return b.price - a.price;
+    if (sortBy === "discount")   return parseInt(b.discount) - parseInt(a.discount);
+    return a.id - b.id;
+  }).filter(p => p.price <= priceRange);
+
+  return (
+    <div className="sr-page">
+
+      <div className="sr-breadcrumb">
+        <span>Home</span> › <span>Sarees</span>
+      </div>
+
+      <img src={sareeBanner} alt="Sarees" className="sr-banner" />
+
+      <div className="sr-toolbar">
+        <button className="sr-filter-btn" onClick={() => setFilterOpen(!filterOpen)}>
+          ☰ FILTER
+        </button>
+        <span className="sr-count">{sorted.length} Products</span>
+        <div className="sr-sort">
+          <label>Sort by</label>
+          <select value={sortBy} onChange={e => setSortBy(e.target.value)}>
+            <option value="featured">Featured</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="discount">Best Discount</option>
+          </select>
+        </div>
+      </div>
+
+      <div className="sr-body">
+
+        {filterOpen && (
+          <aside className="sr-sidebar">
+
+            <div className="sr-filter-group">
+              <h4>CATEGORY</h4>
+              {categories.map(cat => (
+                <label key={cat} className="sr-checkbox">
+                  <input
+                    type="checkbox"
+                    checked={selectedCategory === cat}
+                    onChange={() => setSelectedCategory(selectedCategory === cat ? null : cat)}
+                  />
+                  {cat}
+                </label>
+              ))}
+            </div>
+
+            <div className="sr-filter-group">
+              <h4>PRICE</h4>
+              <input
+                type="range"
+                min={0}
+                max={9000}
+                value={priceRange}
+                onChange={e => setPriceRange(Number(e.target.value))}
+                className="sr-range"
+              />
+              <div className="sr-price-labels">
+                <span>₹0</span>
+                <span>₹{priceRange.toLocaleString()}</span>
+              </div>
+            </div>
+
+            <div className="sr-filter-group">
+              <h4>COLOR</h4>
+              <div className="sr-colors">
+                {colors.map((c, i) => (
+                  <button
+                    key={i}
+                    className={`sr-color-dot ${selectedColor === c ? "active" : ""}`}
+                    style={{ background: c, border: c === "#fff" ? "1px solid #ccc" : "none" }}
+                    onClick={() => setSelectedColor(selectedColor === c ? null : c)}
+                  />
+                ))}
+              </div>
+            </div>
+
+            <div className="sr-filter-group">
+              <h4>SIZE</h4>
+              <div className="sr-sizes">
+                {sizes.map(s => (
+                  <button
+                    key={s}
+                    className={`sr-size-btn ${selectedSize === s ? "active" : ""}`}
+                    onClick={() => setSelectedSize(selectedSize === s ? null : s)}
+                  >
+                    {s}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+          </aside>
+        )}
+
+        <div className={`sr-grid ${filterOpen ? "" : "sr-grid--full"}`}>
+          {sorted.map(product => (
+            <div
+              className="sr-card"
+              key={product.id}
+              onClick={() =>
+                navigate("/product-details", {
+                  state: product,
+                })
+              }
+            >
+              <div className="sr-img-wrap">
+                <img src={product.image} alt={product.name} />
+              </div>
+              <div className="sr-info">
+                <div className="sr-stars">★★★★★</div>
+                <h4>{product.name}</h4>
+                <div className="sr-price">
+                  <span className="sr-mrp">₹{product.mrp.toLocaleString()}</span>
+                  <span className="sr-current">₹{product.price.toLocaleString()}</span>
+                  <span className="sr-off">({product.discount})</span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </div>
+  );
+}
