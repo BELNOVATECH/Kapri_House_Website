@@ -33,6 +33,7 @@ import Lehengas from "./pages/Lehengas";// ← add this import// ← add this im
 import ShrugSets from "./pages/ShrugSets";
 import Sale from "./pages/Sale";
 import FarshiSet from "./pages/FarshiSet";
+import ShararaSet from "./pages/ShararaSet";
 function Layout({ children }) {
   return (
     <>
@@ -92,6 +93,14 @@ function App() {
   element={
     <Layout>
       <SuitSets />
+    </Layout>
+  }
+/>
+<Route
+  path="/sharara-set"
+  element={
+    <Layout>
+      <ShararaSet />
     </Layout>
   }
 />
