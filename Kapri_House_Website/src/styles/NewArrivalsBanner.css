@@ -2,15 +2,16 @@
 .new-arrivals-banner {
   position: relative;
   width: 100%;
- 
-  aspect-ratio: 1782 / 550;
+   margin-bottom: 0; 
+  aspect-ratio: 1782 / 380;
   overflow: hidden;
   margin-top: 0; /* sits right under .reels-strip, adjust if you want a gap */
 }
 
 .new-arrivals-img {
   width: 100%;
-  height: 70%;
+  height: 100%;
+  display: block;
   object-fit: cover;
   /* Anchor crop toward the top so faces stay visible; cover crops
      evenly from top+bottom by default, this biases it upward. */

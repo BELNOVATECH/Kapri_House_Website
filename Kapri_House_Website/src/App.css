@@ -21,7 +21,24 @@ a {
 /* =========================
    TOP BAR
 ========================= */
+/* =========================
+   BANNERS (festive, kurta, dresses)
+========================= */
 
+.banner-wrapper {
+  width: 100%;
+  margin-top: 40px;
+  margin-bottom: 0;
+  overflow: hidden;
+  line-height: 0;       /* removes gap under image */
+}
+
+.banner-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
 .topbar {
   height: 55px;
   background: #d67b86;
