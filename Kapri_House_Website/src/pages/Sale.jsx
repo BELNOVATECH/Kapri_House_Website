@@ -17,22 +17,159 @@ import sl12 from "../assets/na3.jpg";
 import saleBanner from "../assets/saleban.webp";
 
 const products = [
-  { id: 1,  name: "Floral Print Kurta Set",        mrp: 3999, price: 1999, discount: "50% OFF", image: sl1  },
-  { id: 2,  name: "Solid Cotton Dress",             mrp: 3500, price: 1799, discount: "49% OFF", image: sl2  },
-  { id: 3,  name: "Embroidered Co-ord Set",         mrp: 4200, price: 2099, discount: "50% OFF", image: sl3  },
-  { id: 4,  name: "Printed Maxi Dress",             mrp: 3800, price: 1899, discount: "50% OFF", image: sl4  },
-  { id: 5,  name: "Block Print Suit Set",           mrp: 4500, price: 2299, discount: "49% OFF", image: sl5  },
-  { id: 6,  name: "Tie-Dye Shrug Set",              mrp: 3999, price: 1999, discount: "50% OFF", image: sl6  },
-  { id: 7,  name: "Pastel Saree",                   mrp: 4999, price: 2499, discount: "50% OFF", image: sl7  },
-  { id: 8,  name: "Cotton Casual Lehenga",          mrp: 6999, price: 3499, discount: "50% OFF", image: sl8  },
-  { id: 9,  name: "Printed Farshi Salwar Set",      mrp: 5499, price: 2799, discount: "49% OFF", image: sl9  },
-  { id: 10, name: "Organza Sharara Set",            mrp: 5800, price: 2899, discount: "50% OFF", image: sl10 },
-  { id: 11, name: "Rust Cotton Kurta Set",          mrp: 3200, price: 1599, discount: "50% OFF", image: sl11 },
-  { id: 12, name: "Ivory Lace Dress",               mrp: 4500, price: 2299, discount: "49% OFF", image: sl12 },
+  {
+    id: 1,
+    name: "Floral Print Kurta Set",
+    category: "Kurta Sets",
+    color: "#ff69b4",
+    sizes: ["S", "M", "L"],
+    mrp: 3999,
+    price: 1999,
+    discount: "50% OFF",
+    image: sl1,
+  },
+  {
+    id: 2,
+    name: "Solid Cotton Dress",
+    category: "Dresses",
+    color: "#6b8e6b",
+    sizes: ["M", "L", "XL"],
+    mrp: 3500,
+    price: 1799,
+    discount: "49% OFF",
+    image: sl2,
+  },
+  {
+    id: 3,
+    name: "Embroidered Co-ord Set",
+    category: "Co-ord Sets",
+    color: "#b8860b",
+    sizes: ["L", "XL", "XXL"],
+    mrp: 4200,
+    price: 2099,
+    discount: "50% OFF",
+    image: sl3,
+  },
+  {
+    id: 4,
+    name: "Printed Maxi Dress",
+    category: "Dresses",
+    color: "#d97882",
+    sizes: ["S", "M", "L"],
+    mrp: 3800,
+    price: 1899,
+    discount: "50% OFF",
+    image: sl4,
+  },
+  {
+    id: 5,
+    name: "Block Print Suit Set",
+    category: "Kurta Sets",
+    color: "#ffa500",
+    sizes: ["M", "L", "XL"],
+    mrp: 4500,
+    price: 2299,
+    discount: "49% OFF",
+    image: sl5,
+  },
+  {
+    id: 6,
+    name: "Tie-Dye Shrug Set",
+    category: "Co-ord Sets",
+    color: "#800080",
+    sizes: ["S", "M", "L"],
+    mrp: 3999,
+    price: 1999,
+    discount: "50% OFF",
+    image: sl6,
+  },
+  {
+    id: 7,
+    name: "Pastel Saree",
+    category: "Sarees",
+    color: "#e8c9a0",
+    sizes: ["M", "L", "XL"],
+    mrp: 4999,
+    price: 2499,
+    discount: "50% OFF",
+    image: sl7,
+  },
+  {
+    id: 8,
+    name: "Cotton Casual Lehenga",
+    category: "Lehengas",
+    color: "#ff0000",
+    sizes: ["L", "XL", "XXL"],
+    mrp: 6999,
+    price: 3499,
+    discount: "50% OFF",
+    image: sl8,
+  },
+  {
+    id: 9,
+    name: "Printed Farshi Salwar Set",
+    category: "Kurta Sets",
+    color: "#4a6fa5",
+    sizes: ["M", "L", "XL"],
+    mrp: 5499,
+    price: 2799,
+    discount: "49% OFF",
+    image: sl9,
+  },
+  {
+    id: 10,
+    name: "Organza Sharara Set",
+    category: "Kurta Sets",
+    color: "#00ced1",
+    sizes: ["L", "XL", "XXL"],
+    mrp: 5800,
+    price: 2899,
+    discount: "50% OFF",
+    image: sl10,
+  },
+  {
+    id: 11,
+    name: "Rust Cotton Kurta Set",
+    category: "Kurta Sets",
+    color: "#8b4513",
+    sizes: ["S", "M", "L"],
+    mrp: 3200,
+    price: 1599,
+    discount: "50% OFF",
+    image: sl11,
+  },
+  {
+    id: 12,
+    name: "Ivory Lace Dress",
+    category: "Dresses",
+    color: "#fff",
+    sizes: ["S", "M", "L"],
+    mrp: 4500,
+    price: 2299,
+    discount: "49% OFF",
+    image: sl12,
+  },
 ];
 
 const categories = ["All Sale", "Kurta Sets", "Dresses", "Co-ord Sets", "Sarees", "Lehengas"];
-const colors     = ["#fff","#000","#e8c9a0","#d97882","#6b8e6b","#b8860b","#4a6fa5","#c49a6c"];
+const colors = [
+  "#fff",
+  "#000",
+  "#e8c9a0",
+  "#d97882",
+  "#6b8e6b",
+  "#b8860b",
+  "#4a6fa5",
+  "#c49a6c",
+  "#ff0000",
+  "#800080",
+  "#ffa500",
+  "#ffff00",
+  "#00ced1",
+  "#ff69b4",
+  "#808080",
+  "#8b4513",
+];
 const sizes      = ["XS","S","M","L","XL","XXL"];
 
 export default function Sale() {
@@ -45,12 +182,43 @@ export default function Sale() {
   const [sortBy,           setSortBy]           = useState("featured");
   const [filterOpen,       setFilterOpen]       = useState(true);
 
-  const sorted = [...products].sort((a, b) => {
-    if (sortBy === "price-asc")  return a.price - b.price;
-    if (sortBy === "price-desc") return b.price - a.price;
-    if (sortBy === "discount")   return parseInt(b.discount) - parseInt(a.discount);
-    return a.id - b.id;
-  }).filter(p => p.price <= priceRange);
+const filteredProducts = products.filter((product) => {
+  const categoryMatch =
+    !selectedCategory ||
+    selectedCategory === "All Sale" ||
+    product.category === selectedCategory;
+
+  const colorMatch =
+    !selectedColor ||
+    product.color === selectedColor;
+
+  const sizeMatch =
+    !selectedSize ||
+    product.sizes.includes(selectedSize);
+
+  const priceMatch =
+    product.price <= priceRange;
+
+  return (
+    categoryMatch &&
+    colorMatch &&
+    sizeMatch &&
+    priceMatch
+  );
+});
+
+const sorted = [...filteredProducts].sort((a, b) => {
+  if (sortBy === "price-asc")
+    return a.price - b.price;
+
+  if (sortBy === "price-desc")
+    return b.price - a.price;
+
+  if (sortBy === "discount")
+    return parseInt(b.discount) - parseInt(a.discount);
+
+  return a.id - b.id;
+});
 
   return (
     <div className="sl-page">
@@ -145,7 +313,13 @@ export default function Sale() {
         )}
 
         <div className={`sl-grid ${filterOpen ? "" : "sl-grid--full"}`}>
-          {sorted.map(product => (
+          {sorted.length === 0 ? (
+  <div className="sl-no-products">
+    <h2>No Sale Products Found</h2>
+    <p>Try changing your filters.</p>
+  </div>
+) : 
+  sorted.map(product => (
             <div
               className="sl-card"
               key={product.id}
