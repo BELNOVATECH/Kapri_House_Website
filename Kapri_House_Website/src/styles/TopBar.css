@@ -29,3 +29,77 @@
     transform: translateX(100%);
   }
 }
+
+
+/* =========================
+   TABLET (1024px & below)
+========================= */
+@media (max-width: 1024px) {
+  .topbar {
+    height: 32px;
+  }
+
+  .marquee span {
+    font-size: 12px;
+    margin-right: 60px;
+  }
+
+  .marquee {
+    animation-duration: 22s;
+  }
+}
+
+/* =========================
+   MOBILE (768px & below)
+========================= */
+@media (max-width: 768px) {
+  .topbar {
+    height: 30px;
+  }
+
+  .marquee span {
+    font-size: 11px;
+    margin-right: 45px;
+  }
+
+  .marquee {
+    animation-duration: 18s;
+  }
+}
+
+/* =========================
+   SMALL MOBILE (480px & below)
+========================= */
+@media (max-width: 480px) {
+  .topbar {
+    height: 28px;
+  }
+
+  .marquee span {
+    font-size: 10px;
+    margin-right: 35px;
+    text-shadow: none;
+  }
+
+  .marquee {
+    animation-duration: 15s;
+  }
+}
+
+/* =========================
+   EXTRA SMALL DEVICES
+========================= */
+@media (max-width: 360px) {
+  .topbar {
+    height: 26px;
+  }
+
+  .marquee span {
+    font-size: 9px;
+    margin-right: 25px;
+  }
+
+  .marquee {
+    animation-duration: 12s;
+  }
+}

@@ -309,21 +309,19 @@ const filteredProducts = products.filter((product) => {
 
               <h4>{item.title}</h4>
 
-              <div className="price">
+ <div className="price">
+  <span className="mrp">
+    ₹{item.mrp}
+  </span>
 
-                <span className="mrp">
-                  ₹{item.mrp}
-                </span>
+  <span className="sale-price">
+    ₹{item.price}
+  </span>
 
-                <span className="sale-price">
-                  ₹{item.price}
-                </span>
-
-                <span className="discount">
-                  {item.discount}
-                </span>
-
-              </div>
+  <span className="offer-badge">
+    {item.discount}
+  </span>
+</div>
 
             </div>
           ))}

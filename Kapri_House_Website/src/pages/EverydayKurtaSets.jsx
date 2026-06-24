@@ -1,6 +1,6 @@
 import "../styles/EverydayKurtaSets.css";
 import { useRef, useEffect } from "react";
-
+import { useNavigate } from "react-router-dom";
 import ek1 from "../assets/ek1.jpg";
 import ek2 from "../assets/ek2.jpg";
 import ek3 from "../assets/ek3.jpg";
@@ -24,7 +24,7 @@ const products = [
 export default function EverydayKurtaSets() {
   const sliderRef = useRef(null);
   const cardRefs  = useRef([]);
-
+const navigate = useNavigate();
   // drag-to-scroll
   let isDown = false;
   let startX;
@@ -109,7 +109,12 @@ export default function EverydayKurtaSets() {
       </div>
 
       <div className="ek-view-all-wrap">
-        <button className="ek-view-all-btn">VIEW ALL</button>
+       <button
+  className="view-btn"
+  onClick={() => navigate("/kurta-sets")}
+>
+  VIEW ALL
+</button>
       </div>
 
     </section>

@@ -320,3 +320,210 @@
     font-size: 24px;
   }
 }
+
+
+/* =========================
+   LAPTOP (1200px & below)
+========================= */
+@media (max-width: 1200px) {
+  .suit-layout {
+    gap: 25px;
+  }
+
+  .sr-sidebar {
+    width: 250px;
+  }
+
+  .product-grid {
+    gap: 22px;
+  }
+
+  .suit-card h4 {
+    font-size: 15px;
+  }
+
+  .sale-price {
+    font-size: 20px;
+  }
+}
+
+/* =========================
+   TABLET (992px & below)
+========================= */
+@media (max-width: 992px) {
+  .suit-layout {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .sr-sidebar {
+    width: 100%;
+    position: static;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+
+  .suit-title {
+    font-size: 28px;
+  }
+
+  .sr-filter-group h4 {
+    font-size: 14px;
+  }
+
+  .sr-checkbox {
+    font-size: 14px;
+  }
+
+  .sale-price {
+    font-size: 18px;
+  }
+
+  .discount {
+    font-size: 14px;
+  }
+}
+
+/* =========================
+   MOBILE (768px & below)
+========================= */
+@media (max-width: 768px) {
+  .suit-page {
+    padding-bottom: 30px;
+  }
+
+  .suit-banner {
+    max-height: 180px;
+    object-fit: cover;
+  }
+
+  .breadcrumb {
+    padding: 0 12px;
+    font-size: 12px;
+    margin: 12px auto;
+  }
+
+  .suit-title {
+    font-size: 24px;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+  }
+
+  .suit-layout {
+    padding: 0 12px;
+  }
+
+  .sr-sidebar {
+    display: none;
+  }
+
+  .sr-toolbar {
+    padding: 0 12px;
+    margin-bottom: 20px;
+  }
+
+  .sr-filter-btn {
+    width: 100%;
+    margin-left: 0;
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .suit-card h4 {
+    font-size: 13px;
+    margin-top: 8px;
+    line-height: 1.4;
+  }
+
+  .price {
+    gap: 4px;
+  }
+
+  .sale-price {
+    font-size: 15px;
+  }
+
+  .mrp {
+    font-size: 11px;
+  }
+
+  .discount {
+    font-size: 11px;
+  }
+}
+
+/* =========================
+   SMALL MOBILE (480px & below)
+========================= */
+@media (max-width: 480px) {
+  .suit-banner {
+    max-height: 140px;
+  }
+
+  .breadcrumb {
+    font-size: 11px;
+  }
+
+  .suit-title {
+    font-size: 20px;
+  }
+
+  .product-grid {
+    gap: 10px;
+  }
+
+  .suit-card h4 {
+    font-size: 12px;
+  }
+
+  .sale-price {
+    font-size: 14px;
+  }
+
+  .mrp {
+    font-size: 10px;
+  }
+
+  .discount {
+    font-size: 10px;
+  }
+
+  .sr-filter-btn {
+    font-size: 13px;
+    padding: 10px;
+  }
+}
+
+/* =========================
+   EXTRA SMALL DEVICES
+========================= */
+@media (max-width: 360px) {
+  .product-grid {
+    gap: 8px;
+  }
+
+  .suit-title {
+    font-size: 18px;
+  }
+
+  .suit-card h4 {
+    font-size: 11px;
+  }
+
+  .sale-price {
+    font-size: 13px;
+  }
+
+  .mrp,
+  .discount {
+    font-size: 9px;
+  }
+}

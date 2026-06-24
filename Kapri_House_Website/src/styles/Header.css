@@ -250,3 +250,164 @@
     height: 34px;
   }
 }
+
+/* Laptop */
+@media (max-width: 1200px) {
+  .header {
+    padding: 0 16px;
+  }
+
+  .brand-name {
+    font-size: 22px;
+    letter-spacing: 2px;
+  }
+
+  .header-logo {
+    width: 42px;
+    height: 42px;
+  }
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+  .header {
+    height: 56px;
+    padding: 0 14px;
+  }
+
+  .header-logo {
+    width: 36px;
+    height: 36px;
+  }
+
+  .brand-name {
+    font-size: 20px;
+    letter-spacing: 1.5px;
+  }
+
+  .icon-btn {
+    width: 28px;
+    height: 28px;
+    font-size: 15px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .header {
+    height: 52px;
+    padding: 0 10px;
+  }
+
+  .brand-section {
+    gap: 6px;
+  }
+
+  .header-logo {
+    width: 30px;
+    height: 30px;
+  }
+
+  .brand-name {
+    font-size: 16px;
+    letter-spacing: 1px;
+  }
+
+  .header-icons {
+    gap: 4px;
+  }
+
+  .icon-btn {
+    width: 26px;
+    height: 26px;
+    font-size: 14px;
+  }
+
+  .cart-count {
+    width: 12px;
+    height: 12px;
+    font-size: 7px;
+  }
+
+  .search-popup {
+    width: calc(100vw - 20px);
+    right: 10px;
+    left: 10px;
+    top: 58px;
+  }
+
+  .search-popup input {
+    height: 34px;
+    font-size: 11px;
+  }
+
+  .close-search {
+    width: 34px;
+    height: 34px;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 576px) {
+  .header {
+    height: 48px;
+    padding: 0 8px;
+  }
+
+  .header-logo {
+    width: 26px;
+    height: 26px;
+  }
+
+  .brand-name {
+    font-size: 14px;
+    letter-spacing: 0.5px;
+  }
+
+  .icon-btn {
+    width: 24px;
+    height: 24px;
+    font-size: 13px;
+  }
+
+  .search-popup {
+    top: 54px;
+  }
+}
+
+/* Very Small Mobile */
+@media (max-width: 400px) {
+  .header {
+    grid-template-columns: auto 1fr auto;
+  }
+
+  .brand-section {
+    gap: 4px;
+  }
+
+  .header-logo {
+    width: 22px;
+    height: 22px;
+  }
+
+  .brand-name {
+    font-size: 12px;
+    letter-spacing: 0;
+  }
+
+  .header-icons {
+    gap: 2px;
+  }
+
+  .icon-btn {
+    width: 22px;
+    height: 22px;
+    font-size: 12px;
+  }
+
+  .cart-count {
+    width: 10px;
+    height: 10px;
+    font-size: 6px;
+  }
+}

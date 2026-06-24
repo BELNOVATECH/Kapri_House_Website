@@ -1,5 +1,6 @@
 import "../styles/HolidayDresses.css";
 import { useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 import hd1 from "../assets/fd1.jpg";
 import hd2 from "../assets/fd2.jpg";
@@ -22,6 +23,7 @@ const products = [
 ];
 
 export default function HolidayDresses() {
+  const navigate = useNavigate();
   const sliderRef = useRef(null);
   const cardRefs  = useRef([]);
 
@@ -105,7 +107,12 @@ export default function HolidayDresses() {
       </div>
 
       <div className="hd-view-all-wrap">
-        <button className="hd-view-all-btn">VIEW ALL</button>
+        <button
+  className="view-btn"
+  onClick={() => navigate("/dresses")}
+>
+  VIEW ALL
+</button>
       </div>
 
     </section>

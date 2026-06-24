@@ -1,6 +1,6 @@
 import "../styles/FestiveWear.css";
 import { useRef, useEffect } from "react";
-
+import { useNavigate } from "react-router-dom";
 import fw1 from "../assets/fw1.jpg";
 import fw2 from "../assets/fw2.jpg";
 import fw3 from "../assets/fw3.jpg";
@@ -22,6 +22,7 @@ const products = [
 ];
 
 export default function FestiveWear() {
+  const navigate = useNavigate();
   const sliderRef = useRef(null);
   const sectionRef = useRef(null);
   const cardRefs = useRef([]);
@@ -113,7 +114,12 @@ export default function FestiveWear() {
       </div>
 
       <div className="view-all-wrap">
-        <button className="view-all-btn">VIEW ALL</button>
+       <button
+  className="view-btn"
+  onClick={() => navigate("/sarees")}
+>
+  VIEW ALL
+</button>
       </div>
 
     </section>

@@ -224,3 +224,164 @@
     width: 100%;
   }
 }
+
+/* Laptop */
+@media (max-width: 1200px) {
+  .dr-page {
+    padding: 20px;
+  }
+
+  .dr-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .dr-grid--full {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .dr-banner {
+    max-height: 240px;
+  }
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+  .dr-page {
+    padding: 16px;
+  }
+
+  .dr-body {
+    flex-direction: column;
+  }
+
+  .dr-sidebar {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .dr-grid,
+  .dr-grid--full {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .dr-banner {
+    max-height: 200px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .dr-page {
+    padding: 12px;
+  }
+
+  .dr-toolbar {
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px 0;
+  }
+
+  .dr-count {
+    width: 100%;
+    text-align: center;
+    order: 3;
+  }
+
+  .dr-sidebar {
+    display: none; /* show filters via filter button */
+  }
+
+  .dr-grid,
+  .dr-grid--full {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .dr-info h4 {
+    font-size: 12px;
+    line-height: 1.4;
+  }
+
+  .dr-price {
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+
+  .dr-current {
+    font-size: 12px;
+  }
+
+  .dr-mrp,
+  .dr-off {
+    font-size: 11px;
+  }
+
+  .dr-banner {
+    max-height: 180px;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 576px) {
+  .dr-page {
+    padding: 10px;
+  }
+
+  .dr-grid,
+  .dr-grid--full {
+    gap: 10px;
+  }
+
+  .dr-info h4 {
+    font-size: 11px;
+  }
+
+  .dr-stars {
+    font-size: 10px;
+  }
+
+  .dr-filter-btn {
+    padding: 7px 12px;
+    font-size: 11px;
+  }
+
+  .dr-sort {
+    font-size: 11px;
+  }
+
+  .dr-sort select {
+    font-size: 11px;
+    padding: 5px 8px;
+  }
+
+  .dr-banner {
+    max-height: 150px;
+  }
+}
+
+/* Very Small Mobile */
+@media (max-width: 400px) {
+  .dr-grid,
+  .dr-grid--full {
+    gap: 8px;
+  }
+
+  .dr-info h4 {
+    font-size: 10px;
+  }
+
+  .dr-current {
+    font-size: 11px;
+  }
+
+  .dr-mrp,
+  .dr-off {
+    font-size: 10px;
+  }
+
+  .dr-banner {
+    max-height: 130px;
+  }
+}

@@ -111,7 +111,12 @@ export default function ProductSection() {
         ))}
       </div>
 
-      <button className="view-btn">VIEW ALL</button>
+     <button
+  className="view-btn"
+  onClick={() => navigate("/new-arrivals")}
+>
+  VIEW ALL
+</button>
 
     </section>
   );
