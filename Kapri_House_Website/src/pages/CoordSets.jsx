@@ -1,5 +1,6 @@
 import "../styles/CoordSets.css";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import cs2  from "../assets/cs2.webp";
 import cs3  from "../assets/cs3.webp";
@@ -7,6 +8,7 @@ import cs4  from "../assets/cs4.webp";
 import cs5  from "../assets/cs5.webp";
 import cs6  from "../assets/cs6.webp";
 import css1 from "../assets/css1.webp";
+import cord from "../assets/cord.webp";
 
 const products = [
   { id: 1,  name: "Floral Print Co-ord Set",     mrp: 3999, price: 2499, discount: "37% OFF", image: cs2  },
@@ -28,6 +30,8 @@ const colors     = ["#fff","#000","#e8c9a0","#d97882","#6b8e6b","#b8860b","#4a6f
 const sizes      = ["XS","S","M","L","XL","XXL"];
 
 export default function CoordSets() {
+  const navigate = useNavigate();
+
   const [selectedColor,    setSelectedColor]    = useState(null);
   const [selectedSize,     setSelectedSize]     = useState(null);
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -49,7 +53,7 @@ export default function CoordSets() {
         <span>Home</span> › <span>Co-ord Sets</span>
       </div>
 
-      <h1 className="cs-title">CO-ORD SETS</h1>
+     <img src={cord} alt="Tops and Co-ord Sets" className="cs-banner" />
 
       <div className="cs-toolbar">
         <button className="cs-filter-btn" onClick={() => setFilterOpen(!filterOpen)}>
@@ -136,10 +140,18 @@ export default function CoordSets() {
 
         <div className={`cs-grid ${filterOpen ? "" : "cs-grid--full"}`}>
           {sorted.map(product => (
-            <div className="cs-card" key={product.id}>
+            <div
+              className="cs-card"
+              key={product.id}
+              onClick={() =>
+                navigate("/product-details", {
+                  state: product,
+                })
+              }
+            >
               <div className="cs-img-wrap">
                 <img src={product.image} alt={product.name} />
-                <span className="cs-badge">SALE</span>
+                {/* <span className="cs-badge">SALE</span> */}
               </div>
               <div className="cs-info">
                 <div className="cs-stars">★★★★★</div>

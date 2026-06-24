@@ -25,8 +25,12 @@ import CategoryArchGrid from "./pages/CategoryArchGrid";
 import festiveBanner from "./assets/festivebanner.jpeg";
 import kurtaBanner from "./assets/kurta.webp"; 
 import dressesBanner from "./assets/dressban.webp";
-import CoordSets from "./pages/CoordSets"; // ← add this import// ← add this import
+import Sarees from "./pages/Sarees";
+import CoordSets from "./pages/CoordSets"; 
+import Maxis from "./pages/Maxis";
+import Lehengas from "./pages/Lehengas";// ← add this import// ← add this import
 // Reusable layout wrapper
+import ShrugSets from "./pages/ShrugSets";
 function Layout({ children }) {
   return (
     <>
@@ -104,6 +108,38 @@ function App() {
   element={
     <Layout>
       <CoordSets />
+    </Layout>
+  }
+/>
+<Route
+  path="/shrug-sets"
+  element={
+    <Layout>
+      <ShrugSets />
+    </Layout>
+  }
+/>
+<Route
+  path="/sarees"
+  element={
+    <Layout>
+      <Sarees />
+    </Layout>
+  }
+/>
+<Route
+  path="/lehengas"
+  element={
+    <Layout>
+      <Lehengas />
+    </Layout>
+  }
+/>
+<Route
+  path="/maxis"
+  element={
+    <Layout>
+      <Maxis />
     </Layout>
   }
 />
