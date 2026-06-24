@@ -19,6 +19,7 @@ import FeaturedOn from "./pages/FeaturedOn";
 import Footer from "./pages/Footer";
 import NewArrivals from "./pages/NewArrivals";
 import ProductDetails from "./pages/ProductDetails";
+import Dresses from "./pages/Dresses";
 
 function HomePage() {
   return (
@@ -77,6 +78,20 @@ function App() {
               <Header />
               <Navbar />
             <ProductDetails/>
+              <Footer />
+            </>
+          }
+        />
+
+
+        <Route
+          path="/dresses"
+          element={
+            <>
+              <TopBar />
+              <Header />
+              <Navbar />
+            <Dresses/>
               <Footer />
             </>
           }
