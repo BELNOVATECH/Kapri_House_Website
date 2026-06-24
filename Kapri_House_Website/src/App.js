@@ -4,10 +4,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import TopBar from "./components/TopBar";
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";
-
+import KurtaSets from "./pages/KurtaSets";
 import HeroSlider from "./components/HeroSlider";
 import NewArrivalsBanner from "./components/NewArrivalsBanner";
-
+import SuitSets from "./pages/SuitSets";
 import ProductSection from "./pages/ProductSection";
 import CategorySlider from "./pages/CategorySlider";
 import ReelsStrip from "./pages/Reelsstrips";
@@ -86,7 +86,14 @@ function App() {
       <Routes>
 
         <Route path="/" element={<HomePage />} />
-
+<Route
+  path="/suit-sets"
+  element={
+    <Layout>
+      <SuitSets />
+    </Layout>
+  }
+/>
         <Route
           path="/new-arrivals"
           element={
@@ -95,7 +102,14 @@ function App() {
             </Layout>
           }
         />
-
+<Route
+  path="/kurta-sets"
+  element={
+    <Layout>
+      <KurtaSets />
+    </Layout>
+  }
+/>
         <Route
           path="/dresses"                  
           element={
