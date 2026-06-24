@@ -12,18 +12,100 @@ import d5 from "../assets/ek5.jpg";
 import d6 from "../assets/ek6.jpg";
 
 const products = [
-  { id: 1, name: "White Cotton Dress",        mrp: 4500, price: 3800, discount: "20% OFF", image: d1 },
-  { id: 2, name: "Lime Green Frill Dress",     mrp: 4550, price: 3999, discount: "12% OFF", image: d2 },
-  { id: 3, name: "Black Embroidered Dress",    mrp: 3350, price: 3350, discount: "",        image: d3 },
-  { id: 4, name: "Black Floral Dress",         mrp: 2700, price: 2499, discount: "7% OFF",  image: d4 },
-  { id: 5, name: "Yellow Puff Sleeve Dress",   mrp: 3200, price: 2799, discount: "15% OFF", image: d5 },
-  { id: 6, name: "Lavender Chiffon Dress",     mrp: 3900, price: 2999, discount: "23% OFF", image: d6 },
+  {
+    id: 1,
+    name: "White Cotton Dress",
+    category: "Casual Dresses",
+    color: "#fff",
+    sizes: ["S", "M", "L"],
+    mrp: 4500,
+    price: 3800,
+    discount: "20% OFF",
+    image: d1,
+  },
+  {
+    id: 2,
+    name: "Lime Green Frill Dress",
+    category: "Party Wear",
+    color: "#6b8e6b",
+    sizes: ["M", "L", "XL"],
+    mrp: 4550,
+    price: 3999,
+    discount: "12% OFF",
+    image: d2,
+  },
+  {
+    id: 3,
+    name: "Black Embroidered Dress",
+    category: "Embroidered",
+    color: "#000",
+    sizes: ["S", "M", "XL"],
+    mrp: 3350,
+    price: 3350,
+    discount: "",
+    image: d3,
+  },
+  {
+    id: 4,
+    name: "Black Floral Dress",
+    category: "Floral Dresses",
+    color: "#000",
+    sizes: ["XS", "S", "M"],
+    mrp: 2700,
+    price: 2499,
+    discount: "7% OFF",
+    image: d4,
+  },
+  {
+    id: 5,
+    name: "Yellow Puff Sleeve Dress",
+    category: "New Arrivals",
+    color: "#b8860b",
+    sizes: ["M", "L", "XL"],
+    mrp: 3200,
+    price: 2799,
+    discount: "15% OFF",
+    image: d5,
+  },
+  {
+    id: 6,
+    name: "Lavender Chiffon Dress",
+    category: "Party Wear",
+    color: "#d97882",
+    sizes: ["S", "M", "L", "XL"],
+    mrp: 3900,
+    price: 2999,
+    discount: "23% OFF",
+    image: d6,
+  },
+];
+const categories = [
+  "New Arrivals",
+  "Casual Dresses",
+  "Party Wear",
+  "Floral Dresses",
+  "Embroidered"
 ];
 
-const categories = ["New Arrivals", "Casual Dresses", "Party Wear", "Floral Dresses", "Embroidered"];
-const colors     = ["#fff","#000","#e8c9a0","#d97882","#6b8e6b","#b8860b","#4a6fa5","#c49a6c"];
-const sizes      = ["XS","S","M","L","XL","XXL"];
+const colors = [
+  "#fff",
+  "#000",
+  "#e8c9a0",
+  "#d97882",
+  "#6b8e6b",
+  "#b8860b",
+  "#4a6fa5",
+  "#c49a6c"
+];
 
+const sizes = [
+  "XS",
+  "S",
+  "M",
+  "L",
+  "XL",
+  "XXL"
+];
 export default function Dresses() {
   const navigate = useNavigate();
 
@@ -34,12 +116,41 @@ export default function Dresses() {
   const [sortBy,           setSortBy]           = useState("featured");
   const [filterOpen,       setFilterOpen]       = useState(true);
 
-  const sorted = [...products].sort((a, b) => {
-    if (sortBy === "price-asc")  return a.price - b.price;
-    if (sortBy === "price-desc") return b.price - a.price;
-    if (sortBy === "discount")   return parseInt(b.discount || 0) - parseInt(a.discount || 0);
-    return a.id - b.id;
-  }).filter(p => p.price <= priceRange);
+const filteredProducts = products.filter((product) => {
+  const categoryMatch =
+    !selectedCategory ||
+    product.category === selectedCategory;
+
+  const colorMatch =
+    !selectedColor ||
+    product.color === selectedColor;
+
+  const sizeMatch =
+    !selectedSize ||
+    product.sizes.includes(selectedSize);
+
+  const priceMatch =
+    product.price <= priceRange;
+
+  return (
+    categoryMatch &&
+    colorMatch &&
+    sizeMatch &&
+    priceMatch
+  );
+});
+
+const sorted = [...filteredProducts].sort((a, b) => {
+  if (sortBy === "price-asc") return a.price - b.price;
+
+  if (sortBy === "price-desc") return b.price - a.price;
+
+  if (sortBy === "discount")
+    return parseInt(b.discount || 0) -
+           parseInt(a.discount || 0);
+
+  return a.id - b.id;
+});
 
   return (
     <div className="dr-page">

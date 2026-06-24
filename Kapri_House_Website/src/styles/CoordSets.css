@@ -332,3 +332,9 @@
   max-height: 280px;                /* adjust to taste */
   object-fit: cover;
 }
+
+.cs-no-products {
+  width: 100%;
+  text-align: center;
+  padding: 80px 20px;
+}

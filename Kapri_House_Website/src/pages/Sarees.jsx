@@ -17,18 +17,138 @@ import sr12 from "../assets/sr12.webp";
 import sareeBanner from "../assets/sareeban.webp";
 
 const products = [
-  { id: 1,  name: "Banarasi Silk Saree",         mrp: 6999, price: 4499, discount: "36% OFF", image: sr1  },
-  { id: 2,  name: "Printed Georgette Saree",     mrp: 3999, price: 2499, discount: "37% OFF", image: sr2  },
-  { id: 3,  name: "Embroidered Net Saree",       mrp: 5999, price: 3999, discount: "33% OFF", image: sr3  },
-  { id: 4,  name: "Cotton Handloom Saree",       mrp: 3500, price: 2199, discount: "37% OFF", image: sr4  },
-  { id: 5,  name: "Chiffon Floral Saree",        mrp: 4200, price: 2799, discount: "33% OFF", image: sr5  },
-  { id: 6,  name: "Linen Solid Saree",           mrp: 3800, price: 2499, discount: "34% OFF", image: sr6  },
-  { id: 7,  name: "Organza Sequin Saree",        mrp: 6500, price: 4499, discount: "31% OFF", image: sr7  },
-  { id: 8,  name: "Kanjivaram Silk Saree",       mrp: 8999, price: 5999, discount: "33% OFF", image: sr8  },
-  { id: 9,  name: "Tussar Silk Saree",           mrp: 5500, price: 3799, discount: "31% OFF", image: sr9  },
-  { id: 10, name: "Zari Border Saree",           mrp: 4999, price: 3299, discount: "34% OFF", image: sr10 },
-  { id: 11, name: "Printed Crepe Saree",         mrp: 3600, price: 2299, discount: "36% OFF", image: sr11 },
-  { id: 12, name: "Bandhani Print Saree",        mrp: 4400, price: 2899, discount: "34% OFF", image: sr12 },
+  {
+    id: 1,
+    name: "Banarasi Silk Saree",
+    category: "Silk Sarees",
+    color: "#b8860b",
+    sizes: ["M", "L", "XL"],
+    mrp: 6999,
+    price: 4499,
+    discount: "36% OFF",
+    image: sr1,
+  },
+  {
+    id: 2,
+    name: "Printed Georgette Saree",
+    category: "Printed Sarees",
+    color: "#d97882",
+    sizes: ["S", "M", "L"],
+    mrp: 3999,
+    price: 2499,
+    discount: "37% OFF",
+    image: sr2,
+  },
+  {
+    id: 3,
+    name: "Embroidered Net Saree",
+    category: "Embroidered",
+    color: "#e8c9a0",
+    sizes: ["M", "L", "XL"],
+    mrp: 5999,
+    price: 3999,
+    discount: "33% OFF",
+    image: sr3,
+  },
+  {
+    id: 4,
+    name: "Cotton Handloom Saree",
+    category: "Cotton Sarees",
+    color: "#fff",
+    sizes: ["S", "M", "L"],
+    mrp: 3500,
+    price: 2199,
+    discount: "37% OFF",
+    image: sr4,
+  },
+  {
+    id: 5,
+    name: "Chiffon Floral Saree",
+    category: "New Arrivals",
+    color: "#d97882",
+    sizes: ["M", "L"],
+    mrp: 4200,
+    price: 2799,
+    discount: "33% OFF",
+    image: sr5,
+  },
+  {
+    id: 6,
+    name: "Linen Solid Saree",
+    category: "Cotton Sarees",
+    color: "#6b8e6b",
+    sizes: ["M", "L", "XL"],
+    mrp: 3800,
+    price: 2499,
+    discount: "34% OFF",
+    image: sr6,
+  },
+  {
+    id: 7,
+    name: "Organza Sequin Saree",
+    category: "Embroidered",
+    color: "#e8c9a0",
+    sizes: ["M", "L", "XL"],
+    mrp: 6500,
+    price: 4499,
+    discount: "31% OFF",
+    image: sr7,
+  },
+  {
+    id: 8,
+    name: "Kanjivaram Silk Saree",
+    category: "Silk Sarees",
+    color: "#b8860b",
+    sizes: ["L", "XL", "XXL"],
+    mrp: 8999,
+    price: 5999,
+    discount: "33% OFF",
+    image: sr8,
+  },
+  {
+    id: 9,
+    name: "Tussar Silk Saree",
+    category: "Silk Sarees",
+    color: "#c49a6c",
+    sizes: ["M", "L"],
+    mrp: 5500,
+    price: 3799,
+    discount: "31% OFF",
+    image: sr9,
+  },
+  {
+    id: 10,
+    name: "Zari Border Saree",
+    category: "New Arrivals",
+    color: "#b8860b",
+    sizes: ["M", "L", "XL"],
+    mrp: 4999,
+    price: 3299,
+    discount: "34% OFF",
+    image: sr10,
+  },
+  {
+    id: 11,
+    name: "Printed Crepe Saree",
+    category: "Printed Sarees",
+    color: "#4a6fa5",
+    sizes: ["S", "M", "L"],
+    mrp: 3600,
+    price: 2299,
+    discount: "36% OFF",
+    image: sr11,
+  },
+  {
+    id: 12,
+    name: "Bandhani Print Saree",
+    category: "Printed Sarees",
+    color: "#d97882",
+    sizes: ["M", "L", "XL"],
+    mrp: 4400,
+    price: 2899,
+    discount: "34% OFF",
+    image: sr12,
+  },
 ];
 
 const categories = ["New Arrivals", "Silk Sarees", "Cotton Sarees", "Printed Sarees", "Embroidered"];
@@ -45,12 +165,40 @@ export default function Sarees() {
   const [sortBy,           setSortBy]           = useState("featured");
   const [filterOpen,       setFilterOpen]       = useState(true);
 
-  const sorted = [...products].sort((a, b) => {
-    if (sortBy === "price-asc")  return a.price - b.price;
-    if (sortBy === "price-desc") return b.price - a.price;
-    if (sortBy === "discount")   return parseInt(b.discount) - parseInt(a.discount);
-    return a.id - b.id;
-  }).filter(p => p.price <= priceRange);
+const filteredProducts = products.filter((product) => {
+  const categoryMatch =
+    !selectedCategory ||
+    product.category === selectedCategory;
+
+  const colorMatch =
+    !selectedColor ||
+    product.color === selectedColor;
+
+  const sizeMatch =
+    !selectedSize ||
+    product.sizes.includes(selectedSize);
+
+  const priceMatch =
+    product.price <= priceRange;
+
+  return (
+    categoryMatch &&
+    colorMatch &&
+    sizeMatch &&
+    priceMatch
+  );
+});
+
+const sorted = [...filteredProducts].sort((a, b) => {
+  if (sortBy === "price-asc") return a.price - b.price;
+
+  if (sortBy === "price-desc") return b.price - a.price;
+
+  if (sortBy === "discount")
+    return parseInt(b.discount) - parseInt(a.discount);
+
+  return a.id - b.id;
+});
 
   return (
     <div className="sr-page">
@@ -145,7 +293,13 @@ export default function Sarees() {
         )}
 
         <div className={`sr-grid ${filterOpen ? "" : "sr-grid--full"}`}>
-          {sorted.map(product => (
+        {sorted.length === 0 ? (
+  <div className="sr-no-products">
+    <h2>No Sarees Found</h2>
+    <p>Try changing your filters.</p>
+  </div>
+) : 
+  sorted.map(product => (
             <div
               className="sr-card"
               key={product.id}

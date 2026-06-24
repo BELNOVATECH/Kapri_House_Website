@@ -17,22 +17,159 @@ import sh12 from "../assets/sh12.jpeg";
 import shrugBanner from "../assets/ban.webp";
 
 const products = [
-  { id: 1,  name: "Floral Print Shrug Set",       mrp: 3999, price: 2499, discount: "37% OFF", image: sh1  },
-  { id: 2,  name: "Solid Cotton Shrug Set",        mrp: 3500, price: 2199, discount: "37% OFF", image: sh2  },
-  { id: 3,  name: "Embroidered Shrug Set",         mrp: 4200, price: 2799, discount: "33% OFF", image: sh3  },
-  { id: 4,  name: "Printed Linen Shrug Set",       mrp: 3800, price: 2499, discount: "34% OFF", image: sh4  },
-  { id: 5,  name: "Block Print Shrug Set",         mrp: 4500, price: 2999, discount: "33% OFF", image: sh5  },
-  { id: 6,  name: "Tie-Dye Shrug Set",             mrp: 3999, price: 2499, discount: "37% OFF", image: sh6  },
-  { id: 7,  name: "Pastel Shrug Set",              mrp: 3500, price: 2199, discount: "37% OFF", image: sh7  },
-  { id: 8,  name: "Cotton Casual Shrug Set",       mrp: 3200, price: 1999, discount: "37% OFF", image: sh8  },
-  { id: 9,  name: "Printed Kurti Shrug Set",       mrp: 4200, price: 2799, discount: "33% OFF", image: sh9  },
-  { id: 10, name: "Organza Shrug Set",             mrp: 5000, price: 3499, discount: "30% OFF", image: sh10 },
-  { id: 11, name: "Rust Cotton Shrug Set",         mrp: 3800, price: 2499, discount: "34% OFF", image: sh11 },
-  { id: 12, name: "Ivory Lace Shrug Set",          mrp: 4500, price: 2999, discount: "33% OFF", image: sh12 },
+  {
+    id: 1,
+    name: "Floral Print Shrug Set",
+    category: "Printed Sets",
+    color: "#ff69b4",
+    sizes: ["S", "M", "L"],
+    mrp: 3999,
+    price: 2499,
+    discount: "37% OFF",
+    image: sh1,
+  },
+  {
+    id: 2,
+    name: "Solid Cotton Shrug Set",
+    category: "Cotton Shrug",
+    color: "#4a6fa5",
+    sizes: ["M", "L", "XL"],
+    mrp: 3500,
+    price: 2199,
+    discount: "37% OFF",
+    image: sh2,
+  },
+  {
+    id: 3,
+    name: "Embroidered Shrug Set",
+    category: "Embroidered",
+    color: "#b8860b",
+    sizes: ["L", "XL", "XXL"],
+    mrp: 4200,
+    price: 2799,
+    discount: "33% OFF",
+    image: sh3,
+  },
+  {
+    id: 4,
+    name: "Printed Linen Shrug Set",
+    category: "Printed Sets",
+    color: "#ff0000",
+    sizes: ["S", "M", "L"],
+    mrp: 3800,
+    price: 2499,
+    discount: "34% OFF",
+    image: sh4,
+  },
+  {
+    id: 5,
+    name: "Block Print Shrug Set",
+    category: "Printed Sets",
+    color: "#ffa500",
+    sizes: ["M", "L", "XL"],
+    mrp: 4500,
+    price: 2999,
+    discount: "33% OFF",
+    image: sh5,
+  },
+  {
+    id: 6,
+    name: "Tie-Dye Shrug Set",
+    category: "Shrug Sets",
+    color: "#800080",
+    sizes: ["S", "M", "L"],
+    mrp: 3999,
+    price: 2499,
+    discount: "37% OFF",
+    image: sh6,
+  },
+  {
+    id: 7,
+    name: "Pastel Shrug Set",
+    category: "New Arrivals",
+    color: "#e8c9a0",
+    sizes: ["S", "M", "L"],
+    mrp: 3500,
+    price: 2199,
+    discount: "37% OFF",
+    image: sh7,
+  },
+  {
+    id: 8,
+    name: "Cotton Casual Shrug Set",
+    category: "Cotton Shrug",
+    color: "#6b8e6b",
+    sizes: ["M", "L", "XL"],
+    mrp: 3200,
+    price: 1999,
+    discount: "37% OFF",
+    image: sh8,
+  },
+  {
+    id: 9,
+    name: "Printed Kurti Shrug Set",
+    category: "Printed Sets",
+    color: "#d97882",
+    sizes: ["S", "M", "L"],
+    mrp: 4200,
+    price: 2799,
+    discount: "33% OFF",
+    image: sh9,
+  },
+  {
+    id: 10,
+    name: "Organza Shrug Set",
+    category: "New Arrivals",
+    color: "#00ced1",
+    sizes: ["L", "XL", "XXL"],
+    mrp: 5000,
+    price: 3499,
+    discount: "30% OFF",
+    image: sh10,
+  },
+  {
+    id: 11,
+    name: "Rust Cotton Shrug Set",
+    category: "Cotton Shrug",
+    color: "#8b4513",
+    sizes: ["M", "L", "XL"],
+    mrp: 3800,
+    price: 2499,
+    discount: "34% OFF",
+    image: sh11,
+  },
+  {
+    id: 12,
+    name: "Ivory Lace Shrug Set",
+    category: "Embroidered",
+    color: "#fff",
+    sizes: ["S", "M", "L"],
+    mrp: 4500,
+    price: 2999,
+    discount: "33% OFF",
+    image: sh12,
+  },
 ];
 
 const categories = ["New Arrivals", "Shrug Sets", "Cotton Shrug", "Printed Sets", "Embroidered"];
-const colors     = ["#fff","#000","#e8c9a0","#d97882","#6b8e6b","#b8860b","#4a6fa5","#c49a6c"];
+const colors = [
+  "#fff",
+  "#000",
+  "#e8c9a0",
+  "#d97882",
+  "#6b8e6b",
+  "#b8860b",
+  "#4a6fa5",
+  "#c49a6c",
+  "#ff0000",
+  "#800080",
+  "#ffa500",
+  "#ffff00",
+  "#00ced1",
+  "#ff69b4",
+  "#808080",
+  "#8b4513",
+];
 const sizes      = ["XS","S","M","L","XL","XXL"];
 
 export default function ShrugSets() {
@@ -45,12 +182,42 @@ export default function ShrugSets() {
   const [sortBy,           setSortBy]           = useState("featured");
   const [filterOpen,       setFilterOpen]       = useState(true);
 
-  const sorted = [...products].sort((a, b) => {
-    if (sortBy === "price-asc")  return a.price - b.price;
-    if (sortBy === "price-desc") return b.price - a.price;
-    if (sortBy === "discount")   return parseInt(b.discount) - parseInt(a.discount);
-    return a.id - b.id;
-  }).filter(p => p.price <= priceRange);
+const filteredProducts = products.filter((product) => {
+  const categoryMatch =
+    !selectedCategory ||
+    product.category === selectedCategory;
+
+  const colorMatch =
+    !selectedColor ||
+    product.color === selectedColor;
+
+  const sizeMatch =
+    !selectedSize ||
+    product.sizes.includes(selectedSize);
+
+  const priceMatch =
+    product.price <= priceRange;
+
+  return (
+    categoryMatch &&
+    colorMatch &&
+    sizeMatch &&
+    priceMatch
+  );
+});
+
+const sorted = [...filteredProducts].sort((a, b) => {
+  if (sortBy === "price-asc")
+    return a.price - b.price;
+
+  if (sortBy === "price-desc")
+    return b.price - a.price;
+
+  if (sortBy === "discount")
+    return parseInt(b.discount) - parseInt(a.discount);
+
+  return a.id - b.id;
+});
 
   return (
     <div className="sh-page">
@@ -145,7 +312,13 @@ export default function ShrugSets() {
         )}
 
         <div className={`sh-grid ${filterOpen ? "" : "sh-grid--full"}`}>
-          {sorted.map(product => (
+         {sorted.length === 0 ? (
+  <div className="sh-no-products">
+    <h2>No Shrug Sets Found</h2>
+    <p>Try changing your filters.</p>
+  </div>
+) : 
+  sorted.map(product => (
             <div
               className="sh-card"
               key={product.id}

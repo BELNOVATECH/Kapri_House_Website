@@ -224,3 +224,9 @@
     width: 100%;
   }
 }
+
+.sh-no-products {
+  width: 100%;
+  text-align: center;
+  padding: 80px 20px;
+}

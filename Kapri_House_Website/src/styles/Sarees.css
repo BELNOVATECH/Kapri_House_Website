@@ -7,7 +7,19 @@
   color: #777;
   margin-bottom: 16px;
 }
+.sr-no-products{
+  width:100%;
+  text-align:center;
+  padding:80px 20px;
+}
 
+.sr-no-products h2{
+  margin-bottom:10px;
+}
+
+.sr-no-products p{
+  color:#777;
+}
 .sr-banner {
   display: block;
   width: 100vw;

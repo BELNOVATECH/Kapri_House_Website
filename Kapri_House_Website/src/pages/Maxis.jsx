@@ -17,22 +17,159 @@ import mx12 from "../assets/mx12.webp";
 import maxiBanner from "../assets/maxisban.webp";
 
 const products = [
-  { id: 1,  name: "Floral Print Maxi Dress",      mrp: 4999, price: 3499, discount: "30% OFF", image: mx1  },
-  { id: 2,  name: "Solid Flared Maxi",             mrp: 4500, price: 2999, discount: "33% OFF", image: mx2  },
-  { id: 3,  name: "Tiered Cotton Maxi Dress",      mrp: 3999, price: 2799, discount: "30% OFF", image: mx3  },
-  { id: 4,  name: "Embroidered Maxi Gown",         mrp: 6999, price: 4999, discount: "29% OFF", image: mx4  },
-  { id: 5,  name: "Off-Shoulder Maxi Dress",       mrp: 4200, price: 2899, discount: "31% OFF", image: mx5  },
-  { id: 6,  name: "Printed Wrap Maxi Dress",       mrp: 3800, price: 2599, discount: "32% OFF", image: mx6  },
-  { id: 7,  name: "Ruffle Sleeve Maxi Dress",      mrp: 4600, price: 3199, discount: "30% OFF", image: mx7  },
-  { id: 8,  name: "Georgette Flowy Maxi",          mrp: 5200, price: 3699, discount: "29% OFF", image: mx8  },
-  { id: 9,  name: "Tie-Dye Maxi Dress",            mrp: 3900, price: 2699, discount: "31% OFF", image: mx9  },
-  { id: 10, name: "Boho Printed Maxi Dress",       mrp: 4400, price: 2999, discount: "32% OFF", image: mx10 },
-  { id: 11, name: "Halter Neck Maxi Dress",        mrp: 4800, price: 3299, discount: "31% OFF", image: mx11 },
-  { id: 12, name: "Pastel Chiffon Maxi Dress",     mrp: 5500, price: 3899, discount: "29% OFF", image: mx12 },
+  {
+    id: 1,
+    name: "Floral Print Maxi Dress",
+    category: "Printed Maxis",
+    color: "#ff69b4",
+    sizes: ["S", "M", "L"],
+    mrp: 4999,
+    price: 3499,
+    discount: "30% OFF",
+    image: mx1,
+  },
+  {
+    id: 2,
+    name: "Solid Flared Maxi",
+    category: "Solid Maxis",
+    color: "#000",
+    sizes: ["M", "L", "XL"],
+    mrp: 4500,
+    price: 2999,
+    discount: "33% OFF",
+    image: mx2,
+  },
+  {
+    id: 3,
+    name: "Tiered Cotton Maxi Dress",
+    category: "Casual Maxis",
+    color: "#6b8e6b",
+    sizes: ["S", "M", "L"],
+    mrp: 3999,
+    price: 2799,
+    discount: "30% OFF",
+    image: mx3,
+  },
+  {
+    id: 4,
+    name: "Embroidered Maxi Gown",
+    category: "Party Wear",
+    color: "#b8860b",
+    sizes: ["L", "XL", "XXL"],
+    mrp: 6999,
+    price: 4999,
+    discount: "29% OFF",
+    image: mx4,
+  },
+  {
+    id: 5,
+    name: "Off-Shoulder Maxi Dress",
+    category: "New Arrivals",
+    color: "#d97882",
+    sizes: ["S", "M", "L"],
+    mrp: 4200,
+    price: 2899,
+    discount: "31% OFF",
+    image: mx5,
+  },
+  {
+    id: 6,
+    name: "Printed Wrap Maxi Dress",
+    category: "Printed Maxis",
+    color: "#4a6fa5",
+    sizes: ["M", "L", "XL"],
+    mrp: 3800,
+    price: 2599,
+    discount: "32% OFF",
+    image: mx6,
+  },
+  {
+    id: 7,
+    name: "Ruffle Sleeve Maxi Dress",
+    category: "Party Wear",
+    color: "#800080",
+    sizes: ["M", "L", "XL"],
+    mrp: 4600,
+    price: 3199,
+    discount: "30% OFF",
+    image: mx7,
+  },
+  {
+    id: 8,
+    name: "Georgette Flowy Maxi",
+    category: "Casual Maxis",
+    color: "#e8c9a0",
+    sizes: ["L", "XL", "XXL"],
+    mrp: 5200,
+    price: 3699,
+    discount: "29% OFF",
+    image: mx8,
+  },
+  {
+    id: 9,
+    name: "Tie-Dye Maxi Dress",
+    category: "Printed Maxis",
+    color: "#ff0000",
+    sizes: ["S", "M", "L"],
+    mrp: 3900,
+    price: 2699,
+    discount: "31% OFF",
+    image: mx9,
+  },
+  {
+    id: 10,
+    name: "Boho Printed Maxi Dress",
+    category: "New Arrivals",
+    color: "#ffa500",
+    sizes: ["M", "L", "XL"],
+    mrp: 4400,
+    price: 2999,
+    discount: "32% OFF",
+    image: mx10,
+  },
+  {
+    id: 11,
+    name: "Halter Neck Maxi Dress",
+    category: "Party Wear",
+    color: "#000",
+    sizes: ["L", "XL", "XXL"],
+    mrp: 4800,
+    price: 3299,
+    discount: "31% OFF",
+    image: mx11,
+  },
+  {
+    id: 12,
+    name: "Pastel Chiffon Maxi Dress",
+    category: "Solid Maxis",
+    color: "#fff",
+    sizes: ["S", "M", "L"],
+    mrp: 5500,
+    price: 3899,
+    discount: "29% OFF",
+    image: mx12,
+  },
 ];
 
 const categories = ["New Arrivals", "Casual Maxis", "Party Wear", "Printed Maxis", "Solid Maxis"];
-const colors     = ["#fff","#000","#e8c9a0","#d97882","#6b8e6b","#b8860b","#4a6fa5","#c49a6c"];
+const colors = [
+  "#fff",      // White
+  "#000",      // Black
+  "#e8c9a0",   // Beige
+  "#d97882",   // Pink
+  "#6b8e6b",   // Green
+  "#b8860b",   // Gold
+  "#4a6fa5",   // Blue
+  "#c49a6c",   // Brown
+  "#ff0000",   // Red
+  "#800080",   // Purple
+  "#ffa500",   // Orange
+  "#ffff00",   // Yellow
+  "#00ced1",   // Turquoise
+  "#ff69b4",   // Hot Pink
+  "#808080",   // Grey
+  "#8b4513",   // Dark Brown
+];
 const sizes      = ["XS","S","M","L","XL","XXL"];
 
 export default function Maxis() {
@@ -45,12 +182,42 @@ export default function Maxis() {
   const [sortBy,           setSortBy]           = useState("featured");
   const [filterOpen,       setFilterOpen]       = useState(true);
 
-  const sorted = [...products].sort((a, b) => {
-    if (sortBy === "price-asc")  return a.price - b.price;
-    if (sortBy === "price-desc") return b.price - a.price;
-    if (sortBy === "discount")   return parseInt(b.discount) - parseInt(a.discount);
-    return a.id - b.id;
-  }).filter(p => p.price <= priceRange);
+const filteredProducts = products.filter((product) => {
+  const categoryMatch =
+    !selectedCategory ||
+    product.category === selectedCategory;
+
+  const colorMatch =
+    !selectedColor ||
+    product.color === selectedColor;
+
+  const sizeMatch =
+    !selectedSize ||
+    product.sizes.includes(selectedSize);
+
+  const priceMatch =
+    product.price <= priceRange;
+
+  return (
+    categoryMatch &&
+    colorMatch &&
+    sizeMatch &&
+    priceMatch
+  );
+});
+
+const sorted = [...filteredProducts].sort((a, b) => {
+  if (sortBy === "price-asc")
+    return a.price - b.price;
+
+  if (sortBy === "price-desc")
+    return b.price - a.price;
+
+  if (sortBy === "discount")
+    return parseInt(b.discount) - parseInt(a.discount);
+
+  return a.id - b.id;
+});
 
   return (
     <div className="mx-page">
@@ -144,8 +311,14 @@ export default function Maxis() {
           </aside>
         )}
 
-        <div className={`mx-grid ${filterOpen ? "" : "mx-grid--full"}`}>
-          {sorted.map(product => (
+<div className={`mx-grid ${filterOpen ? "" : "mx-grid--full"}`}>
+  {sorted.length === 0 ? (
+    <div className="mx-no-products">
+      <h2>No Maxis Found</h2>
+      <p>Try changing your filters.</p>
+    </div>
+  ) : 
+    sorted.map(product => (
             <div
               className="mx-card"
               key={product.id}
