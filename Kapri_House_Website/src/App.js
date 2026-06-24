@@ -31,6 +31,7 @@ import Maxis from "./pages/Maxis";
 import Lehengas from "./pages/Lehengas";// ← add this import// ← add this import
 // Reusable layout wrapper
 import ShrugSets from "./pages/ShrugSets";
+import FarshiSet from "./pages/FarshiSet";
 function Layout({ children }) {
   return (
     <>
@@ -140,6 +141,14 @@ function App() {
   element={
     <Layout>
       <Maxis />
+    </Layout>
+  }
+/>
+<Route
+  path="/farshi-set"
+  element={
+    <Layout>
+      <FarshiSet />
     </Layout>
   }
 />
