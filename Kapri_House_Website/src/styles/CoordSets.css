@@ -325,3 +325,10 @@
   .cs-img-wrap { height: 180px; }
   .cs-info h4 { font-size: 11px; }
 }
+.cs-banner {
+  display: block;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);   /* breaks out of any centered/padded container */
+  max-height: 280px;                /* adjust to taste */
+  object-fit: cover;
+}
