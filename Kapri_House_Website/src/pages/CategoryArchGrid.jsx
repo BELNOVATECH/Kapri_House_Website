@@ -12,8 +12,8 @@ import arch8 from "../assets/arch8.webp";
 
 const categories = [
   { id: 1, image: arch4, name: "Suit Sets",   path: "/suit-sets"   },
-  { id: 2, image: arch2, name: "Dresses",     path: "/dresses"     },
-  { id: 3, image: arch3, name: "Kurta Sets",  path: "/kurta-sets"  },
+  { id: 2, image: arch3, name: "Dresses",     path: "/dresses"     },
+  { id: 3, image: arch2, name: "Kurta Sets",  path: "/kurta-sets"  },
   { id: 4, image: arch1, name: "Maxis",       path: "/maxis"       },
   { id: 5, image: arch6, name: "Lehengas",    path: "/lehengas"    },
   { id: 6, image: arch5, name: "Sarees",      path: "/sarees"      },

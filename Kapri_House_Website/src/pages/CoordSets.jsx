@@ -11,22 +11,159 @@ import css1 from "../assets/css1.webp";
 import cord from "../assets/cord.webp";
 
 const products = [
-  { id: 1,  name: "Floral Print Co-ord Set",     mrp: 3999, price: 2499, discount: "37% OFF", image: cs2  },
-  { id: 2,  name: "Stripe Cotton Co-ord Set",     mrp: 3500, price: 2199, discount: "37% OFF", image: cs3  },
-  { id: 3,  name: "Solid Linen Co-ord Set",       mrp: 4200, price: 2799, discount: "33% OFF", image: cs4  },
-  { id: 4,  name: "Tie-Dye Co-ord Set",           mrp: 3800, price: 2499, discount: "34% OFF", image: cs5  },
-  { id: 5,  name: "Embroidered Co-ord Set",       mrp: 4500, price: 2999, discount: "33% OFF", image: cs6  },
-  { id: 6,  name: "Block Print Co-ord Set",       mrp: 3999, price: 2499, discount: "37% OFF", image: css1 },
-  { id: 7,  name: "Pastel Co-ord Set",            mrp: 3500, price: 2199, discount: "37% OFF", image: cs2  },
-  { id: 8,  name: "Cotton Casual Co-ord Set",     mrp: 3200, price: 1999, discount: "37% OFF", image: cs3  },
-  { id: 9,  name: "Printed Kurti Co-ord Set",     mrp: 4200, price: 2799, discount: "33% OFF", image: cs4  },
-  { id: 10, name: "Organza Co-ord Set",           mrp: 5000, price: 3499, discount: "30% OFF", image: cs5  },
-  { id: 11, name: "Rust Cotton Co-ord Set",       mrp: 3800, price: 2499, discount: "34% OFF", image: cs6  },
-  { id: 12, name: "Ivory Lace Co-ord Set",        mrp: 4500, price: 2999, discount: "33% OFF", image: css1 },
+  {
+    id: 1,
+    name: "Floral Print Co-ord Set",
+    category: "Printed Sets",
+    color: "#ff69b4",
+    sizes: ["S", "M", "L"],
+    mrp: 3999,
+    price: 2499,
+    discount: "37% OFF",
+    image: cs2,
+  },
+  {
+    id: 2,
+    name: "Stripe Cotton Co-ord Set",
+    category: "Cotton Co-Ord",
+    color: "#4a6fa5",
+    sizes: ["M", "L", "XL"],
+    mrp: 3500,
+    price: 2199,
+    discount: "37% OFF",
+    image: cs3,
+  },
+  {
+    id: 3,
+    name: "Solid Linen Co-ord Set",
+    category: "Co-Ord Sets",
+    color: "#6b8e6b",
+    sizes: ["S", "M", "L"],
+    mrp: 4200,
+    price: 2799,
+    discount: "33% OFF",
+    image: cs4,
+  },
+  {
+    id: 4,
+    name: "Tie-Dye Co-ord Set",
+    category: "Printed Sets",
+    color: "#ff0000",
+    sizes: ["M", "L", "XL"],
+    mrp: 3800,
+    price: 2499,
+    discount: "34% OFF",
+    image: cs5,
+  },
+  {
+    id: 5,
+    name: "Embroidered Co-ord Set",
+    category: "Embroidered",
+    color: "#b8860b",
+    sizes: ["L", "XL", "XXL"],
+    mrp: 4500,
+    price: 2999,
+    discount: "33% OFF",
+    image: cs6,
+  },
+  {
+    id: 6,
+    name: "Block Print Co-ord Set",
+    category: "Printed Sets",
+    color: "#ffa500",
+    sizes: ["S", "M", "L"],
+    mrp: 3999,
+    price: 2499,
+    discount: "37% OFF",
+    image: css1,
+  },
+  {
+    id: 7,
+    name: "Pastel Co-ord Set",
+    category: "New Arrivals",
+    color: "#e8c9a0",
+    sizes: ["S", "M", "L"],
+    mrp: 3500,
+    price: 2199,
+    discount: "37% OFF",
+    image: cs2,
+  },
+  {
+    id: 8,
+    name: "Cotton Casual Co-ord Set",
+    category: "Cotton Co-Ord",
+    color: "#6b8e6b",
+    sizes: ["M", "L", "XL"],
+    mrp: 3200,
+    price: 1999,
+    discount: "37% OFF",
+    image: cs3,
+  },
+  {
+    id: 9,
+    name: "Printed Kurti Co-ord Set",
+    category: "Printed Sets",
+    color: "#d97882",
+    sizes: ["S", "M", "L"],
+    mrp: 4200,
+    price: 2799,
+    discount: "33% OFF",
+    image: cs4,
+  },
+  {
+    id: 10,
+    name: "Organza Co-ord Set",
+    category: "New Arrivals",
+    color: "#00ced1",
+    sizes: ["L", "XL", "XXL"],
+    mrp: 5000,
+    price: 3499,
+    discount: "30% OFF",
+    image: cs5,
+  },
+  {
+    id: 11,
+    name: "Rust Cotton Co-ord Set",
+    category: "Cotton Co-Ord",
+    color: "#8b4513",
+    sizes: ["M", "L", "XL"],
+    mrp: 3800,
+    price: 2499,
+    discount: "34% OFF",
+    image: cs6,
+  },
+  {
+    id: 12,
+    name: "Ivory Lace Co-ord Set",
+    category: "Embroidered",
+    color: "#fff",
+    sizes: ["S", "M", "L"],
+    mrp: 4500,
+    price: 2999,
+    discount: "33% OFF",
+    image: css1,
+  },
 ];
 
 const categories = ["New Arrivals", "Co-Ord Sets", "Cotton Co-Ord", "Printed Sets", "Embroidered"];
-const colors     = ["#fff","#000","#e8c9a0","#d97882","#6b8e6b","#b8860b","#4a6fa5","#c49a6c"];
+const colors = [
+  "#fff",
+  "#000",
+  "#e8c9a0",
+  "#d97882",
+  "#6b8e6b",
+  "#b8860b",
+  "#4a6fa5",
+  "#c49a6c",
+  "#ff0000",
+  "#800080",
+  "#ffa500",
+  "#ffff00",
+  "#00ced1",
+  "#ff69b4",
+  "#808080",
+  "#8b4513",
+];
 const sizes      = ["XS","S","M","L","XL","XXL"];
 
 export default function CoordSets() {
@@ -39,12 +176,40 @@ export default function CoordSets() {
   const [sortBy,           setSortBy]           = useState("featured");
   const [filterOpen,       setFilterOpen]       = useState(true);
 
-  const sorted = [...products].sort((a, b) => {
-    if (sortBy === "price-asc")  return a.price - b.price;
-    if (sortBy === "price-desc") return b.price - a.price;
-    if (sortBy === "discount")   return parseInt(b.discount) - parseInt(a.discount);
-    return a.id - b.id;
-  }).filter(p => p.price <= priceRange);
+const filteredProducts = products.filter((product) => {
+  const categoryMatch =
+    !selectedCategory ||
+    product.category === selectedCategory;
+
+  const colorMatch =
+    !selectedColor ||
+    product.color === selectedColor;
+
+  const sizeMatch =
+    !selectedSize ||
+    product.sizes.includes(selectedSize);
+
+  const priceMatch =
+    product.price <= priceRange;
+
+  return (
+    categoryMatch &&
+    colorMatch &&
+    sizeMatch &&
+    priceMatch
+  );
+});
+
+const sorted = [...filteredProducts].sort((a, b) => {
+  if (sortBy === "price-asc") return a.price - b.price;
+
+  if (sortBy === "price-desc") return b.price - a.price;
+
+  if (sortBy === "discount")
+    return parseInt(b.discount) - parseInt(a.discount);
+
+  return a.id - b.id;
+});
 
   return (
     <div className="cs-page">
@@ -139,7 +304,13 @@ export default function CoordSets() {
         )}
 
         <div className={`cs-grid ${filterOpen ? "" : "cs-grid--full"}`}>
-          {sorted.map(product => (
+         {sorted.length === 0 ? (
+  <div className="cs-no-products">
+    <h2>No Co-Ord Sets Found</h2>
+    <p>Try changing your filters.</p>
+  </div>
+) : 
+  sorted.map(product => (
             <div
               className="cs-card"
               key={product.id}

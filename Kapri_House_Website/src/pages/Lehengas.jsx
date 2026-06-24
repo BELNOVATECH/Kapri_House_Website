@@ -17,22 +17,159 @@ import lh12 from "../assets/thumbnails/lehanga.webp";
 import lehengaBanner from "../assets/lehangaban.webp";
 
 const products = [
-  { id: 1,  name: "Embroidered Silk Lehenga",     mrp: 8999, price: 5999, discount: "33% OFF", image: lh1  },
-  { id: 2,  name: "Bridal Velvet Lehenga",         mrp: 12999, price: 8999, discount: "31% OFF", image: lh2  },
-  { id: 3,  name: "Floral Print Lehenga Set",      mrp: 6999, price: 4499, discount: "36% OFF", image: lh3  },
-  { id: 4,  name: "Mirror Work Lehenga",           mrp: 9999, price: 6999, discount: "30% OFF", image: lh4  },
-  { id: 5,  name: "Pastel Net Lehenga",            mrp: 7999, price: 5499, discount: "31% OFF", image: lh5  },
-  { id: 6,  name: "Sequin Designer Lehenga",       mrp: 10999, price: 7499, discount: "32% OFF", image: lh6  },
-  { id: 7,  name: "Banarasi Silk Lehenga",         mrp: 11999, price: 8499, discount: "29% OFF", image: lh7  },
-  { id: 8,  name: "Georgette Flared Lehenga",      mrp: 6499, price: 4299, discount: "34% OFF", image: lh8  },
-  { id: 9,  name: "Zari Work Festive Lehenga",     mrp: 9499, price: 6499, discount: "32% OFF", image: lh9  },
-  { id: 10, name: "Organza Layered Lehenga",       mrp: 8499, price: 5799, discount: "32% OFF", image: lh10 },
-  { id: 11, name: "Maroon Embroidered Lehenga",    mrp: 9999, price: 6999, discount: "30% OFF", image: lh11 },
-  { id: 12, name: "Ivory Bridal Lehenga",          mrp: 13999, price: 9999, discount: "29% OFF", image: lh12 },
+  {
+    id: 1,
+    name: "Embroidered Silk Lehenga",
+    category: "Embroidered",
+    color: "#b8860b",
+    sizes: ["M", "L", "XL"],
+    mrp: 8999,
+    price: 5999,
+    discount: "33% OFF",
+    image: lh1,
+  },
+  {
+    id: 2,
+    name: "Bridal Velvet Lehenga",
+    category: "Bridal Lehengas",
+    color: "#800080",
+    sizes: ["L", "XL", "XXL"],
+    mrp: 12999,
+    price: 8999,
+    discount: "31% OFF",
+    image: lh2,
+  },
+  {
+    id: 3,
+    name: "Floral Print Lehenga Set",
+    category: "New Arrivals",
+    color: "#ff69b4",
+    sizes: ["S", "M", "L"],
+    mrp: 6999,
+    price: 4499,
+    discount: "36% OFF",
+    image: lh3,
+  },
+  {
+    id: 4,
+    name: "Mirror Work Lehenga",
+    category: "Party Wear",
+    color: "#ff0000",
+    sizes: ["M", "L", "XL"],
+    mrp: 9999,
+    price: 6999,
+    discount: "30% OFF",
+    image: lh4,
+  },
+  {
+    id: 5,
+    name: "Pastel Net Lehenga",
+    category: "Net Lehengas",
+    color: "#e8c9a0",
+    sizes: ["S", "M", "L"],
+    mrp: 7999,
+    price: 5499,
+    discount: "31% OFF",
+    image: lh5,
+  },
+  {
+    id: 6,
+    name: "Sequin Designer Lehenga",
+    category: "Party Wear",
+    color: "#d97882",
+    sizes: ["M", "L", "XL"],
+    mrp: 10999,
+    price: 7499,
+    discount: "32% OFF",
+    image: lh6,
+  },
+  {
+    id: 7,
+    name: "Banarasi Silk Lehenga",
+    category: "Bridal Lehengas",
+    color: "#b8860b",
+    sizes: ["L", "XL", "XXL"],
+    mrp: 11999,
+    price: 8499,
+    discount: "29% OFF",
+    image: lh7,
+  },
+  {
+    id: 8,
+    name: "Georgette Flared Lehenga",
+    category: "Net Lehengas",
+    color: "#4a6fa5",
+    sizes: ["S", "M", "L"],
+    mrp: 6499,
+    price: 4299,
+    discount: "34% OFF",
+    image: lh8,
+  },
+  {
+    id: 9,
+    name: "Zari Work Festive Lehenga",
+    category: "Party Wear",
+    color: "#ffa500",
+    sizes: ["M", "L", "XL"],
+    mrp: 9499,
+    price: 6499,
+    discount: "32% OFF",
+    image: lh9,
+  },
+  {
+    id: 10,
+    name: "Organza Layered Lehenga",
+    category: "New Arrivals",
+    color: "#00ced1",
+    sizes: ["S", "M", "L"],
+    mrp: 8499,
+    price: 5799,
+    discount: "32% OFF",
+    image: lh10,
+  },
+  {
+    id: 11,
+    name: "Maroon Embroidered Lehenga",
+    category: "Embroidered",
+    color: "#8b4513",
+    sizes: ["M", "L", "XL"],
+    mrp: 9999,
+    price: 6999,
+    discount: "30% OFF",
+    image: lh11,
+  },
+  {
+    id: 12,
+    name: "Ivory Bridal Lehenga",
+    category: "Bridal Lehengas",
+    color: "#fff",
+    sizes: ["L", "XL", "XXL"],
+    mrp: 13999,
+    price: 9999,
+    discount: "29% OFF",
+    image: lh12,
+  },
 ];
 
 const categories = ["New Arrivals", "Bridal Lehengas", "Party Wear", "Embroidered", "Net Lehengas"];
-const colors     = ["#fff","#000","#e8c9a0","#d97882","#6b8e6b","#b8860b","#4a6fa5","#c49a6c"];
+const colors = [
+  "#fff",
+  "#000",
+  "#e8c9a0",
+  "#d97882",
+  "#6b8e6b",
+  "#b8860b",
+  "#4a6fa5",
+  "#c49a6c",
+  "#ff0000",
+  "#800080",
+  "#ffa500",
+  "#ffff00",
+  "#00ced1",
+  "#ff69b4",
+  "#808080",
+  "#8b4513",
+];
 const sizes      = ["XS","S","M","L","XL","XXL"];
 
 export default function Lehengas() {
@@ -45,12 +182,42 @@ export default function Lehengas() {
   const [sortBy,           setSortBy]           = useState("featured");
   const [filterOpen,       setFilterOpen]       = useState(true);
 
-  const sorted = [...products].sort((a, b) => {
-    if (sortBy === "price-asc")  return a.price - b.price;
-    if (sortBy === "price-desc") return b.price - a.price;
-    if (sortBy === "discount")   return parseInt(b.discount) - parseInt(a.discount);
-    return a.id - b.id;
-  }).filter(p => p.price <= priceRange);
+const filteredProducts = products.filter((product) => {
+  const categoryMatch =
+    !selectedCategory ||
+    product.category === selectedCategory;
+
+  const colorMatch =
+    !selectedColor ||
+    product.color === selectedColor;
+
+  const sizeMatch =
+    !selectedSize ||
+    product.sizes.includes(selectedSize);
+
+  const priceMatch =
+    product.price <= priceRange;
+
+  return (
+    categoryMatch &&
+    colorMatch &&
+    sizeMatch &&
+    priceMatch
+  );
+});
+
+const sorted = [...filteredProducts].sort((a, b) => {
+  if (sortBy === "price-asc")
+    return a.price - b.price;
+
+  if (sortBy === "price-desc")
+    return b.price - a.price;
+
+  if (sortBy === "discount")
+    return parseInt(b.discount) - parseInt(a.discount);
+
+  return a.id - b.id;
+});
 
   return (
     <div className="lh-page">
@@ -144,32 +311,50 @@ export default function Lehengas() {
           </aside>
         )}
 
-        <div className={`lh-grid ${filterOpen ? "" : "lh-grid--full"}`}>
-          {sorted.map(product => (
-            <div
-              className="lh-card"
-              key={product.id}
-              onClick={() =>
-                navigate("/product-details", {
-                  state: product,
-                })
-              }
-            >
-              <div className="lh-img-wrap">
-                <img src={product.image} alt={product.name} />
-              </div>
-              <div className="lh-info">
-                <div className="lh-stars">★★★★★</div>
-                <h4>{product.name}</h4>
-                <div className="lh-price">
-                  <span className="lh-mrp">₹{product.mrp.toLocaleString()}</span>
-                  <span className="lh-current">₹{product.price.toLocaleString()}</span>
-                  <span className="lh-off">({product.discount})</span>
-                </div>
-              </div>
-            </div>
-          ))}
+<div className={`lh-grid ${filterOpen ? "" : "lh-grid--full"}`}>
+  {sorted.length === 0 ? (
+    <div className="lh-no-products">
+      <h2>No Lehengas Found</h2>
+      <p>Try changing your filters.</p>
+    </div>
+  ) : (
+    sorted.map(product => (
+      <div
+        className="lh-card"
+        key={product.id}
+        onClick={() =>
+          navigate("/product-details", {
+            state: product,
+          })
+        }
+      >
+        <div className="lh-img-wrap">
+          <img src={product.image} alt={product.name} />
         </div>
+
+        <div className="lh-info">
+          <div className="lh-stars">★★★★★</div>
+
+          <h4>{product.name}</h4>
+
+          <div className="lh-price">
+            <span className="lh-mrp">
+              ₹{product.mrp.toLocaleString()}
+            </span>
+
+            <span className="lh-current">
+              ₹{product.price.toLocaleString()}
+            </span>
+
+            <span className="lh-off">
+              ({product.discount})
+            </span>
+          </div>
+        </div>
+      </div>
+    ))
+  )}
+</div>
 
       </div>
     </div>
