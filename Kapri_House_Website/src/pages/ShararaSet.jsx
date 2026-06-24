@@ -17,22 +17,159 @@ import sw12 from "../assets/sw12.webp";
 import shararaBanner from "../assets/shrban.webp";
 
 const products = [
-  { id: 1,  name: "Embroidered Sharara Set",       mrp: 5999, price: 3999, discount: "33% OFF", image: sw1  },
-  { id: 2,  name: "Printed Cotton Sharara Set",     mrp: 3999, price: 2499, discount: "37% OFF", image: sw2  },
-  { id: 3,  name: "Net Sharara Set",                 mrp: 4999, price: 3299, discount: "34% OFF", image: sw3  },
-  { id: 4,  name: "Silk Sharara Set",                mrp: 6999, price: 4799, discount: "31% OFF", image: sw4  },
-  { id: 5,  name: "Floral Print Sharara Set",       mrp: 4200, price: 2799, discount: "33% OFF", image: sw5  },
-  { id: 6,  name: "Georgette Sharara Set",           mrp: 5500, price: 3699, discount: "33% OFF", image: sw6  },
-  { id: 7,  name: "Zari Work Sharara Set",            mrp: 6500, price: 4499, discount: "31% OFF", image: sw7  },
-  { id: 8,  name: "Pastel Sharara Set",              mrp: 4500, price: 2999, discount: "33% OFF", image: sw8  },
-  { id: 9,  name: "Chiffon Sharara Set",              mrp: 4800, price: 3199, discount: "33% OFF", image: sw9  },
-  { id: 10, name: "Organza Sharara Set",              mrp: 5800, price: 3899, discount: "33% OFF", image: sw10 },
-  { id: 11, name: "Bridal Sharara Set",               mrp: 8999, price: 5999, discount: "33% OFF", image: sw11 },
-  { id: 12, name: "Ivory Sharara Set",                mrp: 5200, price: 3499, discount: "33% OFF", image: sw12 },
+  {
+    id: 1,
+    name: "Embroidered Sharara Set",
+    category: "Embroidered",
+    color: "#b8860b",
+    sizes: ["M", "L", "XL"],
+    mrp: 5999,
+    price: 3999,
+    discount: "33% OFF",
+    image: sw1,
+  },
+  {
+    id: 2,
+    name: "Printed Cotton Sharara Set",
+    category: "Printed Sets",
+    color: "#4a6fa5",
+    sizes: ["S", "M", "L"],
+    mrp: 3999,
+    price: 2499,
+    discount: "37% OFF",
+    image: sw2,
+  },
+  {
+    id: 3,
+    name: "Net Sharara Set",
+    category: "Sharara Sets",
+    color: "#e8c9a0",
+    sizes: ["M", "L", "XL"],
+    mrp: 4999,
+    price: 3299,
+    discount: "34% OFF",
+    image: sw3,
+  },
+  {
+    id: 4,
+    name: "Silk Sharara Set",
+    category: "Sharara Sets",
+    color: "#800080",
+    sizes: ["L", "XL", "XXL"],
+    mrp: 6999,
+    price: 4799,
+    discount: "31% OFF",
+    image: sw4,
+  },
+  {
+    id: 5,
+    name: "Floral Print Sharara Set",
+    category: "Printed Sets",
+    color: "#ff69b4",
+    sizes: ["S", "M", "L"],
+    mrp: 4200,
+    price: 2799,
+    discount: "33% OFF",
+    image: sw5,
+  },
+  {
+    id: 6,
+    name: "Georgette Sharara Set",
+    category: "New Arrivals",
+    color: "#00ced1",
+    sizes: ["M", "L", "XL"],
+    mrp: 5500,
+    price: 3699,
+    discount: "33% OFF",
+    image: sw6,
+  },
+  {
+    id: 7,
+    name: "Zari Work Sharara Set",
+    category: "Embroidered",
+    color: "#ff0000",
+    sizes: ["L", "XL", "XXL"],
+    mrp: 6500,
+    price: 4499,
+    discount: "31% OFF",
+    image: sw7,
+  },
+  {
+    id: 8,
+    name: "Pastel Sharara Set",
+    category: "New Arrivals",
+    color: "#d97882",
+    sizes: ["S", "M", "L"],
+    mrp: 4500,
+    price: 2999,
+    discount: "33% OFF",
+    image: sw8,
+  },
+  {
+    id: 9,
+    name: "Chiffon Sharara Set",
+    category: "Sharara Sets",
+    color: "#6b8e6b",
+    sizes: ["M", "L", "XL"],
+    mrp: 4800,
+    price: 3199,
+    discount: "33% OFF",
+    image: sw9,
+  },
+  {
+    id: 10,
+    name: "Organza Sharara Set",
+    category: "New Arrivals",
+    color: "#ffa500",
+    sizes: ["L", "XL", "XXL"],
+    mrp: 5800,
+    price: 3899,
+    discount: "33% OFF",
+    image: sw10,
+  },
+  {
+    id: 11,
+    name: "Bridal Sharara Set",
+    category: "Bridal",
+    color: "#8b4513",
+    sizes: ["L", "XL", "XXL"],
+    mrp: 8999,
+    price: 5999,
+    discount: "33% OFF",
+    image: sw11,
+  },
+  {
+    id: 12,
+    name: "Ivory Sharara Set",
+    category: "Bridal",
+    color: "#fff",
+    sizes: ["S", "M", "L"],
+    mrp: 5200,
+    price: 3499,
+    discount: "33% OFF",
+    image: sw12,
+  },
 ];
 
 const categories = ["New Arrivals", "Sharara Sets", "Embroidered", "Printed Sets", "Bridal"];
-const colors     = ["#fff","#000","#e8c9a0","#d97882","#6b8e6b","#b8860b","#4a6fa5","#c49a6c"];
+const colors = [
+  "#fff",
+  "#000",
+  "#e8c9a0",
+  "#d97882",
+  "#6b8e6b",
+  "#b8860b",
+  "#4a6fa5",
+  "#c49a6c",
+  "#ff0000",
+  "#800080",
+  "#ffa500",
+  "#ffff00",
+  "#00ced1",
+  "#ff69b4",
+  "#808080",
+  "#8b4513",
+];
 const sizes      = ["XS","S","M","L","XL","XXL"];
 
 export default function ShararaSet() {
@@ -45,12 +182,42 @@ export default function ShararaSet() {
   const [sortBy,           setSortBy]           = useState("featured");
   const [filterOpen,       setFilterOpen]       = useState(true);
 
-  const sorted = [...products].sort((a, b) => {
-    if (sortBy === "price-asc")  return a.price - b.price;
-    if (sortBy === "price-desc") return b.price - a.price;
-    if (sortBy === "discount")   return parseInt(b.discount) - parseInt(a.discount);
-    return a.id - b.id;
-  }).filter(p => p.price <= priceRange);
+const filteredProducts = products.filter((product) => {
+  const categoryMatch =
+    !selectedCategory ||
+    product.category === selectedCategory;
+
+  const colorMatch =
+    !selectedColor ||
+    product.color === selectedColor;
+
+  const sizeMatch =
+    !selectedSize ||
+    product.sizes.includes(selectedSize);
+
+  const priceMatch =
+    product.price <= priceRange;
+
+  return (
+    categoryMatch &&
+    colorMatch &&
+    sizeMatch &&
+    priceMatch
+  );
+});
+
+const sorted = [...filteredProducts].sort((a, b) => {
+  if (sortBy === "price-asc")
+    return a.price - b.price;
+
+  if (sortBy === "price-desc")
+    return b.price - a.price;
+
+  if (sortBy === "discount")
+    return parseInt(b.discount) - parseInt(a.discount);
+
+  return a.id - b.id;
+});
 
   return (
     <div className="sw-page">
@@ -145,7 +312,13 @@ export default function ShararaSet() {
         )}
 
         <div className={`sw-grid ${filterOpen ? "" : "sw-grid--full"}`}>
-          {sorted.map(product => (
+         {sorted.length === 0 ? (
+  <div className="sw-no-products">
+    <h2>No Sharara Sets Found</h2>
+    <p>Try changing your filters.</p>
+  </div>
+) : 
+  sorted.map(product => (
             <div
               className="sw-card"
               key={product.id}

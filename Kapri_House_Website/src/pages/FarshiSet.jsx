@@ -17,22 +17,159 @@ import fs12 from "../assets/fs12.webp";
 import farshiBanner from "../assets/banner.jpg";
 
 const products = [
-  { id: 1,  name: "Embroidered Farshi Salwar Set",  mrp: 5999, price: 3999, discount: "33% OFF", image: fs1  },
-  { id: 2,  name: "Printed Cotton Farshi Set",       mrp: 3999, price: 2499, discount: "37% OFF", image: fs2  },
-  { id: 3,  name: "Net Farshi Salwar Set",           mrp: 4999, price: 3299, discount: "34% OFF", image: fs3  },
-  { id: 4,  name: "Silk Farshi Salwar Set",          mrp: 6999, price: 4799, discount: "31% OFF", image: fs4  },
-  { id: 5,  name: "Floral Print Farshi Set",         mrp: 4200, price: 2799, discount: "33% OFF", image: fs5  },
-  { id: 6,  name: "Georgette Farshi Salwar Set",     mrp: 5500, price: 3699, discount: "33% OFF", image: fs6  },
-  { id: 7,  name: "Zari Work Farshi Set",             mrp: 6500, price: 4499, discount: "31% OFF", image: fs7  },
-  { id: 8,  name: "Pastel Farshi Salwar Set",        mrp: 4500, price: 2999, discount: "33% OFF", image: fs8  },
-  { id: 9,  name: "Chiffon Farshi Set",               mrp: 4800, price: 3199, discount: "33% OFF", image: fs9  },
-  { id: 10, name: "Organza Farshi Salwar Set",        mrp: 5800, price: 3899, discount: "33% OFF", image: fs10 },
-  { id: 11, name: "Bridal Farshi Salwar Set",         mrp: 8999, price: 5999, discount: "33% OFF", image: fs11 },
-  { id: 12, name: "Ivory Farshi Salwar Set",          mrp: 5200, price: 3499, discount: "33% OFF", image: fs12 },
+  {
+    id: 1,
+    name: "Embroidered Farshi Salwar Set",
+    category: "Embroidered",
+    color: "#b8860b",
+    sizes: ["M", "L", "XL"],
+    mrp: 5999,
+    price: 3999,
+    discount: "33% OFF",
+    image: fs1,
+  },
+  {
+    id: 2,
+    name: "Printed Cotton Farshi Set",
+    category: "Printed Sets",
+    color: "#4a6fa5",
+    sizes: ["S", "M", "L"],
+    mrp: 3999,
+    price: 2499,
+    discount: "37% OFF",
+    image: fs2,
+  },
+  {
+    id: 3,
+    name: "Net Farshi Salwar Set",
+    category: "Farshi Salwar Sets",
+    color: "#e8c9a0",
+    sizes: ["M", "L", "XL"],
+    mrp: 4999,
+    price: 3299,
+    discount: "34% OFF",
+    image: fs3,
+  },
+  {
+    id: 4,
+    name: "Silk Farshi Salwar Set",
+    category: "Farshi Salwar Sets",
+    color: "#800080",
+    sizes: ["L", "XL", "XXL"],
+    mrp: 6999,
+    price: 4799,
+    discount: "31% OFF",
+    image: fs4,
+  },
+  {
+    id: 5,
+    name: "Floral Print Farshi Set",
+    category: "Printed Sets",
+    color: "#ff69b4",
+    sizes: ["S", "M", "L"],
+    mrp: 4200,
+    price: 2799,
+    discount: "33% OFF",
+    image: fs5,
+  },
+  {
+    id: 6,
+    name: "Georgette Farshi Salwar Set",
+    category: "New Arrivals",
+    color: "#00ced1",
+    sizes: ["M", "L", "XL"],
+    mrp: 5500,
+    price: 3699,
+    discount: "33% OFF",
+    image: fs6,
+  },
+  {
+    id: 7,
+    name: "Zari Work Farshi Set",
+    category: "Embroidered",
+    color: "#ff0000",
+    sizes: ["L", "XL", "XXL"],
+    mrp: 6500,
+    price: 4499,
+    discount: "31% OFF",
+    image: fs7,
+  },
+  {
+    id: 8,
+    name: "Pastel Farshi Salwar Set",
+    category: "New Arrivals",
+    color: "#d97882",
+    sizes: ["S", "M", "L"],
+    mrp: 4500,
+    price: 2999,
+    discount: "33% OFF",
+    image: fs8,
+  },
+  {
+    id: 9,
+    name: "Chiffon Farshi Set",
+    category: "Farshi Salwar Sets",
+    color: "#6b8e6b",
+    sizes: ["M", "L", "XL"],
+    mrp: 4800,
+    price: 3199,
+    discount: "33% OFF",
+    image: fs9,
+  },
+  {
+    id: 10,
+    name: "Organza Farshi Salwar Set",
+    category: "New Arrivals",
+    color: "#ffa500",
+    sizes: ["L", "XL", "XXL"],
+    mrp: 5800,
+    price: 3899,
+    discount: "33% OFF",
+    image: fs10,
+  },
+  {
+    id: 11,
+    name: "Bridal Farshi Salwar Set",
+    category: "Bridal",
+    color: "#8b4513",
+    sizes: ["L", "XL", "XXL"],
+    mrp: 8999,
+    price: 5999,
+    discount: "33% OFF",
+    image: fs11,
+  },
+  {
+    id: 12,
+    name: "Ivory Farshi Salwar Set",
+    category: "Bridal",
+    color: "#fff",
+    sizes: ["S", "M", "L"],
+    mrp: 5200,
+    price: 3499,
+    discount: "33% OFF",
+    image: fs12,
+  },
 ];
 
 const categories = ["New Arrivals", "Farshi Salwar Sets", "Embroidered", "Printed Sets", "Bridal"];
-const colors     = ["#fff","#000","#e8c9a0","#d97882","#6b8e6b","#b8860b","#4a6fa5","#c49a6c"];
+const colors = [
+  "#fff",
+  "#000",
+  "#e8c9a0",
+  "#d97882",
+  "#6b8e6b",
+  "#b8860b",
+  "#4a6fa5",
+  "#c49a6c",
+  "#ff0000",
+  "#800080",
+  "#ffa500",
+  "#ffff00",
+  "#00ced1",
+  "#ff69b4",
+  "#808080",
+  "#8b4513",
+];
 const sizes      = ["XS","S","M","L","XL","XXL"];
 
 export default function FarshiSet() {
@@ -45,12 +182,42 @@ export default function FarshiSet() {
   const [sortBy,           setSortBy]           = useState("featured");
   const [filterOpen,       setFilterOpen]       = useState(true);
 
-  const sorted = [...products].sort((a, b) => {
-    if (sortBy === "price-asc")  return a.price - b.price;
-    if (sortBy === "price-desc") return b.price - a.price;
-    if (sortBy === "discount")   return parseInt(b.discount) - parseInt(a.discount);
-    return a.id - b.id;
-  }).filter(p => p.price <= priceRange);
+const filteredProducts = products.filter((product) => {
+  const categoryMatch =
+    !selectedCategory ||
+    product.category === selectedCategory;
+
+  const colorMatch =
+    !selectedColor ||
+    product.color === selectedColor;
+
+  const sizeMatch =
+    !selectedSize ||
+    product.sizes.includes(selectedSize);
+
+  const priceMatch =
+    product.price <= priceRange;
+
+  return (
+    categoryMatch &&
+    colorMatch &&
+    sizeMatch &&
+    priceMatch
+  );
+});
+
+const sorted = [...filteredProducts].sort((a, b) => {
+  if (sortBy === "price-asc")
+    return a.price - b.price;
+
+  if (sortBy === "price-desc")
+    return b.price - a.price;
+
+  if (sortBy === "discount")
+    return parseInt(b.discount) - parseInt(a.discount);
+
+  return a.id - b.id;
+});
 
   return (
     <div className="fs-page">
@@ -145,7 +312,13 @@ export default function FarshiSet() {
         )}
 
         <div className={`fs-grid ${filterOpen ? "" : "fs-grid--full"}`}>
-          {sorted.map(product => (
+         {sorted.length === 0 ? (
+  <div className="fs-no-products">
+    <h2>No Farshi Sets Found</h2>
+    <p>Try changing your filters.</p>
+  </div>
+) : 
+  sorted.map(product => (
             <div
               className="fs-card"
               key={product.id}
