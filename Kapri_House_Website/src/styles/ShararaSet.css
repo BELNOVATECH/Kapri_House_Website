@@ -302,9 +302,12 @@
     width: 140px;
   }
 
+@media (max-width: 768px) {
   .sw-sidebar {
-    display: none;
+    width: 100%;
+    margin-bottom: 20px;
   }
+}
 
   .sw-grid,
   .sw-grid--full {

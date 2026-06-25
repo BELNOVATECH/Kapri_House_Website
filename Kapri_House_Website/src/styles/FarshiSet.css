@@ -295,9 +295,12 @@
     order: 3;
   }
 
+@media (max-width: 768px) {
   .fs-sidebar {
-    display: none; /* Open filters using filter button */
+    width: 100%;
+    margin-bottom: 20px;
   }
+}
 
   .fs-grid,
   .fs-grid--full {

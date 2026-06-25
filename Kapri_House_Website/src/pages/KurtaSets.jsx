@@ -197,11 +197,6 @@ const sorted = [...filteredProducts].sort((a, b) => {
       <h1 className="kurta-title">
         KURTA SETS
       </h1>
-
-      <div className="kurta-layout">
-
-
-<aside className="sr-sidebar">
 <div className="sr-toolbar">
   <button
     className="sr-filter-btn"
@@ -210,6 +205,15 @@ const sorted = [...filteredProducts].sort((a, b) => {
     ☰ FILTER
   </button>
 </div>
+      <div className="kurta-layout">
+
+
+
+{filterOpen && (
+  
+  
+<aside className="sr-sidebar">
+
   <div className="sr-filter-group">
     <h4>CATEGORY</h4>
 
@@ -299,6 +303,7 @@ const sorted = [...filteredProducts].sort((a, b) => {
   </div>
 
 </aside>
+)}
         <div className="product-grid">
 
        {sorted.map((item) => {

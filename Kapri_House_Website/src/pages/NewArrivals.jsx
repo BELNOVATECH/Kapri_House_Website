@@ -1,7 +1,7 @@
 import "../styles/NewArrivals.css";
-import { useState } from "react";
+// import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import { useState, useEffect } from "react";
 import banner from "../assets/banner.jpg";
 
 import na1 from "../assets/na1.jpg";
@@ -100,6 +100,12 @@ const [selectedCategory, setSelectedCategory] = useState(null);
 const [priceRange, setPriceRange] = useState(5000);
 const [filterOpen, setFilterOpen] = useState(true);
   const [sortBy, setSortBy] = useState("featured");
+// const [filterOpen, setFilterOpen] = useState(false);
+useEffect(() => {
+  if (window.innerWidth > 768) {
+    setFilterOpen(true);
+  }
+}, []);
 
 const filteredProducts = products.filter((product) => {
   const categoryMatch =
@@ -116,7 +122,6 @@ const filteredProducts = products.filter((product) => {
 
   const priceMatch =
     product.price <= priceRange;
-
   return (
     categoryMatch &&
     colorMatch &&

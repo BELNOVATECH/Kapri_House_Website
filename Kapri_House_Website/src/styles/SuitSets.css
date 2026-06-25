@@ -416,8 +416,10 @@
     padding: 0 12px;
   }
 
-  .sr-sidebar {
-    display: none;
+    .sr-sidebar {
+    width: 100%;
+    position: static;
+    display: block;
   }
 
   .sr-toolbar {
