@@ -97,19 +97,49 @@
   flex-shrink: 0;
 }
 
-.hd-image-wrapper img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top;
-  display: block;
-  transition: transform 0.5s ease;
-  pointer-events: none;
+/* Hover Image Effect */
+
+.hd-image-wrapper {
+position: relative;
+overflow: hidden;
+width: 100%;
+height: 280px;
+flex-shrink: 0;
 }
 
-.hd-card--visible:hover .hd-image-wrapper img {
-  transform: scale(1.04);
+.hd-img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+object-position: top;
+display: block;
+pointer-events: none;
+transition: opacity 0.4s ease, transform 0.5s ease;
 }
+
+.hd-img-default {
+opacity: 1;
+}
+
+.hd-img-hover {
+position: absolute;
+top: 0;
+left: 0;
+opacity: 0;
+}
+
+.hd-card:hover .hd-img-default {
+opacity: 0;
+}
+
+.hd-card:hover .hd-img-hover {
+opacity: 1;
+}
+
+.hd-card:hover .hd-img {
+transform: scale(1.04);
+}
+
 
 /* ── Discount badge ── */
 /* .hd-badge {

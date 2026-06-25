@@ -4,6 +4,43 @@
   padding: 0;
   background: #fff;
 }
+/* Hover Image Effect */
+.ek-image-wrapper {
+position: relative;
+overflow: hidden;
+}
+
+.ek-img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+object-position: top;
+display: block;
+transition: opacity 0.4s ease, transform 0.5s ease;
+}
+
+.ek-img-default {
+opacity: 1;
+}
+
+.ek-img-hover {
+position: absolute;
+top: 0;
+left: 0;
+opacity: 0;
+}
+
+.ek-card:hover .ek-img-default {
+opacity: 0;
+}
+
+.ek-card:hover .ek-img-hover {
+opacity: 1;
+}
+
+.ek-card:hover .ek-img {
+transform: scale(1.04);
+}
 
 /* ── Title ── */
 .ek-title {
