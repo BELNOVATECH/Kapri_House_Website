@@ -102,19 +102,49 @@
   flex-shrink: 0;
 }
 
-.fw-image-wrapper img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top;
-  display: block;
-  transition: transform 0.5s ease;
-  pointer-events: none;
+/* Hover Image Effect */
+
+.fw-image-wrapper {
+position: relative;
+overflow: hidden;
+width: 100%;
+height: 280px;
+flex-shrink: 0;
 }
 
-.fw-card:hover .fw-image-wrapper img {
-  transform: scale(1.04);
+.fw-img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+object-position: top;
+display: block;
+pointer-events: none;
+transition: opacity 0.4s ease, transform 0.5s ease;
 }
+
+.fw-img-default {
+opacity: 1;
+}
+
+.fw-img-hover {
+position: absolute;
+top: 0;
+left: 0;
+opacity: 0;
+}
+
+.fw-card:hover .fw-img-default {
+opacity: 0;
+}
+
+.fw-card:hover .fw-img-hover {
+opacity: 1;
+}
+
+.fw-card:hover .fw-img {
+transform: scale(1.04);
+}
+
 
 /* ── Discount badge — bottom-left on image ── */
 .fw-badge {
