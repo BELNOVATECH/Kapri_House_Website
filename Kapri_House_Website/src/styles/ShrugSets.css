@@ -301,9 +301,12 @@
     width: 140px;
   }
 
+@media (max-width: 768px) {
   .sh-sidebar {
-    display: none;
+    width: 100%;
+    margin-bottom: 20px;
   }
+}
 
   .sh-grid,
   .sh-grid--full {

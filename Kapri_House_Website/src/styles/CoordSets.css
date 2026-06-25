@@ -407,9 +407,16 @@
     flex-direction: column;
   }
 
+@media (max-width: 768px) {
   .cs-sidebar {
-    display: none; /* ecommerce standard */
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #e5e5e5;
+    padding-right: 0;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
   }
+}
 
   .cs-grid {
     grid-template-columns: repeat(2, 1fr);

@@ -289,9 +289,13 @@
     order: 3;
   }
 
+ @media (max-width: 768px) {
   .dr-sidebar {
-    display: none; /* show filters via filter button */
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
   }
+}
 
   .dr-grid,
   .dr-grid--full {

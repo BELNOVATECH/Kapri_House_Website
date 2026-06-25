@@ -201,7 +201,14 @@
 /* Small Mobile */
 @media (max-width: 576px) {
   .hero {
-    height: 260px;
+    height: 500px !important  ;   /* 320px nundi 420px ki penchandi */
+  }
+
+  .hero-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: #fff;
   }
 
   .hero-content {

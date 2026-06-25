@@ -1,6 +1,6 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
+import ComingSoon from "./pages/ComingSoon";
 import TopBar from "./components/TopBar";
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";
@@ -101,6 +101,14 @@ function App() {
   element={
     <Layout>
       <ShararaSet />
+    </Layout>
+  }
+/>
+<Route
+  path="/menswear"
+  element={
+    <Layout>
+      <ComingSoon />
     </Layout>
   }
 />

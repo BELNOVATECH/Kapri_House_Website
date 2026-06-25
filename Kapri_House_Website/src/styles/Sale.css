@@ -301,9 +301,13 @@
     width: 140px;
   }
 
- .sl-sidebar {
-    display: none;
+@media (max-width: 768px) {
+  .sl-sidebar {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
   }
+}
 
 
   .sl-filter-group {
