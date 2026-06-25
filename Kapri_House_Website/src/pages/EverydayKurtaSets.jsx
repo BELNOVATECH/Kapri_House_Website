@@ -24,8 +24,8 @@ const products = [
   { id: 4, image: ek4,hoverImage: ek4Hover, title: "Blue Cotton Kurta Set",        mrp: 4000, price: 2499, discount: "37% OFF" },
   { id: 5, image: ek5,hoverImage: ek5Hover, title: "Ivory Cotton Coord Set",       mrp: 4000, price: 2499, discount: "37% OFF" },
   { id: 6, image: ek6,hoverImage: ek6Hover, title: "Green Straight Kurta Set",     mrp: 4000, price: 2499, discount: "37% OFF" },
-  { id: 7, image: ek7,hoverImage: ek7Hover, title: "Red Cotton Coord Set",         mrp: 4000, price: 2499, discount: "37% OFF" },
-  { id: 8, image: ek8,hoverImage: ek8Hover, title: "Lavender Crushed Coord Set",   mrp: 4000, price: 3500, discount: "12% OFF" },
+  { id: 7, image: ek7,hoverImage: ek8Hover, title: "Red Cotton Coord Set",         mrp: 4000, price: 2499, discount: "37% OFF" },
+  { id: 8, image: ek8,hoverImage: ek7Hover, title: "Lavender Crushed Coord Set",   mrp: 4000, price: 3500, discount: "12% OFF" },
 ];
 
 export default function EverydayKurtaSets() {
