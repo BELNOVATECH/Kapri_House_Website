@@ -4,10 +4,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import TopBar from "./components/TopBar";
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";
-
+import KurtaSets from "./pages/KurtaSets";
 import HeroSlider from "./components/HeroSlider";
 import NewArrivalsBanner from "./components/NewArrivalsBanner";
-
+import SuitSets from "./pages/SuitSets";
 import ProductSection from "./pages/ProductSection";
 import CategorySlider from "./pages/CategorySlider";
 import ReelsStrip from "./pages/Reelsstrips";
@@ -25,8 +25,15 @@ import CategoryArchGrid from "./pages/CategoryArchGrid";
 import festiveBanner from "./assets/festivebanner.jpeg";
 import kurtaBanner from "./assets/kurta.webp"; 
 import dressesBanner from "./assets/dressban.webp";
-import CoordSets from "./pages/CoordSets"; // ← add this import// ← add this import
+import Sarees from "./pages/Sarees";
+import CoordSets from "./pages/CoordSets"; 
+import Maxis from "./pages/Maxis";
+import Lehengas from "./pages/Lehengas";// ← add this import// ← add this import
 // Reusable layout wrapper
+import ShrugSets from "./pages/ShrugSets";
+import Sale from "./pages/Sale";
+import FarshiSet from "./pages/FarshiSet";
+import ShararaSet from "./pages/ShararaSet";
 function Layout({ children }) {
   return (
     <>
@@ -81,7 +88,30 @@ function App() {
       <Routes>
 
         <Route path="/" element={<HomePage />} />
-
+<Route
+  path="/suit-sets"
+  element={
+    <Layout>
+      <SuitSets />
+    </Layout>
+  }
+/>
+<Route
+  path="/sharara-set"
+  element={
+    <Layout>
+      <ShararaSet />
+    </Layout>
+  }
+/>
+<Route
+  path="/sale"
+  element={
+    <Layout>
+      <Sale />
+    </Layout>
+  }
+/>
         <Route
           path="/new-arrivals"
           element={
@@ -90,7 +120,14 @@ function App() {
             </Layout>
           }
         />
-
+<Route
+  path="/kurta-sets"
+  element={
+    <Layout>
+      <KurtaSets />
+    </Layout>
+  }
+/>
         <Route
           path="/dresses"                  
           element={
@@ -104,6 +141,46 @@ function App() {
   element={
     <Layout>
       <CoordSets />
+    </Layout>
+  }
+/>
+<Route
+  path="/shrug-sets"
+  element={
+    <Layout>
+      <ShrugSets />
+    </Layout>
+  }
+/>
+<Route
+  path="/sarees"
+  element={
+    <Layout>
+      <Sarees />
+    </Layout>
+  }
+/>
+<Route
+  path="/lehengas"
+  element={
+    <Layout>
+      <Lehengas />
+    </Layout>
+  }
+/>
+<Route
+  path="/maxis"
+  element={
+    <Layout>
+      <Maxis />
+    </Layout>
+  }
+/>
+<Route
+  path="/farshi-set"
+  element={
+    <Layout>
+      <FarshiSet />
     </Layout>
   }
 />
