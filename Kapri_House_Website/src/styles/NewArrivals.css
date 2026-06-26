@@ -76,27 +76,79 @@
   border-radius: 20px;
 }
 
-.filter-btn {
-  border: 1px solid #111;
-  background: #fff;
-
-  padding: 8px 18px;
-
-  font-size: 11px;
-  font-weight: 600;
-
-  border-radius: 6px;
-
-  cursor: pointer;
-  margin-bottom: 25px;
-
-  transition: 0.3s;
+.arrival-toolbar{
+    display:grid;
+    grid-template-columns:180px 1fr 220px;
+    align-items:center;
+    gap:25px;
+    margin:30px 0;
+    padding:0 25px;
 }
 
-.filter-btn:hover {
-  background: #111;
-  color: #fff;
+/* ---------- Filter Button ---------- */
+
+.filter-btn{
+    width:180px;
+    height:48px;
+    border:1px solid #d9d9d9;
+    border-radius:8px;
+    background:#fff;
+    color:#111;
+    font-size:15px;
+    font-weight:600;
+    cursor:pointer;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:8px;
+    transition:.3s;
 }
+
+.filter-btn:hover{
+    background:#111;
+    color:#fff;
+    border-color:#111;
+}
+
+/* ---------- Product Count ---------- */
+
+.arrival-count{
+    order:2;
+    justify-self:center;
+    font-size:22px;
+    font-weight:700;
+    color:#111;
+    white-space:nowrap;
+}
+
+/* ---------- Sort Dropdown ---------- */
+
+.arrival-toolbar select{
+    order:3;
+    width:220px;
+    height:48px;
+    border:1px solid #d9d9d9;
+    border-radius:8px;
+    background:#fff;
+    padding:0 15px;
+    font-size:15px;
+    color:#333;
+    outline:none;
+    cursor:pointer;
+    justify-self:end;
+    transition:.3s;
+}
+
+.arrival-toolbar select:hover{
+    border-color:#111;
+}
+
+.arrival-toolbar select:focus{
+    border-color:#111;
+    box-shadow:0 0 0 3px rgba(0,0,0,.08);
+}
+
+
 
 .filter-block {
   padding-bottom: 22px;
