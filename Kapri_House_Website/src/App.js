@@ -1,6 +1,6 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
+import ComingSoon from "./pages/ComingSoon";
 import TopBar from "./components/TopBar";
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";
@@ -34,6 +34,7 @@ import ShrugSets from "./pages/ShrugSets";
 import Sale from "./pages/Sale";
 import FarshiSet from "./pages/FarshiSet";
 import ShararaSet from "./pages/ShararaSet";
+import ScrollToTop from "./components/ScrollToTop";
 function Layout({ children }) {
   return (
     <>
@@ -85,6 +86,7 @@ function HomePage() {
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
 
         <Route path="/" element={<HomePage />} />
@@ -101,6 +103,14 @@ function App() {
   element={
     <Layout>
       <ShararaSet />
+    </Layout>
+  }
+/>
+<Route
+  path="/menswear"
+  element={
+    <Layout>
+      <ComingSoon />
     </Layout>
   }
 />

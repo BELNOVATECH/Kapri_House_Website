@@ -47,3 +47,67 @@
     gap: 12px;
   }
 }
+
+
+/* TABLET */
+@media (max-width: 992px) {
+  .arch-section {
+    padding: 30px 3%;
+  }
+
+  .arch-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .arch-img {
+    margin-bottom: -20%;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .arch-section {
+    padding: 20px 12px;
+  }
+
+  .arch-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .arch-card:hover {
+    transform: none;
+  }
+
+  .arch-img {
+    margin-bottom: -15%;
+  }
+}
+
+/* SMALL MOBILE */
+@media (max-width: 480px) {
+  .arch-section {
+    padding: 16px 10px;
+  }
+
+  .arch-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .arch-img {
+    margin-bottom: -12%;
+  }
+}
+
+/* VERY SMALL DEVICES */
+@media (max-width: 360px) {
+  .arch-grid {
+    gap: 8px;
+  }
+
+  .arch-img {
+    margin-bottom: -10%;
+  }
+}

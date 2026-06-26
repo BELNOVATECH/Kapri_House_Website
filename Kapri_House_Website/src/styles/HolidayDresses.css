@@ -97,19 +97,49 @@
   flex-shrink: 0;
 }
 
-.hd-image-wrapper img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top;
-  display: block;
-  transition: transform 0.5s ease;
-  pointer-events: none;
+/* Hover Image Effect */
+
+.hd-image-wrapper {
+position: relative;
+overflow: hidden;
+width: 100%;
+height: 280px;
+flex-shrink: 0;
 }
 
-.hd-card--visible:hover .hd-image-wrapper img {
-  transform: scale(1.04);
+.hd-img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+object-position: top;
+display: block;
+pointer-events: none;
+transition: opacity 0.4s ease, transform 0.5s ease;
 }
+
+.hd-img-default {
+opacity: 1;
+}
+
+.hd-img-hover {
+position: absolute;
+top: 0;
+left: 0;
+opacity: 0;
+}
+
+.hd-card:hover .hd-img-default {
+opacity: 0;
+}
+
+.hd-card:hover .hd-img-hover {
+opacity: 1;
+}
+
+.hd-card:hover .hd-img {
+transform: scale(1.04);
+}
+
 
 /* ── Discount badge ── */
 /* .hd-badge {
@@ -219,4 +249,138 @@
 @media (max-width: 480px) {
   .hd-card { flex: 0 0 62vw; }
   .hd-image-wrapper { height: 180px; }
+}
+
+
+/* Laptop */
+@media (max-width: 1200px) {
+  .hd-card {
+    flex: 0 0 24vw;
+  }
+
+  .hd-image-wrapper {
+    height: 260px;
+  }
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+  .hd-title h2 {
+    font-size: 24px;
+  }
+
+  .hd-card {
+    flex: 0 0 32vw;
+  }
+
+  .hd-image-wrapper {
+    height: 240px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .hd-section {
+    padding: 20px 0;
+  }
+
+  .hd-title {
+    padding: 0 12px;
+    margin-bottom: 16px;
+  }
+
+  .hd-title h2 {
+    font-size: 20px;
+    letter-spacing: 1px;
+  }
+
+  .hd-title p {
+    font-size: 12px;
+  }
+
+  .hd-scroll-row {
+    gap: 10px;
+    padding: 0 10px;
+  }
+
+  .hd-card {
+    flex: 0 0 55vw;
+    min-width: 160px;
+  }
+
+  .hd-image-wrapper {
+    height: 220px;
+  }
+
+  .hd-info h4 {
+    font-size: 11px;
+    line-height: 1.4;
+  }
+
+  .hd-price {
+    font-size: 12px;
+  }
+
+  .hd-mrp {
+    font-size: 10px;
+  }
+
+  .hd-view-all-btn {
+    padding: 10px 28px;
+    font-size: 12px;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 576px) {
+  .hd-card {
+    flex: 0 0 65vw;
+    min-width: 150px;
+  }
+
+  .hd-image-wrapper {
+    height: 200px;
+  }
+
+  .hd-scroll-row {
+    gap: 8px;
+    padding: 0 8px;
+  }
+
+  .hd-title h2 {
+    font-size: 18px;
+  }
+
+  .hd-title p {
+    font-size: 11px;
+  }
+}
+
+/* Very Small Mobile */
+@media (max-width: 400px) {
+  .hd-card {
+    flex: 0 0 72vw;
+    min-width: 140px;
+  }
+
+  .hd-image-wrapper {
+    height: 180px;
+  }
+
+  .hd-info h4 {
+    font-size: 10px;
+  }
+
+  .hd-price {
+    font-size: 11px;
+  }
+
+  .hd-mrp {
+    font-size: 9px;
+  }
+
+  .hd-view-all-btn {
+    width: 90%;
+    max-width: 280px;
+  }
 }

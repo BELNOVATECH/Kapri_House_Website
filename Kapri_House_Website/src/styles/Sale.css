@@ -230,3 +230,211 @@
   text-align: center;
   padding: 80px 20px;
 }
+
+
+/* =========================
+   TABLET (1024px & below)
+========================= */
+@media (max-width: 1024px) {
+  .sl-page {
+    padding: 20px;
+  }
+
+  .sl-body {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .sl-sidebar {
+    width: 100%;
+  }
+
+  .sl-grid,
+  .sl-grid--full {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+
+  .sl-toolbar {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+}
+
+/* =========================
+   MOBILE (768px & below)
+========================= */
+@media (max-width: 768px) {
+  .sl-page {
+    padding: 12px 14px 40px;
+  }
+
+  .sl-banner {
+    max-height: 180px;
+  }
+
+  .sl-breadcrumb {
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+
+  .sl-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding: 12px 0;
+  }
+
+  .sl-filter-btn {
+    width: 100%;
+  }
+
+  .sl-count {
+    text-align: center;
+  }
+
+  .sl-sort {
+    justify-content: space-between;
+  }
+
+  .sl-sort select {
+    width: 140px;
+  }
+
+@media (max-width: 768px) {
+  .sl-sidebar {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+
+  .sl-filter-group {
+    margin-bottom: 20px;
+  }
+
+  .sl-filter-group h4 {
+    font-size: 12px;
+  }
+
+  .sl-checkbox {
+    font-size: 13px;
+  }
+
+  .sl-color-dot {
+    width: 20px;
+    height: 20px;
+  }
+
+  .sl-size-btn {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+
+  .sl-grid,
+  .sl-grid--full {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .sl-info {
+    padding-top: 8px;
+  }
+
+  .sl-info h4 {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  .sl-stars {
+    font-size: 11px;
+  }
+
+  .sl-price {
+    flex-wrap: wrap;
+    gap: 4px;
+    font-size: 12px;
+  }
+}
+
+/* =========================
+   SMALL MOBILE (480px & below)
+========================= */
+@media (max-width: 480px) {
+  .sl-page {
+    padding: 10px;
+  }
+
+  .sl-banner {
+    max-height: 140px;
+  }
+
+  .sl-grid,
+  .sl-grid--full {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .sl-info h4 {
+    font-size: 12px;
+  }
+
+  .sl-price {
+    font-size: 11px;
+  }
+
+  .sl-current {
+    font-size: 12px;
+  }
+
+  .sl-off {
+    font-size: 10px;
+  }
+
+  .sl-filter-btn {
+    font-size: 12px;
+    padding: 10px;
+  }
+
+  .sl-sort {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .sl-sort select {
+    width: 100%;
+  }
+
+  .sl-no-products {
+    padding: 50px 10px;
+  }
+}
+
+/* =========================
+   EXTRA SMALL DEVICES
+========================= */
+@media (max-width: 360px) {
+  .sl-grid,
+  .sl-grid--full {
+    gap: 8px;
+  }
+
+  .sl-info h4 {
+    font-size: 11px;
+  }
+
+  .sl-price {
+    font-size: 10px;
+  }
+
+  .sl-color-dot {
+    width: 18px;
+    height: 18px;
+  }
+
+  .sl-size-btn {
+    padding: 4px 8px;
+    font-size: 11px;
+  }
+}

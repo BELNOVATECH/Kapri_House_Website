@@ -260,3 +260,234 @@
   .reel-viewer-nav--next { right: 8px; }
   .reel-viewer-close { top: 8px; right: 8px; }
 }
+
+/* =========================
+   LAPTOP (1200px & below)
+========================= */
+@media (max-width: 1200px) {
+  .reels-strip {
+    padding: 18px 20px;
+    gap: 10px;
+  }
+
+  .reel-bubble {
+    width: 170px;
+    height: 270px;
+  }
+
+  .reel-bubble:nth-child(3) {
+    width: 190px;
+    height: 300px;
+  }
+}
+
+/* =========================
+   TABLET (992px & below)
+========================= */
+@media (max-width: 992px) {
+  .reels-strip {
+    padding: 16px;
+    gap: 10px;
+  }
+
+  .reel-bubble {
+    width: 160px;
+    height: 250px;
+  }
+
+  .reel-bubble:nth-child(3) {
+    width: 180px;
+    height: 280px;
+  }
+
+  .reel-bubble-label {
+    height: 56px;
+    padding: 8px 10px;
+  }
+
+  .reel-bubble-ring {
+    height: calc(100% - 56px);
+  }
+
+  .reel-label-thumb {
+    width: 32px;
+    height: 38px;
+  }
+
+  .reel-label-name {
+    font-size: 11px;
+  }
+
+  .reel-label-price {
+    font-size: 12px;
+  }
+}
+
+/* =========================
+   MOBILE (768px & below)
+========================= */
+@media (max-width: 768px) {
+  .reels-strip {
+    scroll-snap-type: x mandatory;
+  }
+
+  .reel-bubble {
+    scroll-snap-align: start;
+  }
+
+
+  .reel-bubble:nth-child(3) {
+    width: 155px;
+    height: 255px;
+  }
+
+  .reel-bubble-label {
+    height: 52px;
+    padding: 6px 8px;
+    gap: 8px;
+  }
+
+  .reel-bubble-ring {
+    height: calc(100% - 52px);
+  }
+
+  .reel-label-thumb {
+    width: 28px;
+    height: 34px;
+  }
+
+  .reel-label-name {
+    font-size: 10px;
+  }
+
+  .reel-label-price {
+    font-size: 11px;
+    gap: 4px;
+  }
+
+  .reel-label-old-price {
+    font-size: 9px;
+  }
+
+  /* Reel Viewer */
+  .reel-viewer-content {
+    width: 95vw;
+    height: 85vh;
+  }
+
+  .reel-viewer-video {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    max-height: 100%;
+  }
+
+  .reel-viewer-nav {
+    width: 40px;
+    height: 40px;
+    font-size: 28px;
+  }
+
+  .reel-viewer-nav--prev {
+    left: 5px;
+  }
+
+  .reel-viewer-nav--next {
+    right: 5px;
+  }
+
+  .reel-viewer-close {
+    top: 10px;
+    right: 10px;
+    font-size: 22px;
+  }
+}
+
+/* =========================
+   SMALL MOBILE (480px & below)
+========================= */
+@media (max-width: 480px) {
+  .reels-strip {
+    padding: 10px 8px;
+    gap: 6px;
+  }
+
+  .reel-bubble {
+    width: 120px;
+    height: 200px;
+  }
+
+  .reel-bubble:nth-child(3) {
+    width: 135px;
+    height: 225px;
+  }
+
+  .reel-bubble-label {
+    height: 48px;
+    padding: 5px 6px;
+  }
+
+  .reel-bubble-ring {
+    height: calc(100% - 48px);
+  }
+
+  .reel-label-thumb {
+    width: 24px;
+    height: 30px;
+  }
+
+  .reel-label-name {
+    font-size: 9px;
+  }
+
+  .reel-label-price {
+    font-size: 10px;
+  }
+
+  .reel-label-old-price {
+    font-size: 8px;
+  }
+
+  .reel-viewer-nav {
+    width: 36px;
+    height: 36px;
+    font-size: 24px;
+  }
+}
+
+/* =========================
+   EXTRA SMALL DEVICES
+========================= */
+@media (max-width: 360px) {
+  .reel-bubble {
+    width: 105px;
+    height: 180px;
+  }
+
+  .reel-bubble:nth-child(3) {
+    width: 120px;
+    height: 200px;
+  }
+
+  .reel-label-name {
+    font-size: 8px;
+  }
+
+  .reel-label-price {
+    font-size: 9px;
+  }
+
+  .reel-label-old-price {
+    display: none;
+  }
+
+  .reel-viewer-nav {
+    width: 32px;
+    height: 32px;
+    font-size: 20px;
+  }
+
+  .reel-viewer-close {
+    font-size: 18px;
+  }
+}

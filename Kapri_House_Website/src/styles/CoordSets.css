@@ -338,3 +338,170 @@
   text-align: center;
   padding: 80px 20px;
 }
+
+/* Laptop */
+@media (max-width: 1200px) {
+  .cs-page {
+    padding: 20px;
+  }
+
+  .cs-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+
+  .cs-img-wrap {
+    height: 300px;
+  }
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+  .cs-page {
+    padding: 16px;
+  }
+
+  .cs-sidebar {
+    width: 220px;
+  }
+
+  .cs-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .cs-img-wrap {
+    height: 280px;
+  }
+
+  .cs-title {
+    font-size: 24px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .cs-page {
+    padding: 12px;
+  }
+
+  .cs-title {
+    font-size: 20px;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+  }
+
+  .cs-toolbar {
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px 0;
+  }
+
+  .cs-count {
+    order: 3;
+    width: 100%;
+    text-align: center;
+  }
+
+  .cs-body {
+    flex-direction: column;
+  }
+
+@media (max-width: 768px) {
+  .cs-sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #e5e5e5;
+    padding-right: 0;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+  .cs-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .cs-img-wrap {
+    height: 240px;
+  }
+
+  .cs-info {
+    padding: 8px;
+  }
+
+  .cs-info h4 {
+    font-size: 11px;
+    line-height: 1.4;
+  }
+
+  .cs-current {
+    font-size: 12px;
+  }
+
+  .cs-mrp,
+  .cs-off {
+    font-size: 10px;
+  }
+
+  .cs-banner {
+    max-height: 180px;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 576px) {
+  .cs-page {
+    padding: 10px;
+  }
+
+  .cs-grid {
+    gap: 10px;
+  }
+
+  .cs-img-wrap {
+    height: 220px;
+  }
+
+  .cs-filter-btn {
+    padding: 8px 14px;
+    font-size: 11px;
+  }
+
+  .cs-sort select {
+    font-size: 11px;
+    padding: 5px 8px;
+  }
+
+  .cs-banner {
+    max-height: 150px;
+  }
+}
+
+/* Very Small Mobile */
+@media (max-width: 400px) {
+  .cs-grid {
+    gap: 8px;
+  }
+
+  .cs-img-wrap {
+    height: 190px;
+  }
+
+  .cs-info h4 {
+    font-size: 10px;
+  }
+
+  .cs-stars {
+    font-size: 10px;
+  }
+
+  .cs-current {
+    font-size: 11px;
+  }
+
+  .cs-banner {
+    max-height: 130px;
+  }
+}

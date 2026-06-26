@@ -1,11 +1,35 @@
-import { useLocation } from "react-router-dom";
 import "../styles/ProductDetails.css";
-
+import { useState } from "react";
+import { useLocation } from "react-router-dom";
 export default function ProductDetails() {
   const { state } = useLocation();
-
+const [selectedSize, setSelectedSize] = useState("");
+const [quantity, setQuantity] = useState(1);
   if (!state) return <h2>No Product Found</h2>;
+const handleAddToCart = () => {
+  if (!selectedSize) {
+    alert("Please select a size");
+    return;
+  }
 
+  const cartItem = {
+    ...state,
+    size: selectedSize,
+    quantity,
+  };
+
+  const cart =
+    JSON.parse(localStorage.getItem("cart")) || [];
+
+  cart.push(cartItem);
+
+  localStorage.setItem(
+    "cart",
+    JSON.stringify(cart)
+  );
+
+  alert("Product added to cart");
+};
   return (
     <div className="product-page">
 
@@ -52,29 +76,60 @@ export default function ProductDetails() {
 
             <h4>Select Size</h4>
 
-            <div className="sizes">
-              <button>XS</button>
-              <button>S</button>
-              <button>M</button>
-              <button>L</button>
-              <button>XL</button>
-            </div>
+<div className="sizes">
+  {["XS", "S", "M", "L", "XL"].map((size) => {
+    const isAvailable = state.sizes?.includes(size);
+
+    return (
+      <button
+        key={size}
+        disabled={!isAvailable}
+        className={`
+          ${selectedSize === size ? "active-size" : ""}
+          ${!isAvailable ? "disabled-size" : ""}
+        `}
+        onClick={() =>
+          isAvailable && setSelectedSize(size)
+        }
+      >
+        {size}
+      </button>
+    );
+  })}
+</div>
+
 
           </div>
 
-          <div className="qty-box">
+<div className="qty-box">
 
-            <button>-</button>
+  <button
+    onClick={() =>
+      quantity > 1 &&
+      setQuantity(quantity - 1)
+    }
+  >
+    -
+  </button>
 
-            <span>1</span>
+  <span>{quantity}</span>
 
-            <button>+</button>
+  <button
+    onClick={() =>
+      setQuantity(quantity + 1)
+    }
+  >
+    +
+  </button>
 
-          </div>
+</div>
 
-          <button className="cart-btn">
-            ADD TO CART
-          </button>
+<button
+  className="cart-btn"
+  onClick={handleAddToCart}
+>
+  ADD TO CART
+</button>
 
           <div className="description">
 

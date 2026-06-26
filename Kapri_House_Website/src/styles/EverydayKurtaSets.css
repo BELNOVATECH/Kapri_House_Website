@@ -4,6 +4,43 @@
   padding: 0;
   background: #fff;
 }
+/* Hover Image Effect */
+.ek-image-wrapper {
+position: relative;
+overflow: hidden;
+}
+
+.ek-img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+object-position: top;
+display: block;
+transition: opacity 0.4s ease, transform 0.5s ease;
+}
+
+.ek-img-default {
+opacity: 1;
+}
+
+.ek-img-hover {
+position: absolute;
+top: 0;
+left: 0;
+opacity: 0;
+}
+
+.ek-card:hover .ek-img-default {
+opacity: 0;
+}
+
+.ek-card:hover .ek-img-hover {
+opacity: 1;
+}
+
+.ek-card:hover .ek-img {
+transform: scale(1.04);
+}
 
 /* ── Title ── */
 .ek-title {
@@ -220,4 +257,137 @@
 @media (max-width: 480px) {
   .ek-card { flex: 0 0 62vw; }
   .ek-image-wrapper { height: 180px; }
+}
+
+/* Laptop */
+@media (max-width: 1200px) {
+  .ek-card {
+    flex: 0 0 24vw;
+  }
+
+  .ek-image-wrapper {
+    height: 260px;
+  }
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+  .ek-title h2 {
+    font-size: 24px;
+  }
+
+  .ek-card {
+    flex: 0 0 32vw;
+  }
+
+  .ek-image-wrapper {
+    height: 240px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .ek-section {
+    padding: 20px 0;
+  }
+
+  .ek-title {
+    padding: 0 12px;
+    margin-bottom: 16px;
+  }
+
+  .ek-title h2 {
+    font-size: 20px;
+    letter-spacing: 1px;
+  }
+
+  .ek-title p {
+    font-size: 12px;
+  }
+
+  .ek-scroll-row {
+    gap: 10px;
+    padding: 0 10px;
+  }
+
+  .ek-card {
+    flex: 0 0 55vw;
+    min-width: 160px;
+  }
+
+  .ek-image-wrapper {
+    height: 220px;
+  }
+
+  .ek-info h4 {
+    font-size: 11px;
+    line-height: 1.4;
+  }
+
+  .ek-price {
+    font-size: 12px;
+  }
+
+  .ek-mrp {
+    font-size: 10px;
+  }
+
+  .ek-view-all-btn {
+    padding: 10px 28px;
+    font-size: 12px;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 576px) {
+  .ek-card {
+    flex: 0 0 65vw;
+    min-width: 150px;
+  }
+
+  .ek-image-wrapper {
+    height: 200px;
+  }
+
+  .ek-scroll-row {
+    gap: 8px;
+    padding: 0 8px;
+  }
+
+  .ek-title h2 {
+    font-size: 18px;
+  }
+
+  .ek-title p {
+    font-size: 11px;
+  }
+}
+
+/* Very Small Mobile */
+@media (max-width: 400px) {
+  .ek-card {
+    flex: 0 0 72vw;
+    min-width: 140px;
+  }
+
+  .ek-image-wrapper {
+    height: 180px;
+  }
+
+  .ek-info h4 {
+    font-size: 10px;
+  }
+
+  .ek-price {
+    font-size: 11px;
+  }
+
+  .ek-mrp {
+    font-size: 9px;
+  }
+
+  .ek-view-all-btn {
+    width: 90%;
+    max-width: 280px;
+  }
 }

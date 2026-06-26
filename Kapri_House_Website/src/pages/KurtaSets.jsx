@@ -197,11 +197,6 @@ const sorted = [...filteredProducts].sort((a, b) => {
       <h1 className="kurta-title">
         KURTA SETS
       </h1>
-
-      <div className="kurta-layout">
-
-
-<aside className="sr-sidebar">
 <div className="sr-toolbar">
   <button
     className="sr-filter-btn"
@@ -210,6 +205,15 @@ const sorted = [...filteredProducts].sort((a, b) => {
     ☰ FILTER
   </button>
 </div>
+      <div className="kurta-layout">
+
+
+
+{filterOpen && (
+  
+  
+<aside className="sr-sidebar">
+
   <div className="sr-filter-group">
     <h4>CATEGORY</h4>
 
@@ -299,50 +303,40 @@ const sorted = [...filteredProducts].sort((a, b) => {
   </div>
 
 </aside>
+)}
         <div className="product-grid">
 
-          {sorted.map((item) => (
-            <div
-              className="kurta-card"
-              key={item.id}
-              onClick={() =>
-                navigate("/product-details", {
-                  state: item,
-                })
-              }
-            >
-              <img
-                src={item.image}
-                alt={item.title}
-              />
+       {sorted.map((item) => {
+  console.log(item);
 
-              <h4>{item.title}</h4>
+  return (
+    <div
+      className="kurta-card"
+      key={item.id}
+      onClick={() =>
+        navigate("/product-details", {
+          state: item,
+        })
+      }
+    >
+      <img src={item.image} alt={item.title} />
 
-              <div className="price">
+      <h4>{item.title}</h4>
 
-                <span className="mrp">
-                  ₹{item.mrp}
-                </span>
-
-                <span className="sale-price">
-                  ₹{item.price}
-                </span>
-
-                {item.discount && (
-                  <span className="discount">
-                    {item.discount}
-                  </span>
-                )}
-
-              </div>
+<div className="price">
+  <span className="mrp">₹{item.mrp}</span>
+  <span className="sale-price">₹{item.price}</span>
+  <span className="offer-badge">{item.discount}</span>
+</div>
+    </div>
+  );
+})}
 
             </div>
-          ))}
 
         </div>
 
       </div>
 
-    </div>
   );
 }

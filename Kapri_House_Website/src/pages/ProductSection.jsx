@@ -3,23 +3,35 @@ import { useNavigate } from "react-router-dom";
 import { useRef, useEffect } from "react";
 
 import p1 from "../assets/p1.jpg";
+import p1Hover from "../assets/p1-hover.jpg";
+
 import p2 from "../assets/p2.jpg";
+import p2Hover from "../assets/p2-hover.jpg";
+
 import p3 from "../assets/p3.jpg";
+import p3Hover from "../assets/p3-hover.jpg";
+
 import p4 from "../assets/p4.jpg";
+import p4Hover from "../assets/p4-hover.jpg";
+
 import p5 from "../assets/p5.jpg";
+import p5Hover from "../assets/p5-hover.jpg";
 import p6 from "../assets/p6.jpg";
+import p6Hover from "../assets/p6-hover.jpg";
 import p7 from "../assets/p7.jpg";
+import p7Hover from "../assets/p7-hover.jpg";
 import p8 from "../assets/p8.jpg";
+import p8Hover from "../assets/p8-hover.jpg";
 
 const products = [
-  { id: 1, image: p1, name: "Noorani Embroidered Kurta Set",       price: "2,499" },
-  { id: 2, image: p2, name: "Black Embroidered Cotton Co-ord Set", price: "2,499" },
-  { id: 3, image: p3, name: "Cotton Slub Co-ord Set",              price: "2,499" },
-  { id: 4, image: p4, name: "Rust Cotton Relaxed Co-ord Set",      price: "2,499" },
-  { id: 5, image: p5, name: "White Cotton Body Co-ord Set",        price: "2,499" },
-  { id: 6, image: p6, name: "Cotton Charm Co-ord Set",             price: "2,499" },
-  { id: 7, image: p7, name: "Mint Green Maxi Dress",               price: "3,500" },
-  { id: 8, image: p8, name: "Fantasy Co-ord Set",                  price: "2,499" },
+  { id: 1, image: p1,   hoverImage: p1Hover,name: "Noorani Embroidered Kurta Set",       price: "2,499" },
+  { id: 2, image: p2,   hoverImage: p2Hover,name: "Black Embroidered Cotton Co-ord Set", price: "2,499" },
+  { id: 3, image: p3,  hoverImage: p3Hover, name: "Cotton Slub Co-ord Set",              price: "2,499" },
+  { id: 4, image: p4,  hoverImage: p4Hover, name: "Rust Cotton Relaxed Co-ord Set",      price: "2,499" },
+  { id: 5, image: p5,  hoverImage: p5Hover, name: "White Cotton Body Co-ord Set",        price: "2,499" },
+  { id: 6, image: p6,  hoverImage: p6Hover, name: "Cotton Charm Co-ord Set",             price: "2,499" },
+  { id: 7, image: p7,  hoverImage: p7Hover, name: "Mint Green Maxi Dress",               price: "3,500" },
+  { id: 8, image: p8,  hoverImage: p8Hover, name: "Fantasy Co-ord Set",                  price: "2,499" },
 ];
 
 export default function ProductSection() {
@@ -94,10 +106,21 @@ export default function ProductSection() {
             ref={(el) => (cardRefs.current[i] = el)}   // ← new
             onClick={() => navigate("/product-details", { state: product })}
           >
-            <div className="product-image-wrapper">
-              <img src={product.image} alt={product.name} />
-              <span className="discount-badge">50% OFF</span>
-            </div>
+<div className="product-image-wrapper">
+  <img
+    src={product.image}
+    alt={product.name}
+    className="product-img product-img-default"
+  />
+
+  <img
+    src={product.hoverImage}
+    alt={product.name}
+    className="product-img product-img-hover"
+  />
+
+  <span className="discount-badge">50% OFF</span>
+</div>
 
             <div className="product-info">
               <div className="rating">★★★★★</div>
@@ -111,7 +134,12 @@ export default function ProductSection() {
         ))}
       </div>
 
-      <button className="view-btn">VIEW ALL</button>
+     <button
+  className="view-btn"
+  onClick={() => navigate("/new-arrivals")}
+>
+  VIEW ALL
+</button>
 
     </section>
   );

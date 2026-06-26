@@ -239,3 +239,214 @@
 .lh-no-products p {
   color: #666;
 }
+
+/* =========================
+   TABLET (1024px & below)
+========================= */
+@media (max-width: 1024px) {
+  .lh-page {
+    padding: 20px;
+  }
+
+  .lh-body {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .lh-sidebar {
+    width: 100%;
+  }
+
+  .lh-grid,
+  .lh-grid--full {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+
+  .lh-toolbar {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+}
+
+/* =========================
+   MOBILE (768px & below)
+========================= */
+@media (max-width: 768px) {
+  .lh-page {
+    padding: 12px 14px 40px;
+  }
+
+  .lh-banner {
+    max-height: 180px;
+  }
+
+  .lh-breadcrumb {
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+
+  .lh-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding: 12px 0;
+  }
+
+  .lh-filter-btn {
+    width: 100%;
+  }
+
+  .lh-count {
+    text-align: center;
+  }
+
+  .lh-sort {
+    justify-content: space-between;
+  }
+
+  .lh-sort select {
+    width: 140px;
+  }
+
+  .lh-sidebar {
+    width: 100%;
+  }
+
+  .lh-filter-group {
+    margin-bottom: 20px;
+  }
+
+  .lh-filter-group h4 {
+    font-size: 12px;
+  }
+
+  .lh-checkbox {
+    font-size: 13px;
+  }
+
+  .lh-color-dot {
+    width: 20px;
+    height: 20px;
+  }
+
+  .lh-size-btn {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+
+  .lh-grid,
+  .lh-grid--full {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .lh-info h4 {
+    font-size: 13px;
+  }
+
+  .lh-price {
+    flex-wrap: wrap;
+    gap: 4px;
+    font-size: 12px;
+  }
+
+  .lh-stars {
+    font-size: 11px;
+  }
+}
+
+/* =========================
+   SMALL MOBILE (480px & below)
+========================= */
+@media (max-width: 480px) {
+  .lh-page {
+    padding: 10px 10px 30px;
+  }
+
+  .lh-banner {
+    max-height: 140px;
+  }
+
+  .lh-grid,
+  .lh-grid--full {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .lh-info {
+    padding-top: 8px;
+  }
+
+  .lh-info h4 {
+    font-size: 12px;
+    line-height: 1.4;
+  }
+
+  .lh-price {
+    font-size: 11px;
+  }
+
+  .lh-current {
+    font-size: 12px;
+  }
+
+  .lh-off {
+    font-size: 10px;
+  }
+
+  .lh-filter-btn {
+    font-size: 12px;
+    padding: 10px;
+  }
+
+  .lh-sort {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .lh-sort select {
+    width: 100%;
+  }
+
+  .lh-no-products {
+    padding: 50px 10px;
+  }
+
+  .lh-no-products h2 {
+    font-size: 22px;
+  }
+
+  .lh-no-products p {
+    font-size: 13px;
+  }
+}
+
+/* =========================
+   EXTRA SMALL DEVICES
+========================= */
+@media (max-width: 360px) {
+  .lh-grid,
+  .lh-grid--full {
+    gap: 8px;
+  }
+
+  .lh-info h4 {
+    font-size: 11px;
+  }
+
+  .lh-price {
+    font-size: 10px;
+  }
+
+  .lh-color-dot {
+    width: 18px;
+    height: 18px;
+  }
+
+  .lh-size-btn {
+    padding: 4px 8px;
+    font-size: 11px;
+  }
+}

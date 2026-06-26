@@ -146,6 +146,7 @@ const colors = [
 const sizes = ["S", "M", "L", "XL"];
 
 export default function SuitSets() {
+  const [filterOpen, setFilterOpen] = useState(false);
     const [selectedColor, setSelectedColor] = useState(null);
 const [selectedSize, setSelectedSize] = useState(null);
 const [selectedCategory, setSelectedCategory] = useState(null);
@@ -192,11 +193,15 @@ const filteredProducts = products.filter((product) => {
         SUIT SETS
       </h1>
 <div className="sr-toolbar">
-  <button className="sr-filter-btn">
-    ☰ FILTER
-  </button>
+<button
+  className="sr-filter-btn"
+  onClick={() => setFilterOpen(!filterOpen)}
+>
+  ☰ FILTER
+</button>
 </div>
       <div className="suit-layout">
+  {filterOpen && (      
 <aside className="sr-sidebar">
 
   <div className="sr-filter-group">
@@ -288,6 +293,7 @@ const filteredProducts = products.filter((product) => {
   </div>
 
 </aside>
+)}
         {/* <FilterSidebar /> */}
 
         <div className="product-grid">
@@ -309,21 +315,19 @@ const filteredProducts = products.filter((product) => {
 
               <h4>{item.title}</h4>
 
-              <div className="price">
+ <div className="price">
+  <span className="mrp">
+    ₹{item.mrp}
+  </span>
 
-                <span className="mrp">
-                  ₹{item.mrp}
-                </span>
+  <span className="sale-price">
+    ₹{item.price}
+  </span>
 
-                <span className="sale-price">
-                  ₹{item.price}
-                </span>
-
-                <span className="discount">
-                  {item.discount}
-                </span>
-
-              </div>
+  <span className="offer-badge">
+    {item.discount}
+  </span>
+</div>
 
             </div>
           ))}
