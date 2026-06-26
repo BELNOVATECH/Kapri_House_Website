@@ -94,53 +94,63 @@ const colors = [
 const sizes = ["S", "M", "L", "XL"];
 export default function NewArrivals() {
   const navigate = useNavigate();
-const [selectedColor, setSelectedColor] = useState(null);
-const [selectedSize, setSelectedSize] = useState(null);
-const [selectedCategory, setSelectedCategory] = useState(null);
-const [priceRange, setPriceRange] = useState(5000);
-const [filterOpen, setFilterOpen] = useState(true);
+  const [selectedColor, setSelectedColor] = useState(null);
+  const [selectedSize, setSelectedSize] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [priceRange, setPriceRange] = useState(5000);
+  // const [filterOpen, setFilterOpen] = useState(true);
   const [sortBy, setSortBy] = useState("featured");
-// const [filterOpen, setFilterOpen] = useState(false);
-useEffect(() => {
-  if (window.innerWidth > 768) {
-    setFilterOpen(true);
-  }
-}, []);
+  const [filterOpen, setFilterOpen] = useState(false);
+  useEffect(() => {
+    if (window.innerWidth > 768) {
+      setFilterOpen(true);
+    }
+  }, []);
 
-const filteredProducts = products.filter((product) => {
-  const categoryMatch =
-    !selectedCategory ||
-    product.category === selectedCategory;
+  const filteredProducts = products.filter((product) => {
+    const categoryMatch =
+      !selectedCategory ||
+      product.category === selectedCategory;
 
-  const colorMatch =
-    !selectedColor ||
-    product.color === selectedColor;
+    const colorMatch =
+      !selectedColor ||
+      product.color === selectedColor;
 
-  const sizeMatch =
-    !selectedSize ||
-    product.sizes.includes(selectedSize);
+    const sizeMatch =
+      !selectedSize ||
+      product.sizes.includes(selectedSize);
 
-  const priceMatch =
-    product.price <= priceRange;
-  return (
-    categoryMatch &&
-    colorMatch &&
-    sizeMatch &&
-    priceMatch
-  );
-});
+    const priceMatch =
+      product.price <= priceRange;
+    return (
+      categoryMatch &&
+      colorMatch &&
+      sizeMatch &&
+      priceMatch
+    );
+  });
 
-const sortedProducts = [...filteredProducts].sort((a, b) => {
-  if (sortBy === "price-asc") return a.price - b.price;
+  useEffect(() => {
+    if (window.innerWidth <= 768) {
+      document.body.style.overflow = filterOpen ? "hidden" : "auto";
+    }
 
-  if (sortBy === "price-desc") return b.price - a.price;
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [filterOpen]);
 
-  if (sortBy === "discount")
-    return parseInt(b.discount || "0") -
-           parseInt(a.discount || "0");
+  const sortedProducts = [...filteredProducts].sort((a, b) => {
+    if (sortBy === "price-asc") return a.price - b.price;
 
-  return a.id - b.id;
-});
+    if (sortBy === "price-desc") return b.price - a.price;
+
+    if (sortBy === "discount")
+      return parseInt(b.discount || "0") -
+        parseInt(a.discount || "0");
+
+    return a.id - b.id;
+  });
 
   return (
     <div className="arrivals-page">
@@ -153,26 +163,19 @@ const sortedProducts = [...filteredProducts].sort((a, b) => {
       <div className="breadcrumb">
         Home / New Arrivals
       </div>
-
+{/* 
       <h1 className="arrival-title">
         NEW ARRIVALS
-      </h1>
+      </h1> */}
 
-<div className="arrival-toolbar">
+   <div className="arrival-toolbar">
 
   <button
     className="filter-btn"
-    onClick={() => setFilterOpen(!filterOpen)}
+    onClick={() => setFilterOpen(true)}
   >
-    ☰ FILTER
+    ☰ Filter
   </button>
-
-  <span className="arrival-count">
-    {sortedProducts.length} Products
-  </span>
-
-  <div className="arrival-sort">
-    <label>Sort by</label>
 
     <select
       value={sortBy}
@@ -184,119 +187,139 @@ const sortedProducts = [...filteredProducts].sort((a, b) => {
       <option value="discount">Best Discount</option>
     </select>
 
+
+  <div className="arrival-count">
+    {sortedProducts.length} Products
   </div>
 
 </div>
-
       <div className="arrival-layout">
         {/* <FilterSidebar /> */}
-{filterOpen && (
-  <aside className="filter-sidebar">
-
-    <div className="filter-block">
-      <h4>CATEGORY</h4>
-
-      {categories.map((cat) => (
-        <label key={cat}>
-          <input
-            type="checkbox"
-            checked={selectedCategory === cat}
-            onChange={() =>
-              setSelectedCategory(
-                selectedCategory === cat
-                  ? null
-                  : cat
-              )
-            }
-          />
-          {cat}
-        </label>
-      ))}
-    </div>
-
-    <div className="filter-block">
-      <h4>PRICE</h4>
-
-      <input
-        type="range"
-        min="0"
-        max="5000"
-        value={priceRange}
-        onChange={(e) =>
-          setPriceRange(
-            Number(e.target.value)
-          )
-        }
-      />
-
-      <div className="price-labels">
-        <span>₹0</span>
-        <span>₹{priceRange}</span>
-      </div>
-    </div>
-
-    <div className="filter-block">
-      <h4>COLOR</h4>
-
-      <div className="color-list">
-
-        {colors.map((color) => (
-          <span
-            key={color}
-            style={{
-              background: color,
-              border:
-                color === "#ffffff"
-                  ? "1px solid #ccc"
-                  : "none",
-              outline:
-                selectedColor === color
-                  ? "2px solid black"
-                  : "none",
-            }}
-            onClick={() =>
-              setSelectedColor(
-                selectedColor === color
-                  ? null
-                  : color
-              )
-            }
-          />
-        ))}
-
-      </div>
-    </div>
-
-    <div className="filter-block">
-      <h4>SIZE</h4>
-
-      <div className="size-list">
-
-        {sizes.map((size) => (
-          <button
-            key={size}
-            className={`size-btn ${
-              selectedSize === size
-                ? "active"
-                : ""
+        <div
+          className={`filter-overlay ${filterOpen ? "active" : ""
             }`}
-            onClick={() =>
-              setSelectedSize(
-                selectedSize === size
-                  ? null
-                  : size
-              )
-            }
-          >
-            {size}
-          </button>
-        ))}
+          onClick={() => setFilterOpen(false)}
+        />
 
-      </div>
-    </div>
+        <aside
+          className={`filter-sidebar ${filterOpen ? "open" : ""
+            }`}
+        >
 
-  </aside>
-)}
+          <div className="filter-header">
+            <h3>Filters</h3>
+
+            <button
+              className="close-filter"
+              onClick={() => setFilterOpen(false)}
+            >
+              ✕
+            </button>
+          </div>
+
+          <div className="filter-block">
+            <h4>CATEGORY</h4>
+
+            {categories.map((cat) => (
+              <label key={cat}>
+                <input
+                  type="checkbox"
+                  checked={selectedCategory === cat}
+                  onChange={() =>
+                    setSelectedCategory(
+                      selectedCategory === cat
+                        ? null
+                        : cat
+                    )
+                  }
+                />
+                {cat}
+              </label>
+            ))}
+          </div>
+
+          <div className="filter-block">
+            <h4>PRICE</h4>
+
+            <input
+              type="range"
+              min="0"
+              max="5000"
+              value={priceRange}
+              onChange={(e) =>
+                setPriceRange(
+                  Number(e.target.value)
+                )
+              }
+            />
+
+            <div className="price-labels">
+              <span>₹0</span>
+              <span>₹{priceRange}</span>
+            </div>
+          </div>
+
+          <div className="filter-block">
+            <h4>COLOR</h4>
+
+            <div className="color-list">
+
+              {colors.map((color) => (
+                <span
+                  key={color}
+                  style={{
+                    background: color,
+                    border:
+                      color === "#ffffff"
+                        ? "1px solid #ccc"
+                        : "none",
+                    outline:
+                      selectedColor === color
+                        ? "2px solid black"
+                        : "none",
+                  }}
+                  onClick={() =>
+                    setSelectedColor(
+                      selectedColor === color
+                        ? null
+                        : color
+                    )
+                  }
+                />
+              ))}
+
+            </div>
+          </div>
+
+          <div className="filter-block">
+            <h4>SIZE</h4>
+
+            <div className="size-list">
+
+              {sizes.map((size) => (
+                <button
+                  key={size}
+                  className={`size-btn ${selectedSize === size
+                      ? "active"
+                      : ""
+                    }`}
+                  onClick={() =>
+                    setSelectedSize(
+                      selectedSize === size
+                        ? null
+                        : size
+                    )
+                  }
+                >
+                  {size}
+                </button>
+              ))}
+
+            </div>
+          </div>
+
+        </aside>
+
         <div className="product-grid">
           {sortedProducts.length === 0 ? (
             <div className="no-products">

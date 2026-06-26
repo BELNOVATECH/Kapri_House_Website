@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../styles/Header.css";
 
 import logo from "../assets/header-logo.jpg";
@@ -11,37 +12,35 @@ import {
 } from "react-icons/fi";
 
 export default function Header() {
-  const [showSearch, setShowSearch] =
-    useState(false);
+  const [showSearch, setShowSearch] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <header className="header">
-
       {/* LEFT LOGO + NAME */}
 
-      <div className="brand-section">
-
+      <div
+        className="brand-section"
+        onClick={() => navigate("/")}
+        style={{ cursor: "pointer" }}
+      >
         <img
           src={logo}
           alt="Kapri House"
           className="header-logo"
         />
 
-      <h2 className="brand-name">
-  Kap<span>ri</span> House
-</h2>
-
+        <h2 className="brand-name">
+          Kap<span>ri</span> House
+        </h2>
       </div>
 
       {/* RIGHT ICONS */}
 
       <div className="header-icons">
-
         <button
           className="icon-btn"
-          onClick={() =>
-            setShowSearch(!showSearch)
-          }
+          onClick={() => setShowSearch(!showSearch)}
         >
           <FiSearch />
         </button>
@@ -52,20 +51,14 @@ export default function Header() {
 
         <button className="icon-btn carty-btn">
           <FiShoppingCart />
-
-          <span className="cart-count">
-            3
-          </span>
-
+          <span className="cart-count">3</span>
         </button>
-
       </div>
 
-      {/* SEARCH */}
+      {/* SEARCH POPUP */}
 
       {showSearch && (
         <div className="search-popup">
-
           <input
             type="text"
             placeholder="Search products..."
@@ -74,16 +67,12 @@ export default function Header() {
 
           <button
             className="close-search"
-            onClick={() =>
-              setShowSearch(false)
-            }
+            onClick={() => setShowSearch(false)}
           >
             <FiX />
           </button>
-
         </div>
       )}
-
     </header>
   );
 }
