@@ -124,13 +124,18 @@ const handleAddToCart = () => {
 
 </div>
 
-<button
-  className="cart-btn"
-  onClick={handleAddToCart}
->
-  ADD TO CART
-</button>
+<div className="cart-row">
+  <button
+    className="cart-btn"
+    onClick={handleAddToCart}
+  >
+    ADD TO CART
+  </button>
 
+  <span className="coming-soon">
+    Stay Tuned | Coming Soon
+  </span>
+</div>
           <div className="description">
 
             <h3>Description</h3>
