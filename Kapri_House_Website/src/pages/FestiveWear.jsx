@@ -101,11 +101,24 @@ export default function FestiveWear() {
         onMouseMove={handleMouseMove}
       >
         {products.map((item, i) => (
-          <div
-            className="fw-card"
-            key={item.id}
-            ref={(el) => (cardRefs.current[i] = el)}
-          >
+<div
+  className="fw-card"
+  key={item.id}
+  ref={(el) => (cardRefs.current[i] = el)}
+  onClick={() =>
+    navigate("/product-details", {
+      state: {
+        id: item.id,
+        image: item.image,
+        hoverImage: item.hoverImage,
+        name: item.title,
+        price: item.price,
+        mrp: item.mrp,
+        discount: item.discount,
+      },
+    })
+  }
+>
 <div className="fw-image-wrapper">
   <img
     src={item.image}

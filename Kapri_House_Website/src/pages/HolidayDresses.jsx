@@ -92,11 +92,24 @@ export default function HolidayDresses() {
         onMouseMove={handleMouseMove}
       >
         {products.map((item, i) => (
-          <div
-            className="hd-card"
-            key={item.id}
-            ref={(el) => (cardRefs.current[i] = el)}
-          >
+<div
+  className="hd-card"
+  key={item.id}
+  ref={(el) => (cardRefs.current[i] = el)}
+  onClick={() =>
+    navigate("/product-details", {
+      state: {
+        id: item.id,
+        image: item.image,
+        hoverImage: item.hoverImage,
+        name: item.title,
+        price: item.price,
+        mrp: item.mrp,
+        discount: item.discount,
+      },
+    })
+  }
+>
 <div className="hd-image-wrapper">
   <img
     src={item.image}

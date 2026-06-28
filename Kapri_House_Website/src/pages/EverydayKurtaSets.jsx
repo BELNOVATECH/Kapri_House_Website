@@ -93,11 +93,24 @@ const navigate = useNavigate();
         onMouseMove={handleMouseMove}
       >
         {products.map((item, i) => (
-          <div
-            className="ek-card"
-            key={item.id}
-            ref={(el) => (cardRefs.current[i] = el)}
-          >
+<div
+  className="ek-card"
+  key={item.id}
+  ref={(el) => (cardRefs.current[i] = el)}
+  onClick={() =>
+    navigate("/product-details", {
+      state: {
+        id: item.id,
+        image: item.image,
+        hoverImage: item.hoverImage,
+        name: item.title,
+        price: item.price,
+        mrp: item.mrp,
+        discount: item.discount,
+      },
+    })
+  }
+>
 <div className="ek-image-wrapper">
   <img
     src={item.image}
