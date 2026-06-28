@@ -10,7 +10,7 @@ import {
   FaMapMarkerAlt,
   FaClock,
 } from "react-icons/fa";
-
+import { Link } from "react-router-dom";
 export default function Footer() {
   return (
     <>
@@ -23,19 +23,17 @@ export default function Footer() {
 
         <div className="footer-container">
 
-          <div className="footer-column">
-            <h3>CATEGORIES</h3>
-            <a href="/">New Arrivals</a>
-            <a href="/">Men's Wear</a>
-            <a href="/">Dresses</a>
-            <a href="/">Kurta & Suit Sets</a>
-            <a href="/">Lehenga Sets</a>
-            <a href="/">Sarees</a>
-            <a href="/">Nightwear</a>
-            <a href="/">Bed Linens</a>
-            <a href="/">Shoes</a>
-            <a href="/">Sale</a>
-          </div>
+<div className="footer-column">
+  <h3>CATEGORIES</h3>
+
+  <Link to="/new-arrivals">New Arrivals</Link>
+  <Link to="/menswear">Men's Wear</Link>
+  <Link to="/dresses">Dresses</Link>
+  <Link to="/kurta-sets">Kurta & Suit Sets</Link>
+  <Link to="/lehengas">Lehenga Sets</Link>
+  <Link to="/sarees">Sarees</Link>
+  <Link to="/sale">Sale</Link>
+</div>
 
           <div className="footer-column">
             <h3>DISCOVER</h3>
