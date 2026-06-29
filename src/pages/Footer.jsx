@@ -63,12 +63,13 @@ export default function Footer() {
             <p><FaClock /> MON-FRI - 9.00 AM TO 5.00 PM (IST)</p>
             <p><FaPhoneAlt /> +91 9999999999</p>
             <p><FaPhoneAlt /> +91 9898989898</p>
-            <p>
-              <FaMapMarkerAlt />
-              KAPRIHOUSE PRIVATE LIMITED, RIICO INDUSTRIAL AREA,
-              SITAPURA, JHARKHAND, RAJASTHAN – 302022
-            </p>
-            <p>CIN: U13921RJ2025PTC109683</p>
+            
+             <p>
+  <FaMapMarkerAlt />
+  KAPRIHOUSE PRIVATE LIMITED,<br />
+  Ranchi, Jharkhand – 834001
+</p>
+            <p>CIN: xxxxxxxxxxxxxxx</p>
           </div>
 
           <div className="footer-column">
@@ -85,7 +86,7 @@ export default function Footer() {
         </div>
 
         <div className="footer-bottom">
-          © 2026 BUNAI . ALL RIGHTS RESERVED.
+          © 2026 KAPRIHOUSE . ALL RIGHTS RESERVED.
         </div>
 
       </footer>
