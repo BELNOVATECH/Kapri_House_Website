@@ -1,0 +1,76 @@
+/* ===========================
+   NEW ARRIVALS BANNER
+=========================== */
+
+.new-arrivals-banner{
+    position:relative;
+    width:100%;
+    overflow:hidden;
+    margin:0;
+    padding:0;
+}
+
+.new-arrivals-img{
+    display:block;
+    width:100%;
+    height:auto;
+}
+
+.new-arrivals-content{
+    position:absolute;
+    inset:0;
+}
+
+.new-arrivals-cta{
+    position:absolute;
+    left:71.5%;
+    top:82%;
+    transform:translate(-50%,-50%);
+    width:10%;
+    min-width:110px;
+    height:48px;
+    border:none;
+    background:transparent;
+    cursor:pointer;
+    font-size:0;
+}
+
+/* Tablet */
+@media(max-width:1024px){
+
+.new-arrivals-cta{
+    left:70%;
+    width:14%;
+}
+
+}
+
+/* Mobile */
+@media(max-width:768px){
+
+.new-arrivals-banner{
+    aspect-ratio:auto;
+}
+
+.new-arrivals-img{
+    width:100%;
+    height:auto;
+}
+
+.new-arrivals-cta{
+    left:50%;
+    top:82%;
+    width:45%;
+    min-width:140px;
+}
+
+}
+
+/* Small Mobile */
+@media(max-width:480px){
+
+.new-arrivals-cta{
+    width:55%;
+}
+
+}
