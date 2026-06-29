@@ -75,7 +75,6 @@ const handleAddToCart = () => {
           <div className="size-section">
 
             <h4>Select Size</h4>
-
 <div className="sizes">
   {["XS", "S", "M", "L", "XL"].map((size) => {
     const isAvailable = state.sizes?.includes(size);
@@ -83,14 +82,11 @@ const handleAddToCart = () => {
     return (
       <button
         key={size}
-        disabled={!isAvailable}
+        disabled
         className={`
           ${selectedSize === size ? "active-size" : ""}
           ${!isAvailable ? "disabled-size" : ""}
         `}
-        onClick={() =>
-          isAvailable && setSelectedSize(size)
-        }
       >
         {size}
       </button>
@@ -98,36 +94,24 @@ const handleAddToCart = () => {
   })}
 </div>
 
-
           </div>
-
 <div className="qty-box">
 
-  <button
-    onClick={() =>
-      quantity > 1 &&
-      setQuantity(quantity - 1)
-    }
-  >
+  <button disabled>
     -
   </button>
 
   <span>{quantity}</span>
 
-  <button
-    onClick={() =>
-      setQuantity(quantity + 1)
-    }
-  >
+  <button disabled>
     +
   </button>
 
 </div>
-
 <div className="cart-row">
   <button
     className="cart-btn"
-    onClick={handleAddToCart}
+    disabled
   >
     ADD TO CART
   </button>
