@@ -1,0 +1,393 @@
+/* ── Section ── */
+.ek-section {
+  width: 100%;
+  padding: 0;
+  background: #fff;
+}
+/* Hover Image Effect */
+.ek-image-wrapper {
+position: relative;
+overflow: hidden;
+}
+
+.ek-img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+object-position: top;
+display: block;
+transition: opacity 0.4s ease, transform 0.5s ease;
+}
+
+.ek-img-default {
+opacity: 1;
+}
+
+.ek-img-hover {
+position: absolute;
+top: 0;
+left: 0;
+opacity: 0;
+}
+
+.ek-card:hover .ek-img-default {
+opacity: 0;
+}
+
+.ek-card:hover .ek-img-hover {
+opacity: 1;
+}
+
+.ek-card:hover .ek-img {
+transform: scale(1.04);
+}
+
+/* ── Title ── */
+.ek-title {
+  text-align: center;
+  padding: 20px 4% 0;
+  margin-bottom: 20px;
+}
+
+.ek-title h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #6b0f1a;
+  margin-bottom: 8px;
+  letter-spacing: 2px;
+}
+
+.ek-title p {
+  color: #999;
+  font-size: 14px;
+  font-style: italic;
+}
+
+/* ── Horizontal scroll row ── */
+.ek-scroll-row {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  cursor: grab;
+  -webkit-overflow-scrolling: touch;
+  padding: 0 12px;
+  align-items: flex-start;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.ek-scroll-row::-webkit-scrollbar { display: none; }
+
+.ek-scroll-row.dragging {
+  cursor: grabbing;
+  scroll-behavior: auto;
+}
+
+/* ── Card ── */
+.ek-card {
+  position: relative;
+  flex: 0 0 22vw;
+  min-width: 180px;
+  background: #fff;
+  border: none;
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+
+  /* slide-up start state */
+  opacity: 0;
+  transform: translateY(60px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease,
+    box-shadow 0.3s ease;
+
+  box-shadow:
+    0 2px 8px rgba(171, 41, 57, 0.1),
+    0 1px 4px rgba(105, 70, 5, 0.08);
+}
+
+/* animated in */
+.ek-card--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ek-card--visible:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 8px 24px rgba(163, 137, 140, 0.2),
+    0 4px 12px rgba(150, 100, 5, 0.15);
+}
+
+/* ── Image ── */
+.ek-image-wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 280px;
+  flex-shrink: 0;
+}
+
+.ek-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+  transition: transform 0.5s ease;
+  pointer-events: none;
+}
+
+.ek-card--visible:hover .ek-image-wrapper img {
+  transform: scale(1.04);
+}
+
+/* ── Discount badge ── */
+/* .ek-badge {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  z-index: 20;
+  background: rgba(173, 67, 80, 0.85);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 4px;
+  letter-spacing: 0.5px;
+} */
+
+/* ── Info ── */
+.ek-info {
+  padding: 8px 0 0 0;
+  margin: 0;
+}
+
+.ek-stars {
+  color: #b8860b;
+  font-size: 11px;
+  letter-spacing: 1px;
+  margin-bottom: 3px;
+  line-height: 1;
+}
+
+.ek-info h4 {
+  margin: 0 0 4px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #1a1a1a;
+  line-height: 1.3;
+  text-transform: uppercase;
+  letter-spacing: 0.2px;
+}
+
+.ek-price {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1a1a1a;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-wrap: wrap;
+  margin: 0;
+}
+
+.ek-mrp {
+  text-decoration: line-through;
+  color: #bbb;
+  font-size: 11px;
+  font-weight: 400;
+}
+
+/* ── View All ── */
+.ek-view-all-wrap {
+  text-align: center;
+  margin-top: 30px;
+  padding-bottom: 30px;
+}
+
+.ek-view-all-btn {
+  display: block;
+  margin: 0 auto;
+  background: linear-gradient(135deg, #6b0f1a 0%, #b8860b 100%);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 38px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  transition: 0.3s;
+}
+
+.ek-view-all-btn:hover {
+  opacity: 0.88;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(107, 15, 26, 0.3);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1200px) {
+  .ek-card { flex: 0 0 24vw; }
+  .ek-image-wrapper { height: 260px; }
+}
+
+@media (max-width: 992px) {
+  .ek-card { flex: 0 0 32vw; }
+  .ek-image-wrapper { height: 240px; }
+}
+
+@media (max-width: 768px) {
+  .ek-section { padding: 30px 0; }
+  .ek-scroll-row { gap: 8px; padding: 0 8px; }
+  .ek-card { flex: 0 0 46vw; min-width: 150px; }
+  .ek-image-wrapper { height: 200px; }
+  .ek-info h4 { font-size: 11px; }
+  .ek-price { font-size: 12px; }
+}
+
+@media (max-width: 480px) {
+  .ek-card { flex: 0 0 62vw; }
+  .ek-image-wrapper { height: 180px; }
+}
+
+/* Laptop */
+@media (max-width: 1200px) {
+  .ek-card {
+    flex: 0 0 24vw;
+  }
+
+  .ek-image-wrapper {
+    height: 260px;
+  }
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+  .ek-title h2 {
+    font-size: 24px;
+  }
+
+  .ek-card {
+    flex: 0 0 32vw;
+  }
+
+  .ek-image-wrapper {
+    height: 240px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .ek-section {
+    padding: 20px 0;
+  }
+
+  .ek-title {
+    padding: 0 12px;
+    margin-bottom: 16px;
+  }
+
+  .ek-title h2 {
+    font-size: 20px;
+    letter-spacing: 1px;
+  }
+
+  .ek-title p {
+    font-size: 12px;
+  }
+
+  .ek-scroll-row {
+    gap: 10px;
+    padding: 0 10px;
+  }
+
+  .ek-card {
+    flex: 0 0 55vw;
+    min-width: 160px;
+  }
+
+  .ek-image-wrapper {
+    height: 220px;
+  }
+
+  .ek-info h4 {
+    font-size: 11px;
+    line-height: 1.4;
+  }
+
+  .ek-price {
+    font-size: 12px;
+  }
+
+  .ek-mrp {
+    font-size: 10px;
+  }
+
+  .ek-view-all-btn {
+    padding: 10px 28px;
+    font-size: 12px;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 576px) {
+  .ek-card {
+    flex: 0 0 65vw;
+    min-width: 150px;
+  }
+
+  .ek-image-wrapper {
+    height: 200px;
+  }
+
+  .ek-scroll-row {
+    gap: 8px;
+    padding: 0 8px;
+  }
+
+  .ek-title h2 {
+    font-size: 18px;
+  }
+
+  .ek-title p {
+    font-size: 11px;
+  }
+}
+
+/* Very Small Mobile */
+@media (max-width: 400px) {
+  .ek-card {
+    flex: 0 0 72vw;
+    min-width: 140px;
+  }
+
+  .ek-image-wrapper {
+    height: 180px;
+  }
+
+  .ek-info h4 {
+    font-size: 10px;
+  }
+
+  .ek-price {
+    font-size: 11px;
+  }
+
+  .ek-mrp {
+    font-size: 9px;
+  }
+
+  .ek-view-all-btn {
+    width: 90%;
+    max-width: 280px;
+  }
+}

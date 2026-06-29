@@ -1,0 +1,248 @@
+.kurta-page {
+  width: 100%;
+}
+
+.kurta-banner {
+  width: 100%;
+  height: 370px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+.offer-badge {
+  color: #2e7d32 !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  display: inline-block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.breadcrumb {
+  padding: 10px 20px;
+  font-size: 13px;
+  color: #888;
+}
+
+.kurta-title {
+  text-align: center;
+  font-size: 22px;
+  letter-spacing: 2px;
+  margin: 10px 0 20px;
+}
+
+.kurta-layout {
+  display: flex;
+  gap: 20px;
+  padding: 0 20px 40px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  flex: 1;
+}
+
+.kurta-card {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.kurta-card:hover {
+  transform: translateY(-4px);
+}
+
+.kurta-card img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  display: block;
+}
+
+.kurta-card h4 {
+  margin: 8px 0 6px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* Rating */
+.rating {
+  color: #d4a017;
+  font-size: 14px;
+  margin-top: 8px;
+  letter-spacing: 1px;
+}
+
+/* Price Section */
+.price {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+  flex-wrap: nowrap;
+}
+
+.mrp {
+  text-decoration: line-through;
+  color: #9b9b9b;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.sale-price {
+  color: #e53935;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.discount {
+  color: #2e7d32;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* Laptop */
+@media (max-width: 1200px) {
+  .kurta-banner {
+    height: 300px;
+  }
+
+  .product-grid {
+    gap: 20px;
+  }
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+  .kurta-layout {
+    gap: 16px;
+    padding: 0 16px 30px;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .kurta-banner {
+    height: 240px;
+  }
+
+  .kurta-title {
+    font-size: 20px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .breadcrumb {
+    padding: 8px 12px;
+    font-size: 11px;
+  }
+
+  .kurta-layout {
+    flex-direction: column;
+    padding: 0 12px 24px;
+    gap: 12px;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .kurta-banner {
+    height: 180px;
+  }
+
+  .kurta-title {
+    font-size: 18px;
+    letter-spacing: 1px;
+    margin: 12px 0 16px;
+  }
+
+  .kurta-card h4 {
+    font-size: 12px;
+  }
+
+  .rating {
+    font-size: 12px;
+  }
+
+  .price {
+    gap: 4px;
+    flex-wrap: nowrap;
+  }
+
+  .mrp {
+    font-size: 11px;
+  }
+
+  .sale-price {
+    font-size: 14px;
+  }
+
+  .discount {
+    font-size: 11px;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 576px) {
+  .product-grid {
+    gap: 10px;
+  }
+
+  .kurta-banner {
+    height: 150px;
+  }
+
+  .kurta-title {
+    font-size: 16px;
+  }
+
+  .kurta-card h4 {
+    font-size: 11px;
+  }
+
+  .mrp {
+    font-size: 10px;
+  }
+
+  .sale-price {
+    font-size: 13px;
+  }
+
+  .discount {
+    font-size: 10px;
+  }
+}
+
+/* Very Small Mobile */
+@media (max-width: 400px) {
+  .product-grid {
+    gap: 8px;
+  }
+
+  .kurta-banner {
+    height: 130px;
+  }
+
+  .kurta-card h4 {
+    font-size: 10px;
+  }
+
+  .mrp {
+    font-size: 9px;
+  }
+
+  .sale-price {
+    font-size: 12px;
+  }
+
+  .discount {
+    font-size: 9px;
+  }
+}
