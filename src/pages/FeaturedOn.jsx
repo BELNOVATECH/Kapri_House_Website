@@ -124,7 +124,7 @@ export default function FeaturedOn() {
           Looking for ethnic wear online
           that feels good and looks even
           better? You're in the right place.
-          At Bunai, we bring together
+          At Kapri, we bring together
           traditional styles and modern fits.
         </p>
 
@@ -155,9 +155,6 @@ export default function FeaturedOn() {
           elegance and festive fashion.
         </p>
 
-        <span className="read-more">
-          Read more
-        </span>
 
       </section>
 
