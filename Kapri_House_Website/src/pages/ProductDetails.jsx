@@ -448,7 +448,7 @@ export default function ProductDetails() {
                   </li>
                 ))}
               </ul>
-              <button type="button" className="mtm-video-btn">▶ WATCH VIDEO GUIDE</button>
+              {/* <button type="button" className="mtm-video-btn">▶ WATCH VIDEO GUIDE</button> */}
             </>
           ) : (
             <ul className="custom-size-guide-list">
@@ -496,7 +496,7 @@ export default function ProductDetails() {
                 <p className="mtm-order-price">₹{state.price}</p>
               </div>
             </div>
-            <button type="button" className="custom-size-save-btn">PROCEED TO CHECKOUT</button>
+            {/* <button type="button" className="custom-size-save-btn">PROCEED TO CHECKOUT</button> */}
           </div>
         </div>
       </div>
