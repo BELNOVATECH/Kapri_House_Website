@@ -601,3 +601,468 @@
   from { opacity: 0; transform: scale(0.98); }
   to   { opacity: 1; transform: scale(1); }
 }
+
+/* =========================
+   NEW: SIZE CHART (added — does not modify anything above)
+========================= */
+
+.size-chart-link {
+  margin-top: 12px;
+  background: none;
+  border: none;
+  color: #d8707d;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0;
+}
+
+.size-chart-link:hover {
+  color: #c95f6c;
+}
+
+.size-chart-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.size-chart-modal {
+  background: #fff;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 560px;
+  max-height: 85vh;
+  overflow-y: auto;
+  padding: 24px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+  animation: fadeIn 0.25s ease;
+}
+
+.size-chart-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.size-chart-header h3 {
+  font-size: 19px;
+  font-weight: 700;
+  color: #111;
+  margin: 0;
+}
+
+.size-chart-close {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: #555;
+  line-height: 1;
+}
+
+.size-chart-close:hover {
+  color: #111;
+}
+
+.size-chart-subtitle {
+  font-size: 13px;
+  color: #777;
+  margin-bottom: 16px;
+}
+
+.size-chart-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 16px;
+}
+
+.size-chart-table th,
+.size-chart-table td {
+  border: 1px solid #eee;
+  padding: 10px 8px;
+  text-align: center;
+  font-size: 13px;
+  color: #333;
+}
+
+.size-chart-table th {
+  background: #faf2f3;
+  font-weight: 700;
+  color: #111;
+}
+
+.size-chart-table tr:nth-child(even) td {
+  background: #fafafa;
+}
+
+.size-chart-note {
+  font-size: 12.5px;
+  color: #777;
+  line-height: 1.6;
+}
+
+@media (max-width: 480px) {
+  .size-chart-modal {
+    padding: 18px;
+  }
+
+  .size-chart-table th,
+  .size-chart-table td {
+    padding: 8px 5px;
+    font-size: 11.5px;
+  }
+
+  .size-chart-header h3 {
+    font-size: 17px;
+  }
+}
+
+/* =========================
+   NEW: VIEW ALL ANGLES MODAL (added — does not modify anything above)
+========================= */
+
+.view-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.view-modal {
+  background: #fff;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 900px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 24px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+  animation: fadeIn 0.25s ease;
+}
+
+.view-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.view-modal-header h3 {
+  font-size: 19px;
+  font-weight: 700;
+  color: #111;
+  margin: 0;
+}
+
+.view-modal-body {
+  display: flex;
+  gap: 20px;
+}
+
+.view-modal-large {
+  position: relative;
+  flex: 1;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #f7f7f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 420px;
+}
+
+.view-modal-large img {
+  width: 100%;
+  height: 100%;
+  max-height: 540px;
+  object-fit: cover;
+}
+
+.view-modal-angle-tag {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  background: rgba(0, 0, 0, 0.65);
+  color: #fff;
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 20px;
+}
+
+.view-modal-thumbs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 130px;
+  flex-shrink: 0;
+}
+
+.view-modal-thumb {
+  border: 2px solid #eee;
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: 0.2s ease;
+  text-align: center;
+}
+
+.view-modal-thumb img {
+  width: 100%;
+  height: 90px;
+  object-fit: cover;
+  display: block;
+}
+
+.view-modal-thumb span {
+  display: block;
+  font-size: 11.5px;
+  color: #555;
+  padding: 4px 0;
+  background: #fafafa;
+}
+
+.view-modal-thumb:hover {
+  border-color: #d8707d;
+}
+
+.active-view-thumb {
+  border-color: #d8707d !important;
+}
+
+.active-view-thumb span {
+  color: #d8707d;
+  font-weight: 600;
+}
+
+@media (max-width: 720px) {
+  .view-modal-body {
+    flex-direction: column;
+  }
+
+  .view-modal-thumbs {
+    flex-direction: row;
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .view-modal-thumb {
+    min-width: 90px;
+  }
+
+  .view-modal-large {
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .view-modal {
+    padding: 16px;
+  }
+
+  .view-modal-header h3 {
+    font-size: 16px;
+  }
+}
+
+/* =========================
+   NEW: CUSTOM SIZE / MADE-TO-MEASURE MODAL (added — does not modify anything above)
+========================= */
+
+.custom-size-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.custom-size-modal {
+  background: #fff;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 920px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 24px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+  animation: fadeIn 0.25s ease;
+}
+
+.custom-size-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 16px;
+  margin-bottom: 18px;
+}
+
+.custom-size-header h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #111;
+  margin: 0 0 4px 0;
+}
+
+.custom-size-header p {
+  font-size: 13px;
+  color: #777;
+  margin: 0;
+}
+
+.custom-size-body {
+  display: flex;
+  gap: 24px;
+}
+
+.custom-size-form {
+  flex: 1.2;
+}
+
+.custom-size-form h4 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 4px;
+}
+
+.custom-size-subtitle {
+  font-size: 12.5px;
+  color: #777;
+  margin-bottom: 14px;
+}
+
+.custom-size-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.custom-size-grid label {
+  display: flex;
+  flex-direction: column;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #333;
+  gap: 5px;
+}
+
+.custom-size-grid input {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 9px 10px;
+  font-size: 13px;
+  color: #111;
+}
+
+.custom-size-grid input:focus {
+  outline: none;
+  border-color: #d8707d;
+}
+
+.custom-size-save-btn {
+  width: 100%;
+  height: 46px;
+  border: none;
+  background: #d8707d;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.custom-size-save-btn:hover {
+  background: #c95f6c;
+}
+
+.custom-size-guide {
+  flex: 1;
+  background: #faf2f3;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.custom-size-guide h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 10px;
+}
+
+.custom-size-guide-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 18px 0;
+}
+
+.custom-size-guide-list li {
+  font-size: 12.5px;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+
+.custom-size-guide-list li strong {
+  color: #111;
+}
+
+.custom-size-why {
+  border-top: 1px solid #f0d8da;
+  padding-top: 14px;
+}
+
+.custom-size-why ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.custom-size-why li {
+  font-size: 12.5px;
+  color: #444;
+  margin-bottom: 6px;
+}
+
+@media (max-width: 768px) {
+  .custom-size-body {
+    flex-direction: column;
+  }
+
+  .custom-size-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .custom-size-modal {
+    padding: 16px;
+  }
+
+  .custom-size-header h3 {
+    font-size: 17px;
+  }
+
+  .custom-size-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+}
