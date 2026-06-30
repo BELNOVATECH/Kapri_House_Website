@@ -38,8 +38,8 @@ export default function Footer() {
           <div className="footer-column">
             <h3>DISCOVER</h3>
             <a href="/">Blog</a>
-            <a href="/">Celebrities In Bunaai</a>
-            <a href="/">Women Of Bunaai</a>
+            <a href="/">Celebrities In Kapri</a>
+            <a href="/">Women Of Kapri</a>
             <a href="/">Sitemap</a>
             <a href="/">Refer & Earn</a>
             <a href="/">Become a Stockist</a>
@@ -61,14 +61,15 @@ export default function Footer() {
           <div className="footer-column footer-contact">
             <h3>CUSTOMER SERVICE</h3>
             <p><FaClock /> MON-FRI - 9.00 AM TO 5.00 PM (IST)</p>
-            <p><FaPhoneAlt /> +91 8800174972</p>
-            <p><FaPhoneAlt /> +91 7599976000</p>
-            <p>
-              <FaMapMarkerAlt />
-              BUNAI PRIVATE LIMITED, RIICO INDUSTRIAL AREA,
-              SITAPURA, JAIPUR, RAJASTHAN – 302022
-            </p>
-            <p>CIN: U13921RJ2025PTC109683</p>
+            <p><FaPhoneAlt /> +91 9999999999</p>
+            <p><FaPhoneAlt /> +91 9898989898</p>
+            
+             <p>
+  <FaMapMarkerAlt />
+  KAPRIHOUSE PRIVATE LIMITED,<br />
+  Ranchi, Jharkhand – 834001
+</p>
+            <p>CIN: xxxxxxxxxxxxxxx</p>
           </div>
 
           <div className="footer-column">
@@ -85,7 +86,7 @@ export default function Footer() {
         </div>
 
         <div className="footer-bottom">
-          © 2026 BUNAI . ALL RIGHTS RESERVED.
+          © 2026 KAPRIHOUSE . ALL RIGHTS RESERVED.
         </div>
 
       </footer>
