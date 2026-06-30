@@ -1,0 +1,34 @@
+.zoom-image-container {
+  position: relative;
+  display: block;
+  cursor: crosshair;
+}
+
+/* .zoom-image-lens {
+  position: absolute;
+  border-radius: 50%;
+  border: 3px solid #ffffff;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+} */
+ .zoom-image-lens {
+  position: absolute;
+  width: 220px;      /* increase this */
+  height: 220px;      /* increase this */
+  border-radius: 50%;
+  border: 3px solid #ffffff;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+/* On small screens the lens magnifier isn't useful since there's no
+   precision mouse cursor; hide it on touch-sized viewports. */
+@media (max-width: 768px) {
+  .zoom-image-lens {
+    display: none !important;
+  }
+}
