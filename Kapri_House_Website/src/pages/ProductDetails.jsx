@@ -9,9 +9,14 @@ export default function ProductDetails() {
   const [quantity, setQuantity] = useState(1);
   const [selectedImage, setSelectedImage] = useState(0);
 
-  const [formTab, setFormTab] = useState("enter"); // 'enter' | 'saved'
-  const [guideTab, setGuideTab] = useState("measure"); // 'measure' | 'tips'
-  const [measureMode, setMeasureMode] = useState("standard"); // 'standard' | 'detailed'
+  const [formTab, setFormTab] = useState("enter");
+  const [guideTab, setGuideTab] = useState("measure");
+  const [measureMode, setMeasureMode] = useState("standard");
+  const [showSizeChart, setShowSizeChart] = useState(false);
+
+  // NEW — size chart state
+  const [sizeChartUnit, setSizeChartUnit] = useState("in");
+  const [sizeChartTab, setSizeChartTab] = useState("chart");
 
   const [measurements, setMeasurements] = useState({
     bust: "",
@@ -47,15 +52,26 @@ export default function ProductDetails() {
     alert("Your measurements have been saved!");
   };
 
+  const sizeData = [
+    { size: "XS", bust: 32,   waist: 26, hip: 34, shoulder: 13,   sleeve: 21   },
+    { size: "S",  bust: 34,   waist: 28, hip: 36, shoulder: 13.5, sleeve: 21.5 },
+    { size: "M",  bust: 36,   waist: 30, hip: 38, shoulder: 14,   sleeve: 22   },
+    { size: "L",  bust: 38,   waist: 32, hip: 40, shoulder: 14.5, sleeve: 22.5 },
+    { size: "XL", bust: 40,   waist: 34, hip: 42, shoulder: 15,   sleeve: 23   },
+  ];
+
+  const conv = (v) =>
+    sizeChartUnit === "cm" ? (v * 2.54).toFixed(1) : v;
+
   const measureSteps = [
-    { n: 1, label: "Shoulder", desc: "Measure from one shoulder end to the other" },
-    { n: 2, label: "Bust", desc: "Measure around the fullest part of your bust" },
-    { n: 3, label: "Waist", desc: "Measure around the narrowest part" },
-    { n: 4, label: "Hip", desc: "Measure around the fullest part of your hips" },
+    { n: 1, label: "Shoulder",      desc: "Measure from one shoulder end to the other" },
+    { n: 2, label: "Bust",          desc: "Measure around the fullest part of your bust" },
+    { n: 3, label: "Waist",         desc: "Measure around the narrowest part" },
+    { n: 4, label: "Hip",           desc: "Measure around the fullest part of your hips" },
     { n: 5, label: "Sleeve Length", desc: "Measure from shoulder point to wrist" },
-    { n: 6, label: "Armhole", desc: "Measure around the armhole" },
-    { n: 7, label: "Top Length", desc: "Measure from highest shoulder point to required length" },
-    { n: 8, label: "Neck Size", desc: "Measure around the base of your neck" },
+    { n: 6, label: "Armhole",       desc: "Measure around the armhole" },
+    { n: 7, label: "Top Length",    desc: "Measure from highest shoulder point to required length" },
+    { n: 8, label: "Neck Size",     desc: "Measure around the base of your neck" },
   ];
 
   const measurementTips = [
@@ -154,8 +170,188 @@ export default function ProductDetails() {
 
           <div className="cart-row">
             <button className="cart-btn" disabled>ADD TO CART</button>
+            <button
+              type="button"
+              className="size-chart-link"
+              onClick={() => setShowSizeChart(true)}
+            >
+              📏 Size Chart
+            </button>
             <span className="coming-soon">Stay Tuned | Coming Soon</span>
           </div>
+
+          {/* ===== PREMIUM SIZE CHART MODAL ===== */}
+          {showSizeChart && (
+            <div className="sc-overlay" onClick={() => setShowSizeChart(false)}>
+              <div className="sc-modal" onClick={(e) => e.stopPropagation()}>
+
+                {/* Header */}
+                <div className="sc-header">
+                  <div>
+                    <h3 className="sc-title">Size guide</h3>
+                    <p className="sc-subtitle">
+                      {sizeChartUnit === "in"
+                        ? "All measurements in inches"
+                        : "All measurements in centimetres"}{" "}
+                      · compare with your body measurements
+                    </p>
+                  </div>
+                  <button
+                    type="button"
+                    className="sc-close"
+                    onClick={() => setShowSizeChart(false)}
+                    aria-label="Close size chart"
+                  >
+                    ✕
+                  </button>
+                </div>
+
+                {/* Unit toggle */}
+                <div className="sc-unit-toggle">
+                  <button
+                    type="button"
+                    className={`sc-unit-btn${sizeChartUnit === "in" ? " active" : ""}`}
+                    onClick={() => setSizeChartUnit("in")}
+                  >
+                    Inches
+                  </button>
+                  <button
+                    type="button"
+                    className={`sc-unit-btn${sizeChartUnit === "cm" ? " active" : ""}`}
+                    onClick={() => setSizeChartUnit("cm")}
+                  >
+                    Centimeters
+                  </button>
+                </div>
+
+                {/* Body */}
+                <div className="sc-body">
+
+                  {/* Left: illustration + legend */}
+                  <div className="sc-illustration">
+                    <svg width="80" height="170" viewBox="0 0 80 170" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <ellipse cx="40" cy="16" rx="11" ry="13" fill="#f5f5f5" stroke="#ccc" strokeWidth="1"/>
+                      <path d="M25 32 Q20 44 18 60 L18 80 Q18 84 22 84 L58 84 Q62 84 62 80 L62 60 Q60 44 55 32 Q48 28 40 28 Q32 28 25 32Z" fill="#f5f5f5" stroke="#ccc" strokeWidth="1"/>
+                      <path d="M18 38 Q10 42 8 60 Q7 72 10 78 L16 76 Q14 66 15 54 L20 44Z" fill="#f5f5f5" stroke="#ccc" strokeWidth="1"/>
+                      <path d="M62 38 Q70 42 72 60 Q73 72 70 78 L64 76 Q66 66 65 54 L60 44Z" fill="#f5f5f5" stroke="#ccc" strokeWidth="1"/>
+                      <path d="M22 84 Q20 106 20 128 L26 128 Q27 106 30 84Z" fill="#f5f5f5" stroke="#ccc" strokeWidth="1"/>
+                      <path d="M58 84 Q60 106 60 128 L54 128 Q53 106 50 84Z" fill="#f5f5f5" stroke="#ccc" strokeWidth="1"/>
+                      <path d="M26 128 Q24 148 25 162 L31 162 Q31 148 32 128Z" fill="#f5f5f5" stroke="#ccc" strokeWidth="1"/>
+                      <path d="M54 128 Q56 148 55 162 L49 162 Q49 148 48 128Z" fill="#f5f5f5" stroke="#ccc" strokeWidth="1"/>
+                      {/* Shoulder */}
+                      <line x1="25" y1="35" x2="55" y2="35" stroke="#EF9F27" strokeWidth="1.2" strokeDasharray="3,2"/>
+                      <circle cx="25" cy="35" r="2.5" fill="#EF9F27"/>
+                      <circle cx="55" cy="35" r="2.5" fill="#EF9F27"/>
+                      {/* Bust */}
+                      <line x1="16" y1="46" x2="64" y2="46" stroke="#d8707d" strokeWidth="1.2" strokeDasharray="3,2"/>
+                      <circle cx="16" cy="46" r="2.5" fill="#d8707d"/>
+                      <circle cx="64" cy="46" r="2.5" fill="#d8707d"/>
+                      {/* Waist */}
+                      <line x1="17" y1="62" x2="63" y2="62" stroke="#5DCAA5" strokeWidth="1.2" strokeDasharray="3,2"/>
+                      <circle cx="17" cy="62" r="2.5" fill="#5DCAA5"/>
+                      <circle cx="63" cy="62" r="2.5" fill="#5DCAA5"/>
+                      {/* Hip */}
+                      <line x1="17" y1="78" x2="63" y2="78" stroke="#7F77DD" strokeWidth="1.2" strokeDasharray="3,2"/>
+                      <circle cx="17" cy="78" r="2.5" fill="#7F77DD"/>
+                      <circle cx="63" cy="78" r="2.5" fill="#7F77DD"/>
+                    </svg>
+
+                    <ul className="sc-legend">
+                      {[
+                        { color: "#EF9F27", label: "Shoulder" },
+                        { color: "#d8707d", label: "Bust" },
+                        { color: "#5DCAA5", label: "Waist" },
+                        { color: "#7F77DD", label: "Hip" },
+                      ].map(({ color, label }) => (
+                        <li key={label} className="sc-legend-item">
+                          <span className="sc-dot" style={{ background: color }} />
+                          {label}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Right: tabs + content */}
+                  <div className="sc-right">
+                    <div className="sc-tabs">
+                      <button
+                        type="button"
+                        className={`sc-tab${sizeChartTab === "chart" ? " active" : ""}`}
+                        onClick={() => setSizeChartTab("chart")}
+                      >
+                        Size chart
+                      </button>
+                      <button
+                        type="button"
+                        className={`sc-tab${sizeChartTab === "how" ? " active" : ""}`}
+                        onClick={() => setSizeChartTab("how")}
+                      >
+                        How to measure
+                      </button>
+                    </div>
+
+                    {sizeChartTab === "chart" && (
+                      <>
+                        <div className="sc-table-wrap">
+                          <table className="sc-table">
+                            <thead>
+                              <tr>
+                                {["Size", "Bust", "Waist", "Hip", "Shoulder", "Sleeve"].map((h) => (
+                                  <th key={h}>{h}</th>
+                                ))}
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {sizeData.map(({ size, bust, waist, hip, shoulder, sleeve }) => {
+                                const isSelected = selectedSize === size;
+                                return (
+                                  <tr key={size} className={isSelected ? "sc-row-selected" : ""}>
+                                    <td className="sc-size-cell">
+                                      {size}
+                                      {isSelected && (
+                                        <span className="sc-your-size">✓ your size</span>
+                                      )}
+                                    </td>
+                                    <td>{conv(bust)}</td>
+                                    <td>{conv(waist)}</td>
+                                    <td>{conv(hip)}</td>
+                                    <td>{conv(shoulder)}</td>
+                                    <td>{conv(sleeve)}</td>
+                                  </tr>
+                                );
+                              })}
+                            </tbody>
+                          </table>
+                        </div>
+                        <p className="sc-tip">
+                          Between two sizes? We recommend sizing up for a comfortable, relaxed fit.
+                        </p>
+                      </>
+                    )}
+
+                    {sizeChartTab === "how" && (
+                      <ul className="sc-how-list">
+                        {[
+                          { n: 1, label: "Bust",          desc: "Measure around the fullest part of your chest, keeping the tape parallel to the floor." },
+                          { n: 2, label: "Waist",         desc: "Measure around the narrowest part of your torso, usually just above the navel." },
+                          { n: 3, label: "Hip",           desc: "Stand with feet together and measure around the fullest part of your hips and seat." },
+                          { n: 4, label: "Shoulder",      desc: "Measure from the tip of one shoulder to the other, across the upper back." },
+                          { n: 5, label: "Sleeve length", desc: "From the shoulder tip down to your wrist, with arm slightly bent." },
+                          { n: 6, label: "Tip",           desc: "Keep the tape snug but not tight. Ask a friend to help for back measurements." },
+                        ].map(({ n, label, desc }) => (
+                          <li key={n} className="sc-how-item">
+                            <span className="sc-step-num">{n}</span>
+                            <span><strong>{label}</strong> — {desc}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+          {/* ===== END SIZE CHART MODAL ===== */}
         </div>
 
         {/* ===== Column 2: Enter Measurements ===== */}
@@ -200,56 +396,16 @@ export default function ProductDetails() {
               <p className="custom-size-subtitle">Enter your body measurements in inches</p>
 
               <div className="custom-size-grid">
-                <label>
-                  Bust *
-                  <input type="number" value={measurements.bust} placeholder="36"
-                    onChange={(e) => handleMeasurementChange("bust", e.target.value)} />
-                </label>
-                <label>
-                  Waist *
-                  <input type="number" value={measurements.waist} placeholder="30"
-                    onChange={(e) => handleMeasurementChange("waist", e.target.value)} />
-                </label>
-                <label>
-                  Hip *
-                  <input type="number" value={measurements.hip} placeholder="38"
-                    onChange={(e) => handleMeasurementChange("hip", e.target.value)} />
-                </label>
-                <label>
-                  Shoulder *
-                  <input type="number" value={measurements.shoulder} placeholder="14"
-                    onChange={(e) => handleMeasurementChange("shoulder", e.target.value)} />
-                </label>
-                <label>
-                  Armhole
-                  <input type="number" value={measurements.armhole} placeholder="16"
-                    onChange={(e) => handleMeasurementChange("armhole", e.target.value)} />
-                </label>
-                <label>
-                  Sleeve Length *
-                  <input type="number" value={measurements.sleeveLength} placeholder="22"
-                    onChange={(e) => handleMeasurementChange("sleeveLength", e.target.value)} />
-                </label>
-                <label>
-                  Neck Size
-                  <input type="number" value={measurements.neck} placeholder="14"
-                    onChange={(e) => handleMeasurementChange("neck", e.target.value)} />
-                </label>
-                <label>
-                  Top Length
-                  <input type="number" value={measurements.topLength} placeholder="56"
-                    onChange={(e) => handleMeasurementChange("topLength", e.target.value)} />
-                </label>
-                <label>
-                  Height *
-                  <input type="text" value={measurements.height} placeholder={`5'5"`}
-                    onChange={(e) => handleMeasurementChange("height", e.target.value)} />
-                </label>
-                <label>
-                  Weight (Optional)
-                  <input type="number" value={measurements.weight} placeholder="60 kg"
-                    onChange={(e) => handleMeasurementChange("weight", e.target.value)} />
-                </label>
+                <label>Bust *<input type="number" value={measurements.bust} placeholder="36" onChange={(e) => handleMeasurementChange("bust", e.target.value)} /></label>
+                <label>Waist *<input type="number" value={measurements.waist} placeholder="30" onChange={(e) => handleMeasurementChange("waist", e.target.value)} /></label>
+                <label>Hip *<input type="number" value={measurements.hip} placeholder="38" onChange={(e) => handleMeasurementChange("hip", e.target.value)} /></label>
+                <label>Shoulder *<input type="number" value={measurements.shoulder} placeholder="14" onChange={(e) => handleMeasurementChange("shoulder", e.target.value)} /></label>
+                <label>Armhole<input type="number" value={measurements.armhole} placeholder="16" onChange={(e) => handleMeasurementChange("armhole", e.target.value)} /></label>
+                <label>Sleeve Length *<input type="number" value={measurements.sleeveLength} placeholder="22" onChange={(e) => handleMeasurementChange("sleeveLength", e.target.value)} /></label>
+                <label>Neck Size<input type="number" value={measurements.neck} placeholder="14" onChange={(e) => handleMeasurementChange("neck", e.target.value)} /></label>
+                <label>Top Length<input type="number" value={measurements.topLength} placeholder="56" onChange={(e) => handleMeasurementChange("topLength", e.target.value)} /></label>
+                <label>Height *<input type="text" value={measurements.height} placeholder={`5'5"`} onChange={(e) => handleMeasurementChange("height", e.target.value)} /></label>
+                <label>Weight (Optional)<input type="number" value={measurements.weight} placeholder="60 kg" onChange={(e) => handleMeasurementChange("weight", e.target.value)} /></label>
               </div>
 
               <button type="button" className="custom-size-save-btn" onClick={handleSaveMeasurements}>
@@ -258,7 +414,7 @@ export default function ProductDetails() {
             </>
           ) : (
             <p className="mtm-empty-state">
-              No saved measurement profile yet. Switch to “Enter Measurements” and save one.
+              No saved measurement profile yet. Switch to "Enter Measurements" and save one.
             </p>
           )}
         </div>
