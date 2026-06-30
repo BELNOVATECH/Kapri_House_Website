@@ -496,7 +496,13 @@ export default function ProductDetails() {
                 <p className="mtm-order-price">₹{state.price}</p>
               </div>
             </div>
-            {/* <button type="button" className="custom-size-save-btn">PROCEED TO CHECKOUT</button> */}
+          <button
+  type="button"
+  className="custom-size-save-btn"
+  disabled={true} // Replace with your condition
+>
+  PROCEED TO CHECKOUT
+</button>
           </div>
         </div>
       </div>
