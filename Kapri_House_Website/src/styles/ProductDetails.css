@@ -66,8 +66,6 @@
 /* ===== PRODUCT GALLERY LAYOUT =====
    Desktop: vertical thumbnail rail on the left + large image on the right
    Mobile: falls back to stacked (large image on top, thumbnails in a row below)
-   This section replaces the old column layout. Nothing else in this file
-   was changed.
 */
 
 .product-gallery{
@@ -282,6 +280,7 @@
   font-size:14px;
   line-height:1.7;
   color:#555;
+  white-space: pre-line;
 }
 
 /* MOBILE */
@@ -575,8 +574,6 @@
   }
 }
 
-
-
 /* Active thumbnail highlight */
 .thumb-grid img.active-thumb {
   border: 2px solid #333;
@@ -603,345 +600,306 @@
 }
 
 /* =========================
-   NEW: SIZE CHART (added — does not modify anything above)
+   MADE-TO-MEASURE PAGE LAYOUT
 ========================= */
 
-.size-chart-link {
-  margin-top: 12px;
-  background: none;
-  border: none;
-  color: #d8707d;
-  font-size: 14px;
-  font-weight: 600;
-  text-decoration: underline;
-  cursor: pointer;
-  padding: 0;
-}
-
-.size-chart-link:hover {
-  color: #c95f6c;
-}
-
-.size-chart-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.55);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-  padding: 20px;
-}
-
-.size-chart-modal {
-  background: #fff;
-  border-radius: 10px;
-  width: 100%;
-  max-width: 560px;
-  max-height: 85vh;
-  overflow-y: auto;
-  padding: 24px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
-  animation: fadeIn 0.25s ease;
-}
-
-.size-chart-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 6px;
-}
-
-.size-chart-header h3 {
-  font-size: 19px;
-  font-weight: 700;
-  color: #111;
-  margin: 0;
-}
-
-.size-chart-close {
-  background: none;
-  border: none;
-  font-size: 18px;
-  cursor: pointer;
-  color: #555;
-  line-height: 1;
-}
-
-.size-chart-close:hover {
-  color: #111;
-}
-
-.size-chart-subtitle {
-  font-size: 13px;
-  color: #777;
-  margin-bottom: 16px;
-}
-
-.size-chart-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 16px;
-}
-
-.size-chart-table th,
-.size-chart-table td {
-  border: 1px solid #eee;
-  padding: 10px 8px;
+.mtm-banner {
   text-align: center;
-  font-size: 13px;
-  color: #333;
+  padding: 24px 16px 10px;
 }
 
-.size-chart-table th {
-  background: #faf2f3;
-  font-weight: 700;
+.mtm-banner h1 {
+  font-size: 32px;
+  font-weight: 800;
   color: #111;
+  margin: 0 0 6px;
 }
 
-.size-chart-table tr:nth-child(even) td {
-  background: #fafafa;
-}
-
-.size-chart-note {
-  font-size: 12.5px;
+.mtm-banner p {
+  font-size: 14px;
   color: #777;
-  line-height: 1.6;
+  margin: 0 0 14px;
 }
 
-@media (max-width: 480px) {
-  .size-chart-modal {
-    padding: 18px;
-  }
-
-  .size-chart-table th,
-  .size-chart-table td {
-    padding: 8px 5px;
-    font-size: 11.5px;
-  }
-
-  .size-chart-header h3 {
-    font-size: 17px;
-  }
-}
-
-/* =========================
-   NEW: VIEW ALL ANGLES MODAL (added — does not modify anything above)
-========================= */
-
-.view-modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.55);
-  display: flex;
+.mtm-badges {
+  display: inline-flex;
+  gap: 8px;
   align-items: center;
-  justify-content: center;
-  z-index: 1000;
-  padding: 20px;
-}
-
-.view-modal {
-  background: #fff;
-  border-radius: 10px;
-  width: 100%;
-  max-width: 900px;
-  max-height: 90vh;
-  overflow-y: auto;
-  padding: 24px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
-  animation: fadeIn 0.25s ease;
-}
-
-.view-modal-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 18px;
-}
-
-.view-modal-header h3 {
-  font-size: 19px;
-  font-weight: 700;
-  color: #111;
-  margin: 0;
-}
-
-.view-modal-body {
-  display: flex;
-  gap: 20px;
-}
-
-.view-modal-large {
-  position: relative;
-  flex: 1;
-  border-radius: 8px;
-  overflow: hidden;
-  background: #f7f7f7;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 420px;
-}
-
-.view-modal-large img {
-  width: 100%;
-  height: 100%;
-  max-height: 540px;
-  object-fit: cover;
-}
-
-.view-modal-angle-tag {
-  position: absolute;
-  bottom: 14px;
-  left: 14px;
-  background: rgba(0, 0, 0, 0.65);
-  color: #fff;
-  font-size: 12.5px;
+  background: #faf2f3;
+  color: #b5495a;
+  font-size: 13px;
   font-weight: 600;
-  padding: 5px 12px;
+  padding: 8px 18px;
   border-radius: 20px;
 }
 
-.view-modal-thumbs {
+.mtm-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1.2fr 1.2fr 0.9fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.mtm-col {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  padding: 18px;
+}
+
+.mtm-product-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #111;
+  margin: 14px 0 8px;
+}
+
+.mtm-why-mini {
+  background: #faf2f3;
+  border-radius: 8px;
+  padding: 12px 14px;
+  margin: 16px 0;
+}
+
+.mtm-why-mini h4 {
+  font-size: 13px;
+  font-weight: 700;
+  color: #111;
+  margin: 0 0 8px;
+}
+
+.mtm-why-mini ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mtm-why-mini li {
+  font-size: 12.5px;
+  color: #444;
+  margin-bottom: 5px;
+}
+
+/* Tabs (shared by form column + guide column) */
+.mtm-tabs {
   display: flex;
-  flex-direction: column;
-  gap: 10px;
-  width: 130px;
-  flex-shrink: 0;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 16px;
 }
 
-.view-modal-thumb {
-  border: 2px solid #eee;
-  border-radius: 6px;
-  overflow: hidden;
+.mtm-tabs button {
+  flex: 1;
+  background: none;
+  border: none;
+  padding: 10px 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #888;
   cursor: pointer;
-  transition: 0.2s ease;
-  text-align: center;
+  border-bottom: 2px solid transparent;
 }
 
-.view-modal-thumb img {
+.mtm-tabs button.active {
+  color: #d8707d;
+  border-bottom-color: #d8707d;
+}
+
+.mtm-radio-row {
+  display: flex;
+  gap: 18px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.mtm-radio-row label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #333;
+  cursor: pointer;
+}
+
+.mtm-section-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #111;
+  margin: 0 0 4px;
+}
+
+.mtm-empty-state {
+  font-size: 13px;
+  color: #888;
+  padding: 20px 0;
+}
+
+.mtm-guide-image {
   width: 100%;
-  height: 90px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 14px;
+  background: #f7f7f7;
+}
+
+.mtm-guide-image img {
+  width: 100%;
+  height: 260px;
   object-fit: cover;
   display: block;
 }
 
-.view-modal-thumb span {
-  display: block;
-  font-size: 11.5px;
-  color: #555;
-  padding: 4px 0;
-  background: #fafafa;
-}
-
-.view-modal-thumb:hover {
-  border-color: #d8707d;
-}
-
-.active-view-thumb {
-  border-color: #d8707d !important;
-}
-
-.active-view-thumb span {
-  color: #d8707d;
-  font-weight: 600;
-}
-
-@media (max-width: 720px) {
-  .view-modal-body {
-    flex-direction: column;
-  }
-
-  .view-modal-thumbs {
-    flex-direction: row;
-    width: 100%;
-    overflow-x: auto;
-  }
-
-  .view-modal-thumb {
-    min-width: 90px;
-  }
-
-  .view-modal-large {
-    min-height: 300px;
-  }
-}
-
-@media (max-width: 480px) {
-  .view-modal {
-    padding: 16px;
-  }
-
-  .view-modal-header h3 {
-    font-size: 16px;
-  }
-}
-
-/* =========================
-   NEW: CUSTOM SIZE / MADE-TO-MEASURE MODAL (added — does not modify anything above)
-========================= */
-
-.custom-size-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.55);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-  padding: 20px;
-}
-
-.custom-size-modal {
-  background: #fff;
-  border-radius: 10px;
+.mtm-video-btn {
   width: 100%;
-  max-width: 920px;
-  max-height: 90vh;
-  overflow-y: auto;
-  padding: 24px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
-  animation: fadeIn 0.25s ease;
+  height: 42px;
+  border: 1px solid #d8707d;
+  background: #fff;
+  color: #d8707d;
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 6px;
 }
 
-.custom-size-header {
+.mtm-video-btn:hover {
+  background: #faf2f3;
+}
+
+/* Sidebar */
+.mtm-sidebar-col {
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  border-bottom: 1px solid #eee;
-  padding-bottom: 16px;
-  margin-bottom: 18px;
+  flex-direction: column;
+  gap: 16px;
+  padding: 0;
+  border: none;
+  background: none;
 }
 
-.custom-size-header h3 {
-  font-size: 20px;
+.mtm-sidebar-box {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.mtm-sidebar-box h4 {
+  font-size: 14px;
   font-weight: 700;
   color: #111;
-  margin: 0 0 4px 0;
+  margin: 0 0 12px;
 }
 
-.custom-size-header p {
-  font-size: 13px;
-  color: #777;
+.mtm-why-list {
+  list-style: none;
+  padding: 0;
   margin: 0;
 }
 
-.custom-size-body {
+.mtm-why-list li {
+  margin-bottom: 12px;
+}
+
+.mtm-why-list li strong {
+  display: block;
+  font-size: 12.5px;
+  color: #111;
+}
+
+.mtm-why-list li span {
+  display: block;
+  font-size: 11.5px;
+  color: #888;
+  margin-top: 2px;
+}
+
+.mtm-summary-header {
   display: flex;
-  gap: 24px;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.custom-size-form {
-  flex: 1.2;
+.mtm-summary-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 8px;
+  font-size: 12.5px;
 }
 
-.custom-size-form h4 {
-  font-size: 16px;
+.mtm-summary-grid span:nth-child(odd) {
+  color: #888;
+}
+
+.mtm-summary-grid span:nth-child(even) {
+  color: #111;
+  font-weight: 600;
+  text-align: right;
+}
+
+.mtm-order-preview .mtm-order-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.mtm-order-row img {
+  width: 56px;
+  height: 56px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.mtm-order-title {
+  font-size: 12.5px;
   font-weight: 700;
   color: #111;
-  margin-bottom: 4px;
+  margin: 0;
 }
 
+.mtm-order-sub {
+  font-size: 11.5px;
+  color: #888;
+  margin: 2px 0;
+}
+
+.mtm-order-price {
+  font-size: 13px;
+  font-weight: 700;
+  color: #d8707d;
+  margin: 0;
+}
+
+/* How it works strip */
+.mtm-how-it-works {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 30px 0;
+  flex-wrap: wrap;
+}
+
+.mtm-how-it-works div {
+  flex: 1;
+  min-width: 110px;
+  text-align: center;
+  font-size: 12.5px;
+  color: #444;
+  font-weight: 600;
+}
+
+.mtm-how-it-works span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  margin: 0 auto 8px;
+  background: #faf2f3;
+  color: #d8707d;
+  border-radius: 50%;
+  font-weight: 800;
+}
+
+/* Measurement form + how-to-measure list */
 .custom-size-subtitle {
   font-size: 12.5px;
   color: #777;
@@ -950,7 +908,7 @@
 
 .custom-size-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 12px;
   margin-bottom: 18px;
 }
@@ -994,24 +952,10 @@
   background: #c95f6c;
 }
 
-.custom-size-guide {
-  flex: 1;
-  background: #faf2f3;
-  border-radius: 8px;
-  padding: 16px;
-}
-
-.custom-size-guide h4 {
-  font-size: 15px;
-  font-weight: 700;
-  color: #111;
-  margin-bottom: 10px;
-}
-
 .custom-size-guide-list {
   list-style: none;
   padding: 0;
-  margin: 0 0 18px 0;
+  margin: 0;
 }
 
 .custom-size-guide-list li {
@@ -1025,44 +969,52 @@
   color: #111;
 }
 
-.custom-size-why {
-  border-top: 1px solid #f0d8da;
-  padding-top: 14px;
+/* =========================
+   RESPONSIVE — Made-to-Measure grid
+========================= */
+
+@media (max-width: 1300px) {
+  .mtm-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .mtm-sidebar-col {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .mtm-sidebar-box {
+    flex: 1;
+    min-width: 220px;
+  }
 }
 
-.custom-size-why ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.custom-size-why li {
-  font-size: 12.5px;
-  color: #444;
-  margin-bottom: 6px;
-}
-
-@media (max-width: 768px) {
-  .custom-size-body {
+@media (max-width: 900px) {
+  .mtm-grid {
+    grid-template-columns: 1fr;
+  }
+  .mtm-sidebar-col {
     flex-direction: column;
   }
-
-  .custom-size-grid {
-    grid-template-columns: 1fr 1fr;
+  .mtm-banner h1 {
+    font-size: 24px;
   }
 }
 
 @media (max-width: 480px) {
-  .custom-size-modal {
-    padding: 16px;
-  }
-
-  .custom-size-header h3 {
-    font-size: 17px;
-  }
-
   .custom-size-grid {
     grid-template-columns: 1fr 1fr;
     gap: 10px;
+  }
+  .mtm-col {
+    padding: 14px;
+  }
+  .mtm-banner h1 {
+    font-size: 20px;
+  }
+  .mtm-how-it-works {
+    justify-content: flex-start;
+  }
+  .mtm-how-it-works div {
+    min-width: 80px;
   }
 }

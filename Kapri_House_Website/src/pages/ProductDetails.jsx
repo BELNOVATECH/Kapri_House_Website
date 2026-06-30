@@ -5,15 +5,14 @@ import ZoomImage from "./ZoomImage";
 
 export default function ProductDetails() {
   const { state } = useLocation();
-  // eslint-disable-next-line no-unused-vars
   const [selectedSize, setSelectedSize] = useState("");
-  // eslint-disable-next-line no-unused-vars
   const [quantity, setQuantity] = useState(1);
-  const [selectedImage, setSelectedImage] = useState(0); // ← NEW
-  const [showSizeChart, setShowSizeChart] = useState(false); // ← NEW: size chart modal toggle
-  const [showViewModal, setShowViewModal] = useState(false); // ← NEW: multi-angle view modal toggle
-  const [activeAngle, setActiveAngle] = useState(0); // ← NEW: selected angle in view modal
-  const [showCustomSize, setShowCustomSize] = useState(false); // ← NEW: custom size modal toggle
+  const [selectedImage, setSelectedImage] = useState(0);
+
+  const [formTab, setFormTab] = useState("enter"); // 'enter' | 'saved'
+  const [guideTab, setGuideTab] = useState("measure"); // 'measure' | 'tips'
+  const [measureMode, setMeasureMode] = useState("standard"); // 'standard' | 'detailed'
+
   const [measurements, setMeasurements] = useState({
     bust: "",
     waist: "",
@@ -25,41 +24,16 @@ export default function ProductDetails() {
     topLength: "",
     height: "",
     weight: "",
-  }); // ← NEW: custom measurement form values
+  });
 
   if (!state) return <h2>No Product Found</h2>;
 
-  // Build the 4-image array from state (all same image since only one provided)
-  const images = [state.image, state.image, state.image, state.image]; // ← NEW
+  const images = [state.image, state.image, state.image, state.image];
 
-  // ← NEW: angle labels for the View Photos modal (same image reused for each, since only 1 photo exists)
-  const angleViews = [
-    { label: "Front", img: state.image },
-    { label: "Left Side", img: state.image },
-    { label: "Right Side", img: state.image },
-    { label: "Back", img: state.image },
-    { label: "Close Up", img: state.image },
-  ];
-
-  // eslint-disable-next-line no-unused-vars
-  const handleAddToCart = () => {
-    if (!selectedSize) {
-      alert("Please select a size");
-      return;
-    }
-    const cartItem = { ...state, size: selectedSize, quantity };
-    const cart = JSON.parse(localStorage.getItem("cart")) || [];
-    cart.push(cartItem);
-    localStorage.setItem("cart", JSON.stringify(cart));
-    alert("Product added to cart");
-  };
-
-  // ← NEW: update a single measurement field
   const handleMeasurementChange = (field, value) => {
     setMeasurements((prev) => ({ ...prev, [field]: value }));
   };
 
-  // ← NEW: save custom measurements to localStorage, keyed by product title
   const handleSaveMeasurements = () => {
     const required = ["bust", "waist", "hip", "shoulder", "sleeveLength", "height"];
     const missing = required.filter((field) => !measurements[field]);
@@ -71,47 +45,75 @@ export default function ProductDetails() {
     customSizeData[state.title] = { ...measurements, savedAt: new Date().toISOString() };
     localStorage.setItem("customSizes", JSON.stringify(customSizeData));
     alert("Your measurements have been saved!");
-    setShowCustomSize(false);
   };
+
+  const measureSteps = [
+    { n: 1, label: "Shoulder", desc: "Measure from one shoulder end to the other" },
+    { n: 2, label: "Bust", desc: "Measure around the fullest part of your bust" },
+    { n: 3, label: "Waist", desc: "Measure around the narrowest part" },
+    { n: 4, label: "Hip", desc: "Measure around the fullest part of your hips" },
+    { n: 5, label: "Sleeve Length", desc: "Measure from shoulder point to wrist" },
+    { n: 6, label: "Armhole", desc: "Measure around the armhole" },
+    { n: 7, label: "Top Length", desc: "Measure from highest shoulder point to required length" },
+    { n: 8, label: "Neck Size", desc: "Measure around the base of your neck" },
+  ];
+
+  const measurementTips = [
+    "Measure over light, fitted clothing for accuracy.",
+    "Keep the measuring tape snug but not tight.",
+    "Stand naturally — don't pull in your stomach or puff your chest.",
+    "Ask someone to help you measure your back and shoulders.",
+    "If you fall between two sizes, choose the larger one.",
+    "Re-measure if it's been a while since your last measurement.",
+  ];
 
   return (
     <div className="product-page">
-      <div className="product-container">
-        <div className="product-gallery">
-
-          <div className="thumb-grid">
-            {images.map((img, i) => (        // ← CHANGED
-              <img
-                key={i}
-                src={img}
-                alt=""
-                onClick={() => setSelectedImage(i)}
-                className={selectedImage === i ? "active-thumb" : ""}
-                style={{ cursor: "pointer" }}
-              />
-            ))}
-          </div>
-
-          <div className="gallery-main">
-            {/* key trick forces re-mount → triggers CSS fade-in on change */}
-            <ZoomImage
-              key={selectedImage}            // ← NEW
-              src={images[selectedImage]}    // ← CHANGED
-              alt={state.title}
-              className="main-image"
-            />
-          </div>
-
+      <div className="mtm-banner">
+        <h1>Made-to-Measure (Custom Stitching)</h1>
+        <p>Your Measurements, Your Perfect Fit — Stitched Just for You</p>
+        <div className="mtm-badges">
+          <span>Perfect Fit</span>
+          <span>•</span>
+          <span>Personalized</span>
+          <span>•</span>
+          <span>Exclusively Yours</span>
         </div>
+      </div>
 
-        <div className="product-info">
-          <h1>{state.title}</h1>
+      <div className="mtm-grid">
+        {/* ===== Column 1: Gallery + product info ===== */}
+        <div className="mtm-col mtm-product-col">
+          <div className="product-gallery">
+            <div className="thumb-grid">
+              {images.map((img, i) => (
+                <img
+                  key={i}
+                  src={img}
+                  alt=""
+                  onClick={() => setSelectedImage(i)}
+                  className={selectedImage === i ? "active-thumb" : ""}
+                />
+              ))}
+            </div>
+            <div className="gallery-main">
+              <ZoomImage
+                key={selectedImage}
+                src={images[selectedImage]}
+                alt={state.title}
+                className="main-image"
+              />
+            </div>
+          </div>
+
+          <h2 className="mtm-product-title">{state.title}</h2>
           <div className="price-row">
             <span className="sale-price">₹{state.price}</span>
             <span className="mrp">₹{state.mrp}</span>
             <span className="discount">{state.discount}</span>
           </div>
           <p className="stock">Only 10 pieces left</p>
+
           <div className="size-section">
             <h4>Select Size</h4>
             <div className="sizes">
@@ -120,7 +122,8 @@ export default function ProductDetails() {
                 return (
                   <button
                     key={size}
-                    disabled
+                    disabled={!isAvailable}
+                    onClick={() => setSelectedSize(size)}
                     className={`
                       ${selectedSize === size ? "active-size" : ""}
                       ${!isAvailable ? "disabled-size" : ""}
@@ -133,399 +136,234 @@ export default function ProductDetails() {
             </div>
           </div>
 
-          {/* ▼ NEW: Size Chart link */}
-          <button
-            type="button"
-            className="size-chart-link"
-            onClick={() => setShowSizeChart(true)}
-          >
-            📏 Size Chart
-          </button>
-
-          {/* ▼ NEW: View All Angles link */}
-          <button
-            type="button"
-            className="size-chart-link"
-            onClick={() => {
-              setActiveAngle(0);
-              setShowViewModal(true);
-            }}
-            style={{ marginLeft: "16px" }}
-          >
-            🔄 View All Angles
-          </button>
-
-          {/* ▼ NEW: Custom Size link */}
-          <button
-            type="button"
-            className="size-chart-link"
-            onClick={() => setShowCustomSize(true)}
-            style={{ marginLeft: "16px" }}
-          >
-            📐 Custom Size
-          </button>
-
-          {/* ▼ NEW: Size Chart modal (only renders when opened) */}
-          {showSizeChart && (
-            <div
-              className="size-chart-overlay"
-              onClick={() => setShowSizeChart(false)}
-            >
-              <div
-                className="size-chart-modal"
-                onClick={(e) => e.stopPropagation()}
-              >
-                <div className="size-chart-header">
-                  <h3>Size Chart</h3>
-                  <button
-                    type="button"
-                    className="size-chart-close"
-                    onClick={() => setShowSizeChart(false)}
-                  >
-                    ✕
-                  </button>
-                </div>
-                <p className="size-chart-subtitle">
-                  All measurements are in inches
-                </p>
-                <table className="size-chart-table">
-                  <thead>
-                    <tr>
-                      <th>Size</th>
-                      <th>Bust</th>
-                      <th>Waist</th>
-                      <th>Hip</th>
-                      <th>Shoulder</th>
-                      <th>Sleeve Length</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>XS</td>
-                      <td>32</td>
-                      <td>26</td>
-                      <td>34</td>
-                      <td>13</td>
-                      <td>21</td>
-                    </tr>
-                    <tr>
-                      <td>S</td>
-                      <td>34</td>
-                      <td>28</td>
-                      <td>36</td>
-                      <td>13.5</td>
-                      <td>21.5</td>
-                    </tr>
-                    <tr>
-                      <td>M</td>
-                      <td>36</td>
-                      <td>30</td>
-                      <td>38</td>
-                      <td>14</td>
-                      <td>22</td>
-                    </tr>
-                    <tr>
-                      <td>L</td>
-                      <td>38</td>
-                      <td>32</td>
-                      <td>40</td>
-                      <td>14.5</td>
-                      <td>22.5</td>
-                    </tr>
-                    <tr>
-                      <td>XL</td>
-                      <td>40</td>
-                      <td>34</td>
-                      <td>42</td>
-                      <td>15</td>
-                      <td>23</td>
-                    </tr>
-                  </tbody>
-                </table>
-                <p className="size-chart-note">
-                  Tip: For the best fit, measure yourself over light clothing
-                  and compare with the chart above. If you fall between two
-                  sizes, we recommend choosing the larger size.
-                </p>
-              </div>
-            </div>
-          )}
-          {/* ▲ NEW: end Size Chart block */}
-
-          {/* ▼ NEW: View All Angles modal (large view + thumbnail list, image-2 style) */}
-          {showViewModal && (
-            <div
-              className="view-modal-overlay"
-              onClick={() => setShowViewModal(false)}
-            >
-              <div
-                className="view-modal"
-                onClick={(e) => e.stopPropagation()}
-              >
-                <div className="view-modal-header">
-                  <h3>{state.title}</h3>
-                  <button
-                    type="button"
-                    className="size-chart-close"
-                    onClick={() => setShowViewModal(false)}
-                  >
-                    ✕
-                  </button>
-                </div>
-
-                <div className="view-modal-body">
-                  <div className="view-modal-large">
-                    <img
-                      src={angleViews[activeAngle].img}
-                      alt={`${state.title} - ${angleViews[activeAngle].label}`}
-                    />
-                    <span className="view-modal-angle-tag">
-                      {angleViews[activeAngle].label}
-                    </span>
-                  </div>
-
-                  <div className="view-modal-thumbs">
-                    {angleViews.map((angle, i) => (
-                      <div
-                        key={angle.label}
-                        className={`view-modal-thumb ${
-                          activeAngle === i ? "active-view-thumb" : ""
-                        }`}
-                        onClick={() => setActiveAngle(i)}
-                      >
-                        <img src={angle.img} alt={angle.label} />
-                        <span>{angle.label}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
-          {/* ▲ NEW: end View All Angles block */}
-
-          {/* ▼ NEW: Custom Size modal (Made-to-Measure form, image-2 style) */}
-          {showCustomSize && (
-            <div
-              className="custom-size-overlay"
-              onClick={() => setShowCustomSize(false)}
-            >
-              <div
-                className="custom-size-modal"
-                onClick={(e) => e.stopPropagation()}
-              >
-                <div className="custom-size-header">
-                  <div>
-                    <h3>Made-to-Measure (Custom Stitching)</h3>
-                    <p>Your Measurements, Your Perfect Fit — Stitched Just for You</p>
-                  </div>
-                  <button
-                    type="button"
-                    className="size-chart-close"
-                    onClick={() => setShowCustomSize(false)}
-                  >
-                    ✕
-                  </button>
-                </div>
-
-                <div className="custom-size-body">
-                  {/* LEFT: measurement form */}
-                  <div className="custom-size-form">
-                    <h4>Enter Measurements</h4>
-                    <p className="custom-size-subtitle">
-                      Enter your body measurements in inches
-                    </p>
-
-                    <div className="custom-size-grid">
-                      <label>
-                        Bust *
-                        <input
-                          type="number"
-                          value={measurements.bust}
-                          onChange={(e) =>
-                            handleMeasurementChange("bust", e.target.value)
-                          }
-                          placeholder="36"
-                        />
-                      </label>
-                      <label>
-                        Waist *
-                        <input
-                          type="number"
-                          value={measurements.waist}
-                          onChange={(e) =>
-                            handleMeasurementChange("waist", e.target.value)
-                          }
-                          placeholder="30"
-                        />
-                      </label>
-                      <label>
-                        Hip *
-                        <input
-                          type="number"
-                          value={measurements.hip}
-                          onChange={(e) =>
-                            handleMeasurementChange("hip", e.target.value)
-                          }
-                          placeholder="38"
-                        />
-                      </label>
-                      <label>
-                        Shoulder *
-                        <input
-                          type="number"
-                          value={measurements.shoulder}
-                          onChange={(e) =>
-                            handleMeasurementChange("shoulder", e.target.value)
-                          }
-                          placeholder="14"
-                        />
-                      </label>
-                      <label>
-                        Armhole
-                        <input
-                          type="number"
-                          value={measurements.armhole}
-                          onChange={(e) =>
-                            handleMeasurementChange("armhole", e.target.value)
-                          }
-                          placeholder="16"
-                        />
-                      </label>
-                      <label>
-                        Sleeve Length *
-                        <input
-                          type="number"
-                          value={measurements.sleeveLength}
-                          onChange={(e) =>
-                            handleMeasurementChange("sleeveLength", e.target.value)
-                          }
-                          placeholder="22"
-                        />
-                      </label>
-                      <label>
-                        Neck Size
-                        <input
-                          type="number"
-                          value={measurements.neck}
-                          onChange={(e) =>
-                            handleMeasurementChange("neck", e.target.value)
-                          }
-                          placeholder="14"
-                        />
-                      </label>
-                      <label>
-                        Top Length
-                        <input
-                          type="number"
-                          value={measurements.topLength}
-                          onChange={(e) =>
-                            handleMeasurementChange("topLength", e.target.value)
-                          }
-                          placeholder="56"
-                        />
-                      </label>
-                      <label>
-                        Height *
-                        <input
-                          type="text"
-                          value={measurements.height}
-                          onChange={(e) =>
-                            handleMeasurementChange("height", e.target.value)
-                          }
-                          placeholder={`5'5"`}
-                        />
-                      </label>
-                      <label>
-                        Weight (Optional)
-                        <input
-                          type="number"
-                          value={measurements.weight}
-                          onChange={(e) =>
-                            handleMeasurementChange("weight", e.target.value)
-                          }
-                          placeholder="60 kg"
-                        />
-                      </label>
-                    </div>
-
-                    <button
-                      type="button"
-                      className="custom-size-save-btn"
-                      onClick={handleSaveMeasurements}
-                    >
-                      SAVE &amp; CONTINUE
-                    </button>
-                  </div>
-
-                  {/* RIGHT: how to measure guide */}
-                  <div className="custom-size-guide">
-                    <h4>How to Measure</h4>
-                    <ul className="custom-size-guide-list">
-                      <li>
-                        <strong>1. Bust</strong> — Measure around the fullest part of your bust
-                      </li>
-                      <li>
-                        <strong>2. Waist</strong> — Measure around the narrowest part
-                      </li>
-                      <li>
-                        <strong>3. Hip</strong> — Measure around the fullest part of your hips
-                      </li>
-                      <li>
-                        <strong>4. Shoulder</strong> — Measure from one shoulder end to the other
-                      </li>
-                      <li>
-                        <strong>5. Sleeve Length</strong> — Measure from shoulder point to wrist
-                      </li>
-                      <li>
-                        <strong>6. Armhole</strong> — Measure around the armhole
-                      </li>
-                      <li>
-                        <strong>7. Top Length</strong> — Measure from highest shoulder point to required length
-                      </li>
-                      <li>
-                        <strong>8. Neck Size</strong> — Measure around the base of your neck
-                      </li>
-                    </ul>
-
-                    <div className="custom-size-why">
-                      <h4>Why Custom Size?</h4>
-                      <ul>
-                        <li>✔ 100% Perfect Fit</li>
-                        <li>✔ No Alterations Needed</li>
-                        <li>✔ Lower Return Rate</li>
-                        <li>✔ Exclusive for You</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
-          {/* ▲ NEW: end Custom Size block */}
+          <div className="mtm-why-mini">
+            <h4>Why Custom Size?</h4>
+            <ul>
+              <li>✔ Perfect fit for your body</li>
+              <li>✔ Stitched just for you</li>
+              <li>✔ No alteration needed</li>
+              <li>✔ Lower return rate</li>
+            </ul>
+          </div>
 
           <div className="qty-box">
-            <button disabled>-</button>
+            <button onClick={() => setQuantity((q) => Math.max(1, q - 1))}>-</button>
             <span>{quantity}</span>
-            <button disabled>+</button>
+            <button onClick={() => setQuantity((q) => q + 1)}>+</button>
           </div>
+
           <div className="cart-row">
             <button className="cart-btn" disabled>ADD TO CART</button>
             <span className="coming-soon">Stay Tuned | Coming Soon</span>
           </div>
-          <div className="description">
-            <h3>Description</h3>
-            <p>
-              Radiate festive charm with the Orange Myra Suit Set. Crafted in rich cotton silk,
-              this A-line silhouette features a round neck with a notch, three-quarter sleeves,
-              and delicate lace detailing on the yoke and sleeve hems. Paired with matching pants
-              and a soft dupatta, this vibrant ensemble is perfect for daytime celebrations and
-              intimate festive gatherings.
-              {"\n\n"}Model height: 5.6ft{"\n"}Fabric: Georgette{"\n"}Handcrafted in India{"\n"}
-              Size: Refer to size chart. Model is wearing size Small.
+        </div>
+
+        {/* ===== Column 2: Enter Measurements ===== */}
+        <div className="mtm-col mtm-form-col">
+          <div className="mtm-tabs">
+            <button
+              className={formTab === "enter" ? "active" : ""}
+              onClick={() => setFormTab("enter")}
+            >
+              Enter Measurements
+            </button>
+            <button
+              className={formTab === "saved" ? "active" : ""}
+              onClick={() => setFormTab("saved")}
+            >
+              Use Saved Profile
+            </button>
+          </div>
+
+          {formTab === "enter" ? (
+            <>
+              <div className="mtm-radio-row">
+                <label>
+                  <input
+                    type="radio"
+                    checked={measureMode === "standard"}
+                    onChange={() => setMeasureMode("standard")}
+                  />
+                  Standard Measurements
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    checked={measureMode === "detailed"}
+                    onChange={() => setMeasureMode("detailed")}
+                  />
+                  Detailed Measurements (Recommended)
+                </label>
+              </div>
+
+              <h4 className="mtm-section-title">Standard Measurements</h4>
+              <p className="custom-size-subtitle">Enter your body measurements in inches</p>
+
+              <div className="custom-size-grid">
+                <label>
+                  Bust *
+                  <input type="number" value={measurements.bust} placeholder="36"
+                    onChange={(e) => handleMeasurementChange("bust", e.target.value)} />
+                </label>
+                <label>
+                  Waist *
+                  <input type="number" value={measurements.waist} placeholder="30"
+                    onChange={(e) => handleMeasurementChange("waist", e.target.value)} />
+                </label>
+                <label>
+                  Hip *
+                  <input type="number" value={measurements.hip} placeholder="38"
+                    onChange={(e) => handleMeasurementChange("hip", e.target.value)} />
+                </label>
+                <label>
+                  Shoulder *
+                  <input type="number" value={measurements.shoulder} placeholder="14"
+                    onChange={(e) => handleMeasurementChange("shoulder", e.target.value)} />
+                </label>
+                <label>
+                  Armhole
+                  <input type="number" value={measurements.armhole} placeholder="16"
+                    onChange={(e) => handleMeasurementChange("armhole", e.target.value)} />
+                </label>
+                <label>
+                  Sleeve Length *
+                  <input type="number" value={measurements.sleeveLength} placeholder="22"
+                    onChange={(e) => handleMeasurementChange("sleeveLength", e.target.value)} />
+                </label>
+                <label>
+                  Neck Size
+                  <input type="number" value={measurements.neck} placeholder="14"
+                    onChange={(e) => handleMeasurementChange("neck", e.target.value)} />
+                </label>
+                <label>
+                  Top Length
+                  <input type="number" value={measurements.topLength} placeholder="56"
+                    onChange={(e) => handleMeasurementChange("topLength", e.target.value)} />
+                </label>
+                <label>
+                  Height *
+                  <input type="text" value={measurements.height} placeholder={`5'5"`}
+                    onChange={(e) => handleMeasurementChange("height", e.target.value)} />
+                </label>
+                <label>
+                  Weight (Optional)
+                  <input type="number" value={measurements.weight} placeholder="60 kg"
+                    onChange={(e) => handleMeasurementChange("weight", e.target.value)} />
+                </label>
+              </div>
+
+              <button type="button" className="custom-size-save-btn" onClick={handleSaveMeasurements}>
+                SAVE &amp; CONTINUE
+              </button>
+            </>
+          ) : (
+            <p className="mtm-empty-state">
+              No saved measurement profile yet. Switch to “Enter Measurements” and save one.
             </p>
+          )}
+        </div>
+
+        {/* ===== Column 3: How to Measure ===== */}
+        <div className="mtm-col mtm-guide-col">
+          <div className="mtm-tabs">
+            <button
+              className={guideTab === "measure" ? "active" : ""}
+              onClick={() => setGuideTab("measure")}
+            >
+              How to Measure
+            </button>
+            <button
+              className={guideTab === "tips" ? "active" : ""}
+              onClick={() => setGuideTab("tips")}
+            >
+              Measurement Tips
+            </button>
+          </div>
+
+          {guideTab === "measure" ? (
+            <>
+              <div className="mtm-guide-image">
+                <img src={state.image} alt={`${state.title} measurement guide`} />
+              </div>
+              <ul className="custom-size-guide-list">
+                {measureSteps.map((s) => (
+                  <li key={s.n}>
+                    <strong>{s.n}. {s.label}</strong> — {s.desc}
+                  </li>
+                ))}
+              </ul>
+              <button type="button" className="mtm-video-btn">▶ WATCH VIDEO GUIDE</button>
+            </>
+          ) : (
+            <ul className="custom-size-guide-list">
+              {measurementTips.map((tip, i) => (
+                <li key={i}>{tip}</li>
+              ))}
+            </ul>
+          )}
+        </div>
+
+        {/* ===== Column 4: Sidebar ===== */}
+        <div className="mtm-col mtm-sidebar-col">
+          <div className="mtm-sidebar-box">
+            <h4>Why Made-to-Measure?</h4>
+            <ul className="mtm-why-list">
+              <li><strong>100% Perfect Fit</strong><span>Outfit stitched according to your unique body measurements</span></li>
+              <li><strong>No Alterations Needed</strong><span>Wear it straight out of the package</span></li>
+              <li><strong>Lower Return Rate</strong><span>Better fit means happy you</span></li>
+              <li><strong>Personalized Experience</strong><span>Your measurements are saved for faster checkout next time</span></li>
+              <li><strong>Exclusive for You</strong><span>Every stitch is made just for you</span></li>
+            </ul>
+          </div>
+
+          <div className="mtm-sidebar-box">
+            <div className="mtm-summary-header">
+              <h4>Your Measurement Summary</h4>
+            </div>
+            <div className="mtm-summary-grid">
+              <span>Bust</span><span>{measurements.bust || "—"}"</span>
+              <span>Waist</span><span>{measurements.waist || "—"}"</span>
+              <span>Hip</span><span>{measurements.hip || "—"}"</span>
+              <span>Shoulder</span><span>{measurements.shoulder || "—"}"</span>
+              <span>Top Length</span><span>{measurements.topLength || "—"}"</span>
+              <span>Sleeve Length</span><span>{measurements.sleeveLength || "—"}"</span>
+            </div>
+          </div>
+
+          <div className="mtm-sidebar-box mtm-order-preview">
+            <h4>Order Preview</h4>
+            <div className="mtm-order-row">
+              <img src={state.image} alt={state.title} />
+              <div>
+                <p className="mtm-order-title">{state.title}</p>
+                <p className="mtm-order-sub">Custom Size</p>
+                <p className="mtm-order-price">₹{state.price}</p>
+              </div>
+            </div>
+            <button type="button" className="custom-size-save-btn">PROCEED TO CHECKOUT</button>
           </div>
         </div>
+      </div>
+
+      <div className="mtm-how-it-works">
+        <div><span>1</span>Enter Measurements</div>
+        <div><span>2</span>We Stitch</div>
+        <div><span>3</span>Quality Check</div>
+        <div><span>4</span>Dispatched</div>
+        <div><span>5</span>Perfect Fit</div>
+      </div>
+
+      <div className="description">
+        <h3>Description</h3>
+        <p>
+          Radiate festive charm with the Orange Myra Suit Set. Crafted in rich cotton silk,
+          this A-line silhouette features a round neck with a notch, three-quarter sleeves,
+          and delicate lace detailing on the yoke and sleeve hems. Paired with matching pants
+          and a soft dupatta, this vibrant ensemble is perfect for daytime celebrations and
+          intimate festive gatherings.
+          {"\n\n"}Model height: 5.6ft{"\n"}Fabric: Georgette{"\n"}Handcrafted in India{"\n"}
+          Size: Refer to size chart. Model is wearing size Small.
+        </p>
       </div>
     </div>
   );
