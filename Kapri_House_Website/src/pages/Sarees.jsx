@@ -21,7 +21,7 @@ const products = [
     id: 1,
     name: "Banarasi Silk Saree",
     category: "Printed Sarees",
-    color: "#b8860b",
+    color: "#fff", // White
     sizes: ["M", "L", "XL"],
     mrp: 6999,
     price: 4499,
@@ -30,9 +30,9 @@ const products = [
   },
   {
     id: 2,
-    name: " Georgette Saree",
+    name: "Georgette Saree",
     category: "Silk Sarees",
-    color: "#d97882",
+    color: "#87ceeb", // Sky Blue
     sizes: ["S", "M", "L"],
     mrp: 3999,
     price: 2499,
@@ -43,7 +43,7 @@ const products = [
     id: 3,
     name: "Embroidered Saree",
     category: "Embroidered",
-    color: "#e8c9a0",
+    color: "#ff7f24", // Orange
     sizes: ["M", "L", "XL"],
     mrp: 5999,
     price: 3999,
@@ -54,7 +54,7 @@ const products = [
     id: 4,
     name: "Handloom Saree",
     category: "New Arrivals",
-    color: "#fff",
+    color: "#e8c9a0", // Beige
     sizes: ["S", "M", "L"],
     mrp: 3500,
     price: 2199,
@@ -65,7 +65,7 @@ const products = [
     id: 5,
     name: "Chiffon Floral Saree",
     category: "New Arrivals",
-    color: "#d97882",
+    color: "#ff1493", // Pink
     sizes: ["M", "L"],
     mrp: 4200,
     price: 2799,
@@ -76,7 +76,7 @@ const products = [
     id: 6,
     name: "Linen Solid Saree",
     category: "Embroidered",
-    color: "#6b8e6b",
+    color: "#ff1493", // Pink
     sizes: ["M", "L", "XL"],
     mrp: 3800,
     price: 2499,
@@ -87,7 +87,7 @@ const products = [
     id: 7,
     name: "Organza Sequin Saree",
     category: "Embroidered",
-    color: "#e8c9a0",
+    color: "#800080", // Purple
     sizes: ["M", "L", "XL"],
     mrp: 6500,
     price: 4499,
@@ -98,7 +98,7 @@ const products = [
     id: 8,
     name: "Kanjivaram Silk Saree",
     category: "Silk Sarees",
-    color: "#b8860b",
+    color: "#000", // Black
     sizes: ["L", "XL", "XXL"],
     mrp: 8999,
     price: 5999,
@@ -109,7 +109,7 @@ const products = [
     id: 9,
     name: "Tussar Silk Saree",
     category: "Silk Sarees",
-    color: "#c49a6c",
+    color: "#8b5a2b", // Brown
     sizes: ["M", "L"],
     mrp: 5500,
     price: 3799,
@@ -120,7 +120,7 @@ const products = [
     id: 10,
     name: "Zari Border Saree",
     category: "New Arrivals",
-    color: "#b8860b",
+    color: "#ff1493", // Pink
     sizes: ["M", "L", "XL"],
     mrp: 4999,
     price: 3299,
@@ -131,7 +131,7 @@ const products = [
     id: 11,
     name: "Printed Crepe Saree",
     category: "Printed Sarees",
-    color: "#4a6fa5",
+    color: "#87ceeb", // Sky Blue
     sizes: ["S", "M", "L"],
     mrp: 3600,
     price: 2299,
@@ -142,7 +142,7 @@ const products = [
     id: 12,
     name: "Bandhani Print Saree",
     category: "Printed Sarees",
-    color: "#d97882",
+    color: "#00bcd4", // Turquoise
     sizes: ["M", "L", "XL"],
     mrp: 4400,
     price: 2899,
@@ -152,7 +152,17 @@ const products = [
 ];
 
 const categories = ["New Arrivals", "Silk Sarees", "Cotton Sarees", "Printed Sarees", "Embroidered"];
-const colors     = ["#fff","#000","#e8c9a0","#d97882","#6b8e6b","#b8860b","#4a6fa5","#c49a6c"];
+const colors = [
+  { id: 1, name: "White", hex: "#fff" },
+  { id: 2, name: "Black", hex: "#000" },
+  { id: 3, name: "Beige", hex: "#e8c9a0" },
+  { id: 4, name: "Brown", hex: "#8b5a2b" },
+  { id: 5, name: "Pink", hex: "#ff1493" },
+  { id: 6, name: "Purple", hex: "#800080" },
+  { id: 7, name: "Orange", hex: "#ff7f24" },
+  { id: 8, name: "Sky Blue", hex: "#87ceeb" },
+  { id: 9, name: "Turquoise", hex: "#00bcd4" },
+];
 const sizes      = ["XS","S","M","L","XL","XXL"];
 
 export default function Sarees() {
@@ -260,19 +270,35 @@ const sorted = [...filteredProducts].sort((a, b) => {
               </div>
             </div>
 
-            <div className="sr-filter-group">
-              <h4>COLOR</h4>
-              <div className="sr-colors">
-                {colors.map((c, i) => (
-                  <button
-                    key={i}
-                    className={`sr-color-dot ${selectedColor === c ? "active" : ""}`}
-                    style={{ background: c, border: c === "#fff" ? "1px solid #ccc" : "none" }}
-                    onClick={() => setSelectedColor(selectedColor === c ? null : c)}
-                  />
-                ))}
-              </div>
-            </div>
+           <div className="sr-filter-group">
+  <h4>COLOR</h4>
+
+  <div className="sr-colors">
+    {colors.map((color) => (
+      <button
+        key={color.id}
+        className={`sr-color-dot ${
+          selectedColor === color.hex ? "active" : ""
+        }`}
+        style={{
+          background: color.hex,
+          border:
+            color.hex === "#fff"
+              ? "1px solid #ccc"
+              : "none",
+        }}
+        onClick={() =>
+          setSelectedColor(
+            selectedColor === color.hex
+              ? null
+              : color.hex
+          )
+        }
+        title={color.name}
+      />
+    ))}
+  </div>
+</div>
 
             <div className="sr-filter-group">
               <h4>SIZE</h4>

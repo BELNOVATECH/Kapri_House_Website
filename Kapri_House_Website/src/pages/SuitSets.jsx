@@ -22,7 +22,7 @@ const products = [
     image: s1,
     title: "Elegant Floral Suit Set",
     category: "Floral",
-    color: "#ffb6c1", // Pink
+    color: "#800080", // Pink
     sizes: ["M", "L", "XL"],
     mrp: 3999,
     price: 2999,
@@ -31,9 +31,9 @@ const products = [
   {
     id: 102,
     image: s2,
-    title: "Cotton Printed Suit Set",
-    category: "Printed",
-    color: "#87ceeb", // Sky Blue
+    title: "Party Wear Suit Set",
+    category: "Party Wear",
+    color: "#ffb6c1", // Pink
     sizes: ["S", "M", "L"],
     mrp: 4499,
     price: 3499,
@@ -44,7 +44,7 @@ const products = [
     image: s3,
     title: "Designer Anarkali Suit Set",
     category: "Anarkali",
-    color: "#800080", // Purple
+    color: "#000080", // Purple
     sizes: ["M", "L", "XL"],
     mrp: 4999,
     price: 3899,
@@ -55,7 +55,7 @@ const products = [
     image: s4,
     title: "Festive Embroidered Suit Set",
     category: "Embroidered",
-    color: "#ffd700", // Gold
+    color: "#d58e0b", // Gold
     sizes: ["M", "L"],
     mrp: 3599,
     price: 2799,
@@ -66,7 +66,7 @@ const products = [
     image: s5,
     title: "Straight Cut Suit Set",
     category: "Straight",
-    color: "#228b22", // Green
+    color: "#87ceeb", // Green
     sizes: ["L", "XL"],
     mrp: 4200,
     price: 3299,
@@ -77,7 +77,7 @@ const products = [
     image: s6,
     title: "Premium Silk Suit Set",
     category: "Silk",
-    color: "#ffffff", // White
+    color: "#dc143c", // Red
     sizes: ["S", "M", "L"],
     mrp: 3800,
     price: 2899,
@@ -88,7 +88,7 @@ const products = [
     image: s7,
     title: "Pastel Party Wear Suit Set",
     category: "Party Wear",
-    color: "#ffdab9", // Peach
+    color: "#ffd700", // Peach
     sizes: ["M", "L"],
     mrp: 4500,
     price: 3499,
@@ -99,7 +99,7 @@ const products = [
     image: s8,
     title: "Traditional Ethnic Suit Set",
     category: "Ethnic",
-    color: "#dc143c", // Red
+    color: "#000000", // Black
     sizes: ["M", "L", "XL"],
     mrp: 3999,
     price: 2999,
@@ -110,7 +110,7 @@ const products = [
     image: s9,
     title: "Luxury Occasion Suit Set",
     category: "Luxury",
-    color: "#000080", // Navy Blue
+    color: "#79c3a9", // Navy Blue
     sizes: ["L", "XL"],
     mrp: 5200,
     price: 3999,
@@ -119,7 +119,7 @@ const products = [
 ];
 const categories = [
   "Floral",
-  "Printed",
+  // "Printed",
   "Anarkali",
   "Embroidered",
   "Straight",
@@ -133,15 +133,15 @@ const colors = [
   "#87ceeb", // Sky Blue
   "#800080", // Purple
   "#ffd700", // Gold
-  "#228b22", // Green
-  "#ffffff", // White
-  "#ffdab9", // Peach
+  "#79c3a9", // Green
+  // "#ffffff", // White
+  // "#ffdab9", // Peach
   "#dc143c", // Red
   "#000080", // Navy
   "#000000", // Black
-  "#808080", // Grey
-  "#ffa500", // Orange
-  "#8b4513", // Brown
+  // "#FFFF00", // Grey
+  "#d58e0b", // Orange
+  // "#8b4513", // Brown
 ];
 const sizes = ["S", "M", "L", "XL"];
 
