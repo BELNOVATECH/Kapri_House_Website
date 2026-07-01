@@ -19,9 +19,9 @@ import saleBanner from "../assets/saleban.webp";
 const products = [
   {
     id: 1,
-    name: "Floral Print Kurta Set",
-    category: "Kurta Sets",
-    color: "#ff69b4",
+    name: "Floral PrintSet",
+    category: "Dresses",
+    color: "#ffa500", // Orange
     sizes: ["S", "M", "L"],
     mrp: 3999,
     price: 1999,
@@ -31,8 +31,8 @@ const products = [
   {
     id: 2,
     name: "Solid Cotton Dress",
-    category: "Dresses",
-    color: "#6b8e6b",
+    category: "Co-ord Sets",
+    color: "#800080",
     sizes: ["M", "L", "XL"],
     mrp: 3500,
     price: 1799,
@@ -53,8 +53,8 @@ const products = [
   {
     id: 4,
     name: "Printed Maxi Dress",
-    category: "Dresses",
-    color: "#d97882",
+    category: "Co-ord Sets",
+    color: "#4a6fa5",
     sizes: ["S", "M", "L"],
     mrp: 3800,
     price: 1899,
@@ -64,7 +64,7 @@ const products = [
   {
     id: 5,
     name: "Block Print Suit Set",
-    category: "Kurta Sets",
+    category: "Dresses",
     color: "#ffa500",
     sizes: ["M", "L", "XL"],
     mrp: 4500,
@@ -74,9 +74,9 @@ const products = [
   },
   {
     id: 6,
-    name: "Tie-Dye Shrug Set",
-    category: "Co-ord Sets",
-    color: "#800080",
+    name: "Tie-Dye Kurta Set",
+    category: "Kurta Sets",
+    color: "#6b8e6b",
     sizes: ["S", "M", "L"],
     mrp: 3999,
     price: 1999,
@@ -85,8 +85,8 @@ const products = [
   },
   {
     id: 7,
-    name: "Pastel Saree",
-    category: "Sarees",
+    name: "Pastel dress",
+    category: "Dresses",
     color: "#e8c9a0",
     sizes: ["M", "L", "XL"],
     mrp: 4999,
@@ -98,7 +98,7 @@ const products = [
     id: 8,
     name: "Cotton Casual Lehenga",
     category: "Lehengas",
-    color: "#ff0000",
+    color: "#b8860b",
     sizes: ["L", "XL", "XXL"],
     mrp: 6999,
     price: 3499,
@@ -108,8 +108,8 @@ const products = [
   {
     id: 9,
     name: "Printed Farshi Salwar Set",
-    category: "Kurta Sets",
-    color: "#4a6fa5",
+    category: "All Sale",
+    color: "#800080",
     sizes: ["M", "L", "XL"],
     mrp: 5499,
     price: 2799,
@@ -120,7 +120,7 @@ const products = [
     id: 10,
     name: "Organza Sharara Set",
     category: "Kurta Sets",
-    color: "#00ced1",
+    color: "#38bc7c",
     sizes: ["L", "XL", "XXL"],
     mrp: 5800,
     price: 2899,
@@ -130,7 +130,7 @@ const products = [
   {
     id: 11,
     name: "Rust Cotton Kurta Set",
-    category: "Kurta Sets",
+    category: "All Sale",
     color: "#8b4513",
     sizes: ["S", "M", "L"],
     mrp: 3200,
@@ -151,23 +151,21 @@ const products = [
   },
 ];
 
-const categories = ["All Sale", "Kurta Sets", "Dresses", "Co-ord Sets", "Sarees", "Lehengas"];
+const categories = ["All Sale", "Kurta Sets", "Dresses", "Co-ord Sets", "Lehengas"];
 const colors = [
   "#fff",
-  "#000",
+  "#38bc7c",
   "#e8c9a0",
-  "#d97882",
+  // "#d97882",
   "#6b8e6b",
   "#b8860b",
   "#4a6fa5",
-  "#c49a6c",
-  "#ff0000",
+  // "#c49a6c",
+  // "#ff0000",
   "#800080",
   "#ffa500",
-  "#ffff00",
-  "#00ced1",
-  "#ff69b4",
-  "#808080",
+  // "#ffff00",
+  
   "#8b4513",
 ];
 const sizes      = ["XS","S","M","L","XL","XXL"];

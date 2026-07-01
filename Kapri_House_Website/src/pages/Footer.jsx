@@ -61,15 +61,15 @@ export default function Footer() {
           <div className="footer-column footer-contact">
             <h3>CUSTOMER SERVICE</h3>
             <p><FaClock /> MON-FRI - 9.00 AM TO 5.00 PM (IST)</p>
-            <p><FaPhoneAlt /> +91 9999999999</p>
-            <p><FaPhoneAlt /> +91 9898989898</p>
+            {/* <p><FaPhoneAlt /> +91 9999999999</p> */}
+            <p><FaPhoneAlt /> +91 8210536799</p>
             
              <p>
   <FaMapMarkerAlt />
-  KAPRIHOUSE PRIVATE LIMITED,<br />
-  Ranchi, Jharkhand – 834001
+  KAPRIHOUSE<br />
+  Near DPS Public School,Dumka, Jharkhand – 814101, India
 </p>
-            <p>CIN: xxxxxxxxxxxxxxx</p>
+            {/* <p>CIN: xxxxxxxxxxxxxxx</p> */}
           </div>
 
           <div className="footer-column">
