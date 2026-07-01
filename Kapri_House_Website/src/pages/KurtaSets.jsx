@@ -21,7 +21,7 @@ const products = [
   image: k1,
   title: "Pink Floral Kurta Set",
   category: "Floral",
-  color: "#ff69b4",
+  color: "#800000",
   sizes: ["M", "L", "XL"],
   mrp: 3999,
   price: 2999,
@@ -41,9 +41,9 @@ const products = [
 {
   id: 3,
   image: k3,
-  title: "White Embroidered Kurta Set",
+  title: "Pink Embroidered Kurta Set",
   category: "Embroidered",
-  color: "#ffffff",
+  color: "#ff69b4",
   sizes: ["M", "L", "XL"],
   mrp: 4999,
   price: 3899,
@@ -52,9 +52,9 @@ const products = [
 {
   id: 4,
   image: k4,
-  title: "Lavender Straight Kurta Set",
+  title: "Straight Kurta Set",
   category: "Straight",
-  color: "#c8a2c8",
+  color: "#ffdab9",
   sizes: ["M", "L"],
   mrp: 3599,
   price: 2799,
@@ -63,9 +63,9 @@ const products = [
 {
   id: 5,
   image: k5,
-  title: "Green Cotton Kurta Set",
-  category: "Cotton",
-  color: "#228b22",
+  title: "ClassicKurta Set",
+  category: "NewArrivals",
+  color: "#87ceeb",
   sizes: ["L", "XL"],
   mrp: 4200,
   price: 3299,
@@ -74,9 +74,9 @@ const products = [
 {
   id: 6,
   image: k6,
-  title: "Blue Printed Kurta Set",
+  title: "Maroon Printed Kurta Set",
   category: "Printed",
-  color: "#1e90ff",
+  color: "#800000",
   sizes: ["S", "M", "L"],
   mrp: 3800,
   price: 2899,
@@ -87,7 +87,7 @@ const products = [
   image: k7,
   title: "Peach Floral Kurta Set",
   category: "Floral",
-  color: "#ffdab9",
+  color: "#800000",
   sizes: ["M", "L"],
   mrp: 4500,
   price: 3499,
@@ -97,8 +97,8 @@ const products = [
   id: 8,
   image: k8,
   title: "Sky Blue Printed Kurta Set",
-  category: "Printed",
-  color: "#87ceeb",
+  category: "Cotton",
+  color: "#228b22",
   sizes: ["S", "M", "L"],
   mrp: 3999,
   price: 2999,
@@ -107,9 +107,9 @@ const products = [
 {
   id: 9,
   image: k9,
-  title: "Maroon Embroidered Kurta Set",
-  category: "Embroidered",
-  color: "#800000",
+  title: "Casual Kurta Set",
+  category: "Cotton",
+  color: "#ffffff",
   sizes: ["L", "XL"],
   mrp: 5200,
   price: 3999,
@@ -130,9 +130,9 @@ const colors = [
   "#ff69b4", // Pink
   "#ffd700", // Yellow
   "#ffffff", // White
-  "#c8a2c8", // Lavender
+  // "#c8a2c8", // Lavender
   "#228b22", // Green
-  "#1e90ff", // Blue
+  // "#1e90ff", // Blue
   "#ffdab9", // Peach
   "#87ceeb", // Sky Blue
   "#800000"  // Maroon

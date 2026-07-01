@@ -21,7 +21,7 @@ const products = [
     id: 1,
     name: "Embroidered Silk Lehenga",
     category: "Embroidered",
-    color: "#b8860b",
+    color: "#e8c9a0", // Cream / Beige
     sizes: ["M", "L", "XL"],
     mrp: 8999,
     price: 5999,
@@ -32,7 +32,7 @@ const products = [
     id: 2,
     name: "Bridal Velvet Lehenga",
     category: "Bridal Lehengas",
-    color: "#800080",
+    color: "#6b8e23", // Green
     sizes: ["L", "XL", "XXL"],
     mrp: 12999,
     price: 8999,
@@ -43,7 +43,7 @@ const products = [
     id: 3,
     name: "Floral Print Lehenga Set",
     category: "Bridal Lehengas",
-    color: "#ff69b4",
+    color: "#1e90ff", // Royal Blue
     sizes: ["S", "M", "L"],
     mrp: 6999,
     price: 4499,
@@ -54,7 +54,7 @@ const products = [
     id: 4,
     name: "Mirror Work Lehenga",
     category: "Party Wear",
-    color: "#ff0000",
+    color: "#000", // Black
     sizes: ["M", "L", "XL"],
     mrp: 9999,
     price: 6999,
@@ -65,7 +65,7 @@ const products = [
     id: 5,
     name: "Georgette Flared Lehenga",
     category: "New Arrivals",
-    color: "#e8c9a0",
+    color: "#fff", // White / Cream
     sizes: ["S", "M", "L"],
     mrp: 7999,
     price: 5499,
@@ -76,7 +76,7 @@ const products = [
     id: 6,
     name: "Sequin Designer Lehenga",
     category: "Embroidered",
-    color: "#d97882",
+    color: "#00bcd4", // Sky Blue
     sizes: ["M", "L", "XL"],
     mrp: 10999,
     price: 7499,
@@ -87,7 +87,7 @@ const products = [
     id: 7,
     name: "Banarasi Silk Lehenga",
     category: "Bridal Lehengas",
-    color: "#b8860b",
+    color: "#808080", // Grey
     sizes: ["L", "XL", "XXL"],
     mrp: 11999,
     price: 8499,
@@ -98,7 +98,7 @@ const products = [
     id: 8,
     name: "Pastel Net Lehenga",
     category: "Net Lehengas",
-    color: "#4a6fa5",
+    color: "#90ee90", // Light Green
     sizes: ["S", "M", "L"],
     mrp: 6499,
     price: 4299,
@@ -109,7 +109,7 @@ const products = [
     id: 9,
     name: "Zari Work Festive Lehenga",
     category: "Party Wear",
-    color: "#ffa500",
+    color: "#800080", // Purple
     sizes: ["M", "L", "XL"],
     mrp: 9499,
     price: 6499,
@@ -120,7 +120,7 @@ const products = [
     id: 10,
     name: "Organza Layered Lehenga",
     category: "Embroidered",
-    color: "#00ced1",
+    color: "#ff1744", // Red / Pink
     sizes: ["S", "M", "L"],
     mrp: 8499,
     price: 5799,
@@ -131,7 +131,7 @@ const products = [
     id: 11,
     name: "Maroon Embroidered Lehenga",
     category: "New Arrivals",
-    color: "#8b4513",
+    color: "#556b2f", // Olive Green
     sizes: ["M", "L", "XL"],
     mrp: 9999,
     price: 6999,
@@ -142,7 +142,7 @@ const products = [
     id: 12,
     name: "Ivory Bridal Lehenga",
     category: "Bridal Lehengas",
-    color: "#fff",
+    color: "#b8860b", // Mustard Gold
     sizes: ["L", "XL", "XXL"],
     mrp: 13999,
     price: 9999,
@@ -150,25 +150,20 @@ const products = [
     image: lh12,
   },
 ];
-
 const categories = ["New Arrivals", "Bridal Lehengas", "Party Wear", "Embroidered", "Net Lehengas"];
 const colors = [
-  "#fff",
-  "#000",
-  "#e8c9a0",
-  "#d97882",
-  "#6b8e6b",
-  "#b8860b",
-  "#4a6fa5",
-  "#c49a6c",
-  "#ff0000",
-  "#800080",
-  "#ffa500",
-  "#ffff00",
-  "#00ced1",
-  "#ff69b4",
-  "#808080",
-  "#8b4513",
+  { id: 1, name: "White", hex: "#fff" },
+  { id: 2, name: "Black", hex: "#000" },
+  { id: 3, name: "Cream", hex: "#e8c9a0" },
+  { id: 4, name: "Green", hex: "#6b8e23" },
+  { id: 5, name: "Light Green", hex: "#90ee90" },
+  { id: 6, name: "Blue", hex: "#1e90ff" },
+  { id: 7, name: "Sky Blue", hex: "#00bcd4" },
+  { id: 8, name: "Grey", hex: "#808080" },
+  { id: 9, name: "Purple", hex: "#800080" },
+  { id: 10, name: "Red", hex: "#ff1744" },
+  { id: 11, name: "Gold", hex: "#b8860b" },
+  { id: 12, name: "Olive", hex: "#556b2f" },
 ];
 const sizes      = ["XS","S","M","L","XL","XXL"];
 
@@ -279,19 +274,36 @@ const sorted = [...filteredProducts].sort((a, b) => {
               </div>
             </div>
 
-            <div className="lh-filter-group">
-              <h4>COLOR</h4>
-              <div className="lh-colors">
-                {colors.map((c, i) => (
-                  <button
-                    key={i}
-                    className={`lh-color-dot ${selectedColor === c ? "active" : ""}`}
-                    style={{ background: c, border: c === "#fff" ? "1px solid #ccc" : "none" }}
-                    onClick={() => setSelectedColor(selectedColor === c ? null : c)}
-                  />
-                ))}
-              </div>
-            </div>
+           <div className="lh-filter-group">
+  <h4>COLOR</h4>
+
+  <div className="lh-colors">
+    {colors.map((color) => (
+      <button
+        key={color.id}
+        type="button"
+        title={color.name}
+        className={`lh-color-dot ${
+          selectedColor === color.hex ? "active" : ""
+        }`}
+        style={{
+          backgroundColor: color.hex,
+          border:
+            color.hex === "#fff"
+              ? "1px solid #ccc"
+              : "none",
+        }}
+        onClick={() =>
+          setSelectedColor(
+            selectedColor === color.hex
+              ? null
+              : color.hex
+          )
+        }
+      />
+    ))}
+  </div>
+</div>
 
             <div className="lh-filter-group">
               <h4>SIZE</h4>
