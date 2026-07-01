@@ -21,7 +21,7 @@ const products = [
     id: 1,
     name: "Floral Print Maxi Dress",
     category: "Party Wear",
-    color: "#ff69b4",
+    color: "#fff", // White / Cream
     sizes: ["S", "M", "L"],
     mrp: 4999,
     price: 3499,
@@ -43,7 +43,7 @@ const products = [
     id: 3,
     name: "Tiered Cotton Maxi Dress",
     category: "Printed Maxis",
-    color: "#6b8e6b",
+    color: "#6b8e6b", // Green
     sizes: ["S", "M", "L"],
     mrp: 3999,
     price: 2799,
@@ -54,7 +54,7 @@ const products = [
     id: 4,
     name: "Embroidered Maxi Gown",
     category: "Printed Maxis",
-    color: "#b8860b",
+    color: "#b8860b", // Gold
     sizes: ["L", "XL", "XXL"],
     mrp: 6999,
     price: 4999,
@@ -65,7 +65,7 @@ const products = [
     id: 5,
     name: "Off-Shoulder Maxi Dress",
     category: "Party Wear",
-    color: "#d97882",
+    color: "#d97882", // Pink
     sizes: ["S", "M", "L"],
     mrp: 4200,
     price: 2899,
@@ -76,7 +76,7 @@ const products = [
     id: 6,
     name: "Printed Wrap Maxi Dress",
     category: "Party Wear",
-    color: "#4a6fa5",
+    color: "#4a6fa5", // Blue
     sizes: ["M", "L", "XL"],
     mrp: 3800,
     price: 2599,
@@ -87,7 +87,7 @@ const products = [
     id: 7,
     name: "Ruffle Sleeve Maxi Dress",
     category: "New Arrivals",
-    color: "#800080",
+    color: "#6b8e6b", // Olive Green
     sizes: ["M", "L", "XL"],
     mrp: 4600,
     price: 3199,
@@ -98,7 +98,7 @@ const products = [
     id: 8,
     name: "Georgette Flowy Maxi",
     category: "Casual Maxis",
-    color: "#e8c9a0",
+    color: "#98fb98", // Light Green
     sizes: ["L", "XL", "XXL"],
     mrp: 5200,
     price: 3699,
@@ -109,7 +109,7 @@ const products = [
     id: 9,
     name: "Tie-Dye Maxi Dress",
     category: "Casual Maxis",
-    color: "#ff0000",
+    color: "#ff0000", // Red
     sizes: ["S", "M", "L"],
     mrp: 3900,
     price: 2699,
@@ -120,7 +120,7 @@ const products = [
     id: 10,
     name: "Boho Maxi Dress",
     category: "Solid Maxis",
-    color: "#ffa500",
+    color: "#ffa500", // Orange
     sizes: ["M", "L", "XL"],
     mrp: 4400,
     price: 2999,
@@ -131,7 +131,7 @@ const products = [
     id: 11,
     name: "Halter Neck Maxi Dress",
     category: "Party Wear",
-    color: "#000",
+    color: "#000", // Black
     sizes: ["L", "XL", "XXL"],
     mrp: 4800,
     price: 3299,
@@ -142,7 +142,7 @@ const products = [
     id: 12,
     name: "Pastel Chiffon Maxi Dress",
     category: "New Arrivals",
-    color: "#fff",
+    color: "#ff0000", // White
     sizes: ["S", "M", "L"],
     mrp: 5500,
     price: 3899,
@@ -153,22 +153,15 @@ const products = [
 
 const categories = ["New Arrivals", "Casual Maxis", "Party Wear", "Printed Maxis", "Solid Maxis"];
 const colors = [
-  "#fff",      // White
-  "#000",      // Black
-  "#e8c9a0",   // Beige
-  "#d97882",   // Pink
-  "#6b8e6b",   // Green
-  "#b8860b",   // Gold
-  "#4a6fa5",   // Blue
-  "#c49a6c",   // Brown
-  "#ff0000",   // Red
-  "#800080",   // Purple
-  "#ffa500",   // Orange
-  "#ffff00",   // Yellow
-  "#00ced1",   // Turquoise
-  "#ff69b4",   // Hot Pink
-  "#808080",   // Grey
-  "#8b4513",   // Dark Brown
+  { id: 1, name: "White", hex: "#fff" },
+  { id: 2, name: "Black", hex: "#000" },
+  { id: 3, name: "Pink", hex: "#d97882" },
+  { id: 4, name: "Green", hex: "#6b8e6b" },
+  { id: 5, name: "Light Green", hex: "#98fb98" },
+  { id: 6, name: "Gold", hex: "#b8860b" },
+  { id: 7, name: "Blue", hex: "#4a6fa5" },
+  { id: 8, name: "Red", hex: "#ff0000" },
+  { id: 9, name: "Orange", hex: "#ffa500" },
 ];
 const sizes      = ["XS","S","M","L","XL","XXL"];
 
@@ -177,19 +170,27 @@ export default function Maxis() {
 
   const [selectedColor,    setSelectedColor]    = useState(null);
   const [selectedSize,     setSelectedSize]     = useState(null);
-  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState([]); // FIX: array for multi-select
   const [priceRange,       setPriceRange]       = useState(7000);
   const [sortBy,           setSortBy]           = useState("featured");
   const [filterOpen,       setFilterOpen]       = useState(true);
 
+  const toggleCategory = (cat) => {
+    setSelectedCategory(prev =>
+      prev.includes(cat)
+        ? prev.filter(c => c !== cat)   // uncheck: remove it
+        : [...prev, cat]                // check: add it
+    );
+  };
+
 const filteredProducts = products.filter((product) => {
   const categoryMatch =
-    !selectedCategory ||
-    product.category === selectedCategory;
+    selectedCategory.length === 0 ||
+    selectedCategory.includes(product.category);
 
-  const colorMatch =
-    !selectedColor ||
-    product.color === selectedColor;
+const colorMatch =
+  !selectedColor ||
+  product.color === selectedColor;
 
   const sizeMatch =
     !selectedSize ||
@@ -255,8 +256,8 @@ const sorted = [...filteredProducts].sort((a, b) => {
                 <label key={cat} className="mx-checkbox">
                   <input
                     type="checkbox"
-                    checked={selectedCategory === cat}
-                    onChange={() => setSelectedCategory(selectedCategory === cat ? null : cat)}
+                    checked={selectedCategory.includes(cat)}
+                    onChange={() => toggleCategory(cat)}
                   />
                   {cat}
                 </label>
@@ -279,19 +280,31 @@ const sorted = [...filteredProducts].sort((a, b) => {
               </div>
             </div>
 
-            <div className="mx-filter-group">
-              <h4>COLOR</h4>
-              <div className="mx-colors">
-                {colors.map((c, i) => (
-                  <button
-                    key={i}
-                    className={`mx-color-dot ${selectedColor === c ? "active" : ""}`}
-                    style={{ background: c, border: c === "#fff" ? "1px solid #ccc" : "none" }}
-                    onClick={() => setSelectedColor(selectedColor === c ? null : c)}
-                  />
-                ))}
-              </div>
-            </div>
+          <div className="mx-filter-group">
+  <h4>COLOR</h4>
+
+  <div className="mx-colors">
+    {colors.map((color) => (
+      <button
+        key={color.id}
+        type="button"
+        title={color.name}
+        className={`mx-color-dot ${
+          selectedColor === color.hex ? "active" : ""
+        }`}
+        style={{
+          backgroundColor: color.hex,
+          border: color.hex === "#fff" ? "1px solid #ccc" : "none",
+        }}
+        onClick={() =>
+          setSelectedColor(
+            selectedColor === color.hex ? null : color.hex
+          )
+        }
+      />
+    ))}
+  </div>
+</div>
 
             <div className="mx-filter-group">
               <h4>SIZE</h4>
