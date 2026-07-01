@@ -19,7 +19,7 @@ import shrugBanner from "../assets/ban.webp";
 const products = [
   {
     id: 1,
-    name: "Floral Print Shrug Set",
+    name: "Raven black printed shrug set",
     category: "Printed Sets",
     color: "#ff69b4",
     sizes: ["S", "M", "L"],
@@ -30,8 +30,8 @@ const products = [
   },
   {
     id: 2,
-    name: "Solid Cotton Shrug Set",
-    category: "Cotton Shrug",
+    name: "Solid  Shrug Set",
+    category: "Printed Sets",
     color: "#4a6fa5",
     sizes: ["M", "L", "XL"],
     mrp: 3500,
@@ -41,8 +41,8 @@ const products = [
   },
   {
     id: 3,
-    name: "Embroidered Shrug Set",
-    category: "Embroidered",
+    name: "cotton Shrug Set",
+    category: "Cotton Shrug",
     color: "#b8860b",
     sizes: ["L", "XL", "XXL"],
     mrp: 4200,
@@ -53,7 +53,7 @@ const products = [
   {
     id: 4,
     name: "Printed Linen Shrug Set",
-    category: "Printed Sets",
+    category: "Embroidered",
     color: "#ff0000",
     sizes: ["S", "M", "L"],
     mrp: 3800,
@@ -64,7 +64,7 @@ const products = [
   {
     id: 5,
     name: "Block Print Shrug Set",
-    category: "Printed Sets",
+    category: "Embroidered",
     color: "#ffa500",
     sizes: ["M", "L", "XL"],
     mrp: 4500,
@@ -74,8 +74,8 @@ const products = [
   },
   {
     id: 6,
-    name: "Tie-Dye Shrug Set",
-    category: "Shrug Sets",
+    name: "printed Tie-Dye Shrug Set",
+    category: "Printed Sets",
     color: "#800080",
     sizes: ["S", "M", "L"],
     mrp: 3999,
@@ -85,7 +85,7 @@ const products = [
   },
   {
     id: 7,
-    name: "Pastel Shrug Set",
+    name: "Shrug Set",
     category: "New Arrivals",
     color: "#e8c9a0",
     sizes: ["S", "M", "L"],
@@ -96,8 +96,8 @@ const products = [
   },
   {
     id: 8,
-    name: "Cotton Casual Shrug Set",
-    category: "Cotton Shrug",
+    name: "Embroidered Shrug Set",
+    category: "Embroidered",
     color: "#6b8e6b",
     sizes: ["M", "L", "XL"],
     mrp: 3200,
@@ -108,7 +108,7 @@ const products = [
   {
     id: 9,
     name: "Printed Kurti Shrug Set",
-    category: "Printed Sets",
+    category: "New Arrivals",
     color: "#d97882",
     sizes: ["S", "M", "L"],
     mrp: 4200,
@@ -119,7 +119,7 @@ const products = [
   {
     id: 10,
     name: "Organza Shrug Set",
-    category: "New Arrivals",
+    category: "Embroidered",
     color: "#00ced1",
     sizes: ["L", "XL", "XXL"],
     mrp: 5000,
@@ -130,7 +130,7 @@ const products = [
   {
     id: 11,
     name: "Rust Cotton Shrug Set",
-    category: "Cotton Shrug",
+    category: "printed Shrug",
     color: "#8b4513",
     sizes: ["M", "L", "XL"],
     mrp: 3800,
@@ -141,7 +141,7 @@ const products = [
   {
     id: 12,
     name: "Ivory Lace Shrug Set",
-    category: "Embroidered",
+    category: "Shrug Sets",
     color: "#fff",
     sizes: ["S", "M", "L"],
     mrp: 4500,
