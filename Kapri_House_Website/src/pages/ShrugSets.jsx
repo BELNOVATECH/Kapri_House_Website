@@ -15,13 +15,12 @@ import sh10 from "../assets/sh10.jpg";
 import sh11 from "../assets/sh11.jpeg";
 import sh12 from "../assets/sh12.jpeg";
 import shrugBanner from "../assets/ban.webp";
-
 const products = [
   {
     id: 1,
-    name: "Raven black printed shrug set",
+    name: "Raven Black Printed Shrug Set",
     category: "Printed Sets",
-    color: "#ff69b4",
+    color: "#000", // Black
     sizes: ["S", "M", "L"],
     mrp: 3999,
     price: 2499,
@@ -30,9 +29,9 @@ const products = [
   },
   {
     id: 2,
-    name: "Solid  Shrug Set",
+    name: "Solid Shrug Set",
     category: "Printed Sets",
-    color: "#4a6fa5",
+    color: "#b8860b", // Olive Gold
     sizes: ["M", "L", "XL"],
     mrp: 3500,
     price: 2199,
@@ -41,9 +40,9 @@ const products = [
   },
   {
     id: 3,
-    name: "cotton Shrug Set",
+    name: "Cotton Shrug Set",
     category: "Cotton Shrug",
-    color: "#b8860b",
+    color: "#800080", // Purple
     sizes: ["L", "XL", "XXL"],
     mrp: 4200,
     price: 2799,
@@ -54,7 +53,7 @@ const products = [
     id: 4,
     name: "Printed Linen Shrug Set",
     category: "Embroidered",
-    color: "#ff0000",
+    color: "#d97882", // Dusty Pink
     sizes: ["S", "M", "L"],
     mrp: 3800,
     price: 2499,
@@ -65,7 +64,7 @@ const products = [
     id: 5,
     name: "Block Print Shrug Set",
     category: "Embroidered",
-    color: "#ffa500",
+    color: "#c8a2c8", // Lavender
     sizes: ["M", "L", "XL"],
     mrp: 4500,
     price: 2999,
@@ -74,9 +73,9 @@ const products = [
   },
   {
     id: 6,
-    name: "printed Tie-Dye Shrug Set",
+    name: "Printed Tie-Dye Shrug Set",
     category: "Printed Sets",
-    color: "#800080",
+    color: "#d97882", // Mauve
     sizes: ["S", "M", "L"],
     mrp: 3999,
     price: 2499,
@@ -87,7 +86,7 @@ const products = [
     id: 7,
     name: "Shrug Set",
     category: "New Arrivals",
-    color: "#e8c9a0",
+    color: "#000", // Black
     sizes: ["S", "M", "L"],
     mrp: 3500,
     price: 2199,
@@ -98,7 +97,7 @@ const products = [
     id: 8,
     name: "Embroidered Shrug Set",
     category: "Embroidered",
-    color: "#6b8e6b",
+    color: "#ff7f24", // Orange
     sizes: ["M", "L", "XL"],
     mrp: 3200,
     price: 1999,
@@ -109,7 +108,7 @@ const products = [
     id: 9,
     name: "Printed Kurti Shrug Set",
     category: "New Arrivals",
-    color: "#d97882",
+    color: "#d97882", // Pink
     sizes: ["S", "M", "L"],
     mrp: 4200,
     price: 2799,
@@ -120,7 +119,7 @@ const products = [
     id: 10,
     name: "Organza Shrug Set",
     category: "Embroidered",
-    color: "#00ced1",
+    color: "#800080", // Purple
     sizes: ["L", "XL", "XXL"],
     mrp: 5000,
     price: 3499,
@@ -130,8 +129,8 @@ const products = [
   {
     id: 11,
     name: "Rust Cotton Shrug Set",
-    category: "printed Shrug",
-    color: "#8b4513",
+    category: "Printed Shrug",
+    color: "#e8c9a0", // Beige
     sizes: ["M", "L", "XL"],
     mrp: 3800,
     price: 2499,
@@ -142,7 +141,7 @@ const products = [
     id: 12,
     name: "Ivory Lace Shrug Set",
     category: "Shrug Sets",
-    color: "#fff",
+    color: "#6b8e6b", // Green
     sizes: ["S", "M", "L"],
     mrp: 4500,
     price: 2999,
@@ -153,22 +152,14 @@ const products = [
 
 const categories = ["New Arrivals", "Shrug Sets", "Cotton Shrug", "Printed Sets", "Embroidered"];
 const colors = [
-  "#fff",
-  "#000",
-  "#e8c9a0",
-  "#d97882",
-  "#6b8e6b",
-  "#b8860b",
-  "#4a6fa5",
-  "#c49a6c",
-  "#ff0000",
-  "#800080",
-  "#ffa500",
-  "#ffff00",
-  "#00ced1",
-  "#ff69b4",
-  "#808080",
-  "#8b4513",
+  { id: 1, name: "Black", hex: "#000" },
+  { id: 2, name: "Beige", hex: "#e8c9a0" },
+  { id: 3, name: "Dusty Pink", hex: "#d97882" },
+  { id: 4, name: "Green", hex: "#6b8e6b" },
+  { id: 5, name: "Olive Gold", hex: "#b8860b" },
+  { id: 6, name: "Purple", hex: "#800080" },
+  { id: 7, name: "Orange", hex: "#ff7f24" },
+  { id: 8, name: "Lavender", hex: "#c8a2c8" },
 ];
 const sizes      = ["XS","S","M","L","XL","XXL"];
 
@@ -279,19 +270,36 @@ const sorted = [...filteredProducts].sort((a, b) => {
               </div>
             </div>
 
-            <div className="sh-filter-group">
-              <h4>COLOR</h4>
-              <div className="sh-colors">
-                {colors.map((c, i) => (
-                  <button
-                    key={i}
-                    className={`sh-color-dot ${selectedColor === c ? "active" : ""}`}
-                    style={{ background: c, border: c === "#fff" ? "1px solid #ccc" : "none" }}
-                    onClick={() => setSelectedColor(selectedColor === c ? null : c)}
-                  />
-                ))}
-              </div>
-            </div>
+                       <div className="lh-filter-group">
+  <h4>COLOR</h4>
+
+  <div className="lh-colors">
+    {colors.map((color) => (
+      <button
+        key={color.id}
+        type="button"
+        title={color.name}
+        className={`lh-color-dot ${
+          selectedColor === color.hex ? "active" : ""
+        }`}
+        style={{
+          backgroundColor: color.hex,
+          border:
+            color.hex === "#fff"
+              ? "1px solid #ccc"
+              : "none",
+        }}
+        onClick={() =>
+          setSelectedColor(
+            selectedColor === color.hex
+              ? null
+              : color.hex
+          )
+        }
+      />
+    ))}
+  </div>
+</div>
 
             <div className="sh-filter-group">
               <h4>SIZE</h4>

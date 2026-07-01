@@ -18,7 +18,7 @@ const products = [
     id: 1,
     name: "Floral Embroidered Co-ord Set",
     category: "Embroidered",
-    color: "#ff69b4",
+    color: "#ff1493", // Pink
     sizes: ["S", "M", "L"],
     mrp: 3999,
     price: 2499,
@@ -29,29 +29,18 @@ const products = [
     id: 2,
     name: "Stripe Cotton Co-ord Set",
     category: "Cotton Co-Ord",
-    color: "#4a6fa5",
+    color: "#e8c9a0", // Beige
     sizes: ["M", "L", "XL"],
     mrp: 3500,
     price: 2199,
     discount: "37% OFF",
     image: cs3,
   },
-  // {
-  //   id: 3,
-  //   name: "Solid Linen Co-ord Set",
-  //   category: "Printed Sets",
-  //   color: "#6b8e6b",
-  //   sizes: ["S", "M", "L"],
-  //   mrp: 4200,
-  //   price: 2799,
-  //   discount: "33% OFF",
-  //   image: cs4,
-  // },
   {
     id: 4,
     name: "Tie-Dye Co-ord Set",
-    category: "Co-ord Sets",
-    color: "#ff0000",
+    category: "Co-Ord Sets",
+    color: "#87ceeb", // Sky Blue
     sizes: ["M", "L", "XL"],
     mrp: 3800,
     price: 2499,
@@ -61,8 +50,8 @@ const products = [
   {
     id: 5,
     name: "Casual Co-ord Set",
-    category: "Co-ord Sets",
-    color: "#b8860b",
+    category: "Co-Ord Sets",
+    color: "#6b8e6b", // Green
     sizes: ["L", "XL", "XXL"],
     mrp: 4500,
     price: 2999,
@@ -73,7 +62,7 @@ const products = [
     id: 6,
     name: "Block Print Co-ord Set",
     category: "Embroidered",
-    color: "#ffa500",
+    color: "#1f3a5f", // Navy Blue
     sizes: ["S", "M", "L"],
     mrp: 3999,
     price: 2499,
@@ -84,7 +73,7 @@ const products = [
     id: 7,
     name: "Pastel Co-ord Set",
     category: "New Arrivals",
-    color: "#e8c9a0",
+    color: "#fff", // White
     sizes: ["S", "M", "L"],
     mrp: 3500,
     price: 2199,
@@ -95,7 +84,7 @@ const products = [
     id: 8,
     name: "Cotton Casual Co-ord Set",
     category: "New Arrivals",
-    color: "#6b8e6b",
+    color: "#000", // Black
     sizes: ["M", "L", "XL"],
     mrp: 3200,
     price: 1999,
@@ -106,7 +95,7 @@ const products = [
     id: 9,
     name: "Printed Kurti Co-ord Set",
     category: "Printed Sets",
-    color: "#d97882",
+    color: "#e8c9a0", // Beige
     sizes: ["S", "M", "L"],
     mrp: 4200,
     price: 2799,
@@ -117,7 +106,7 @@ const products = [
     id: 10,
     name: "Organza Co-ord Set",
     category: "New Arrivals",
-    color: "#00ced1",
+    color: "#e8c9a0", // Beige
     sizes: ["L", "XL", "XXL"],
     mrp: 5000,
     price: 3499,
@@ -128,44 +117,23 @@ const products = [
     id: 11,
     name: "Rust Cotton Co-ord Set",
     category: "Cotton Co-Ord",
-    color: "#8b4513",
+    color: "#e8c9a0", // Beige
     sizes: ["M", "L", "XL"],
     mrp: 3800,
     price: 2499,
     discount: "34% OFF",
     image: co3,
   },
-  // {
-  //   id: 12,
-  //   name: "Ivory Lace Co-ord Set",
-  //   category: "Embroidered",
-  //   color: "#fff",
-  //   sizes: ["S", "M", "L"],
-  //   mrp: 4500,
-  //   price: 2999,
-  //   discount: "33% OFF",
-  //   image: css1,
-  // },
 ];
-
 const categories = ["New Arrivals", "Co-Ord Sets", "Cotton Co-Ord", "Printed Sets", "Embroidered"];
 const colors = [
-  "#fff",
-  "#000",
-  "#e8c9a0",
-  "#d97882",
-  "#6b8e6b",
-  "#b8860b",
-  "#4a6fa5",
-  "#c49a6c",
-  "#ff0000",
-  "#800080",
-  "#ffa500",
-  "#ffff00",
-  "#00ced1",
-  "#ff69b4",
-  "#808080",
-  "#8b4513",
+  { id: 1, name: "White", hex: "#fff" },
+  { id: 2, name: "Black", hex: "#000" },
+  { id: 3, name: "Beige", hex: "#e8c9a0" },
+  { id: 4, name: "Green", hex: "#6b8e6b" },
+  { id: 5, name: "Pink", hex: "#ff1493" },
+  { id: 6, name: "Sky Blue", hex: "#87ceeb" },
+  { id: 7, name: "Navy Blue", hex: "#1f3a5f" },
 ];
 const sizes      = ["XS","S","M","L","XL","XXL"];
 
@@ -274,19 +242,37 @@ const sorted = [...filteredProducts].sort((a, b) => {
               </div>
             </div>
 
-            <div className="cs-filter-group">
-              <h4>COLOR</h4>
-              <div className="cs-colors">
-                {colors.map((c, i) => (
-                  <button
-                    key={i}
-                    className={`cs-color-dot ${selectedColor === c ? "active" : ""}`}
-                    style={{ background: c, border: c === "#fff" ? "1px solid #ccc" : "none" }}
-                    onClick={() => setSelectedColor(selectedColor === c ? null : c)}
-                  />
-                ))}
-              </div>
-            </div>
+            <div className="lh-filter-group">
+  <h4>COLOR</h4>
+
+  <div className="lh-colors">
+    {colors.map((color) => (
+      <button
+        key={color.id}
+        type="button"
+        title={color.name}
+        className={`lh-color-dot ${
+          selectedColor === color.hex ? "active" : ""
+        }`}
+        style={{
+          backgroundColor: color.hex,
+          border:
+            color.hex === "#fff"
+              ? "1px solid #ccc"
+              : "none",
+        }}
+        onClick={() =>
+          setSelectedColor(
+            selectedColor === color.hex
+              ? null
+              : color.hex
+          )
+        }
+      />
+    ))}
+  </div>
+</div>
+
 
             <div className="cs-filter-group">
               <h4>SIZE</h4>

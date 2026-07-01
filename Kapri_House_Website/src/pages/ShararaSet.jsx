@@ -21,7 +21,7 @@ const products = [
     id: 1,
     name: "Embroidered Sharara Set",
     category: "Embroidered",
-    color: "#b8860b",
+    color: "#fff",
     sizes: ["M", "L", "XL"],
     mrp: 5999,
     price: 3999,
@@ -43,7 +43,7 @@ const products = [
     id: 3,
     name: "Net Sharara Set",
     category: "Sharara Sets",
-    color: "#e8c9a0",
+    color: "#ff0000",
     sizes: ["M", "L", "XL"],
     mrp: 4999,
     price: 3299,
@@ -54,7 +54,7 @@ const products = [
     id: 4,
     name: "Silk Sharara Set",
     category: "Sharara Sets",
-    color: "#800080",
+    color: "#e8c9a0", // Beige
     sizes: ["L", "XL", "XXL"],
     mrp: 6999,
     price: 4799,
@@ -65,7 +65,7 @@ const products = [
     id: 5,
     name: "Floral Print Sharara Set",
     category: "Printed Sets",
-    color: "#ff69b4",
+    color: "#00ced1", // Turquoise
     sizes: ["S", "M", "L"],
     mrp: 4200,
     price: 2799,
@@ -76,7 +76,7 @@ const products = [
     id: 6,
     name: "Georgette Sharara Set",
     category: "New Arrivals",
-    color: "#00ced1",
+    color: "#800080", // Maroon
     sizes: ["M", "L", "XL"],
     mrp: 5500,
     price: 3699,
@@ -98,7 +98,7 @@ const products = [
     id: 8,
     name: "Pastel Sharara Set",
     category: "New Arrivals",
-    color: "#d97882",
+    color: "#d89820", // Mustard
     sizes: ["S", "M", "L"],
     mrp: 4500,
     price: 2999,
@@ -109,7 +109,7 @@ const products = [
     id: 9,
     name: "Chiffon Sharara Set",
     category: "Sharara Sets",
-    color: "#6b8e6b",
+    color: "#ff0000", // Red
     sizes: ["M", "L", "XL"],
     mrp: 4800,
     price: 3199,
@@ -120,7 +120,7 @@ const products = [
     id: 10,
     name: "Organza Sharara Set",
     category: "New Arrivals",
-    color: "#ffa500",
+    color: "#4a6fa5",
     sizes: ["L", "XL", "XXL"],
     mrp: 5800,
     price: 3899,
@@ -131,7 +131,7 @@ const products = [
     id: 11,
     name: "Bridal Sharara Set",
     category: "Bridal",
-    color: "#8b4513",
+    color: "#4a6fa5", // Blue
     sizes: ["L", "XL", "XXL"],
     mrp: 8999,
     price: 5999,
@@ -142,7 +142,7 @@ const products = [
     id: 12,
     name: "Ivory Sharara Set",
     category: "Bridal",
-    color: "#fff",
+    color: "#4a6fa5", // Blue
     sizes: ["S", "M", "L"],
     mrp: 5200,
     price: 3499,
@@ -154,21 +154,19 @@ const products = [
 const categories = ["New Arrivals", "Sharara Sets", "Embroidered", "Printed Sets", "Bridal"];
 const colors = [
   "#fff",
-  "#000",
+  // "#000",
   "#e8c9a0",
-  "#d97882",
-  "#6b8e6b",
-  "#b8860b",
+  "#d89820",
+  // "#6b8e6b",
+  // "#b8860b",
   "#4a6fa5",
-  "#c49a6c",
+  // "#c49a6c",
   "#ff0000",
   "#800080",
-  "#ffa500",
-  "#ffff00",
+  // "#ffa500",
+  // "#ffff00",
   "#00ced1",
-  "#ff69b4",
-  "#808080",
-  "#8b4513",
+  
 ];
 const sizes      = ["XS","S","M","L","XL","XXL"];
 

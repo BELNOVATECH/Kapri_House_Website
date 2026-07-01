@@ -61,9 +61,9 @@ const products = [
   {
     id: 5,
     image: na5,
-    title: "Pink Cotton Dress",
+    title: "White Cotton Dress",
     category: "Dresses",
-    color: "#d97882",
+    color: "#ffffff",
     sizes: ["S", "M", "L"],
     mrp: 3200,
     price: 2799,
@@ -72,9 +72,9 @@ const products = [
   {
     id: 6,
     image: na6,
-    title: "Brown Kurta Set",
+    title: "Pink Kurta Set",
     category: "Kurtas",
-    color: "#8b4513",
+    color: "#d97882",
     sizes: ["M", "L", "XL"],
     mrp: 3900,
     price: 2999,
@@ -88,7 +88,7 @@ const colors = [
   "#ffa500",
   "#4a6fa5",
   "#d97882",
-  "#8b4513",
+  // "#8b4513",
 ];
 
 const sizes = ["S", "M", "L", "XL"];

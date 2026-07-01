@@ -32,7 +32,7 @@ const products = [
     id: 2,
     name: "Solid Flared Maxi",
     category: "Casual Maxis",
-    color: "#000",
+    color: "#b943dd", // Purple
     sizes: ["M", "L", "XL"],
     mrp: 4500,
     price: 2999,
@@ -43,7 +43,7 @@ const products = [
     id: 3,
     name: "Tiered Cotton Maxi Dress",
     category: "Printed Maxis",
-    color: "#6b8e6b", // Green
+    color: "#b943dd", // Green
     sizes: ["S", "M", "L"],
     mrp: 3999,
     price: 2799,
@@ -131,7 +131,7 @@ const products = [
     id: 11,
     name: "Halter Neck Maxi Dress",
     category: "Party Wear",
-    color: "#000", // Black
+    color: "#b943dd", // Black
     sizes: ["L", "XL", "XXL"],
     mrp: 4800,
     price: 3299,
@@ -154,7 +154,7 @@ const products = [
 const categories = ["New Arrivals", "Casual Maxis", "Party Wear", "Printed Maxis", "Solid Maxis"];
 const colors = [
   { id: 1, name: "White", hex: "#fff" },
-  { id: 2, name: "Black", hex: "#000" },
+  { id: 2, name: "Black", hex: "#b943dd" },
   { id: 3, name: "Pink", hex: "#d97882" },
   { id: 4, name: "Green", hex: "#6b8e6b" },
   { id: 5, name: "Light Green", hex: "#98fb98" },

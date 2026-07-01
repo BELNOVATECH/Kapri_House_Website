@@ -21,7 +21,7 @@ const products = [
     id: 1,
     name: "Embroidered Farshi Salwar Set",
     category: "Embroidered",
-    color: "#b8860b",
+    color: "#00ced1", // Turquoise
     sizes: ["M", "L", "XL"],
     mrp: 5999,
     price: 3999,
@@ -32,7 +32,7 @@ const products = [
     id: 2,
     name: "Printed Cotton Farshi Set",
     category: "Printed Sets",
-    color: "#4a6fa5",
+    color: "#e8c9a0", // Beige
     sizes: ["S", "M", "L"],
     mrp: 3999,
     price: 2499,
@@ -43,7 +43,7 @@ const products = [
     id: 3,
     name: "Net Farshi Salwar Set",
     category: "Farshi Salwar Sets",
-    color: "#e8c9a0",
+    color: "#4a6fa5", // Indigo
     sizes: ["M", "L", "XL"],
     mrp: 4999,
     price: 3299,
@@ -54,7 +54,7 @@ const products = [
     id: 4,
     name: "Silk Farshi Salwar Set",
     category: "Farshi Salwar Sets",
-    color: "#800080",
+    color: "#ffa500", // Orange
     sizes: ["L", "XL", "XXL"],
     mrp: 6999,
     price: 4799,
@@ -65,7 +65,7 @@ const products = [
     id: 5,
     name: "Floral Print Farshi Set",
     category: "Printed Sets",
-    color: "#ff69b4",
+    color: "#e8c9a0", // Beige
     sizes: ["S", "M", "L"],
     mrp: 4200,
     price: 2799,
@@ -76,7 +76,7 @@ const products = [
     id: 6,
     name: "Georgette Farshi Salwar Set",
     category: "New Arrivals",
-    color: "#00ced1",
+    color: "#6b8e6b", // Green
     sizes: ["M", "L", "XL"],
     mrp: 5500,
     price: 3699,
@@ -87,7 +87,7 @@ const products = [
     id: 7,
     name: "Zari Work Farshi Set",
     category: "Embroidered",
-    color: "#ff0000",
+    color: "#ffa500", // Gold
     sizes: ["L", "XL", "XXL"],
     mrp: 6500,
     price: 4499,
@@ -98,7 +98,7 @@ const products = [
     id: 8,
     name: "Pastel Farshi Salwar Set",
     category: "New Arrivals",
-    color: "#d97882",
+    color: "#800080",
     sizes: ["S", "M", "L"],
     mrp: 4500,
     price: 2999,
@@ -109,7 +109,7 @@ const products = [
     id: 9,
     name: "Chiffon Farshi Set",
     category: "Farshi Salwar Sets",
-    color: "#6b8e6b",
+    color: "#c49a6c",
     sizes: ["M", "L", "XL"],
     mrp: 4800,
     price: 3199,
@@ -120,7 +120,7 @@ const products = [
     id: 10,
     name: "Organza Farshi Salwar Set",
     category: "New Arrivals",
-    color: "#ffa500",
+    color: "#6b8e6b", // Green
     sizes: ["L", "XL", "XXL"],
     mrp: 5800,
     price: 3899,
@@ -131,7 +131,7 @@ const products = [
     id: 11,
     name: "Bridal Farshi Salwar Set",
     category: "Bridal",
-    color: "#8b4513",
+    color: "#e79924", // Gold
     sizes: ["L", "XL", "XXL"],
     mrp: 8999,
     price: 5999,
@@ -142,7 +142,7 @@ const products = [
     id: 12,
     name: "Ivory Farshi Salwar Set",
     category: "Bridal",
-    color: "#fff",
+    color: "#8b4513", // Brown
     sizes: ["S", "M", "L"],
     mrp: 5200,
     price: 3499,
@@ -153,21 +153,20 @@ const products = [
 
 const categories = ["New Arrivals", "Farshi Salwar Sets", "Embroidered", "Printed Sets", "Bridal"];
 const colors = [
-  "#fff",
-  "#000",
+  // "#fff",
+  // "#000",
   "#e8c9a0",
-  "#d97882",
+  "#e79924",
   "#6b8e6b",
-  "#b8860b",
+  // "#b8860b",
   "#4a6fa5",
   "#c49a6c",
-  "#ff0000",
+  // "#ff0000",
   "#800080",
   "#ffa500",
-  "#ffff00",
+  // "#ffff00",
   "#00ced1",
-  "#ff69b4",
-  "#808080",
+ 
   "#8b4513",
 ];
 const sizes      = ["XS","S","M","L","XL","XXL"];
