@@ -31,7 +31,7 @@ export default function Header() {
         />
 
         <h2 className="brand-name">
-          Kap<span>ri</span> House
+          Kapri<span></span> House
         </h2>
       </div>
 
