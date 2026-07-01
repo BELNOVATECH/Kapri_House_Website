@@ -20,7 +20,7 @@ const products = [
   {
     id: 1,
     name: "Banarasi Silk Saree",
-    category: "Silk Sarees",
+    category: "Printed Sarees",
     color: "#b8860b",
     sizes: ["M", "L", "XL"],
     mrp: 6999,
@@ -30,8 +30,8 @@ const products = [
   },
   {
     id: 2,
-    name: "Printed Georgette Saree",
-    category: "Printed Sarees",
+    name: " Georgette Saree",
+    category: "Silk Sarees",
     color: "#d97882",
     sizes: ["S", "M", "L"],
     mrp: 3999,
@@ -41,7 +41,7 @@ const products = [
   },
   {
     id: 3,
-    name: "Embroidered Net Saree",
+    name: "Embroidered Saree",
     category: "Embroidered",
     color: "#e8c9a0",
     sizes: ["M", "L", "XL"],
@@ -52,8 +52,8 @@ const products = [
   },
   {
     id: 4,
-    name: "Cotton Handloom Saree",
-    category: "Cotton Sarees",
+    name: "Handloom Saree",
+    category: "New Arrivals",
     color: "#fff",
     sizes: ["S", "M", "L"],
     mrp: 3500,
@@ -75,7 +75,7 @@ const products = [
   {
     id: 6,
     name: "Linen Solid Saree",
-    category: "Cotton Sarees",
+    category: "Embroidered",
     color: "#6b8e6b",
     sizes: ["M", "L", "XL"],
     mrp: 3800,

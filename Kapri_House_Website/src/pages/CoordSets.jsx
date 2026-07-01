@@ -9,12 +9,15 @@ import cs5  from "../assets/cs5.webp";
 import cs6  from "../assets/cs6.webp";
 import css1 from "../assets/css1.webp";
 import cord from "../assets/cord.webp";
-
+import co1 from "../assets/co1.webp";
+import co2 from "../assets/co2.webp";
+import co3 from "../assets/co3.webp";
+import co4 from "../assets/co4.webp";
 const products = [
   {
     id: 1,
-    name: "Floral Print Co-ord Set",
-    category: "Printed Sets",
+    name: "Floral Embroidered Co-ord Set",
+    category: "Embroidered",
     color: "#ff69b4",
     sizes: ["S", "M", "L"],
     mrp: 3999,
@@ -33,21 +36,21 @@ const products = [
     discount: "37% OFF",
     image: cs3,
   },
-  {
-    id: 3,
-    name: "Solid Linen Co-ord Set",
-    category: "Co-Ord Sets",
-    color: "#6b8e6b",
-    sizes: ["S", "M", "L"],
-    mrp: 4200,
-    price: 2799,
-    discount: "33% OFF",
-    image: cs4,
-  },
+  // {
+  //   id: 3,
+  //   name: "Solid Linen Co-ord Set",
+  //   category: "Printed Sets",
+  //   color: "#6b8e6b",
+  //   sizes: ["S", "M", "L"],
+  //   mrp: 4200,
+  //   price: 2799,
+  //   discount: "33% OFF",
+  //   image: cs4,
+  // },
   {
     id: 4,
     name: "Tie-Dye Co-ord Set",
-    category: "Printed Sets",
+    category: "Co-ord Sets",
     color: "#ff0000",
     sizes: ["M", "L", "XL"],
     mrp: 3800,
@@ -57,8 +60,8 @@ const products = [
   },
   {
     id: 5,
-    name: "Embroidered Co-ord Set",
-    category: "Embroidered",
+    name: "Casual Co-ord Set",
+    category: "Co-ord Sets",
     color: "#b8860b",
     sizes: ["L", "XL", "XXL"],
     mrp: 4500,
@@ -69,7 +72,7 @@ const products = [
   {
     id: 6,
     name: "Block Print Co-ord Set",
-    category: "Printed Sets",
+    category: "Embroidered",
     color: "#ffa500",
     sizes: ["S", "M", "L"],
     mrp: 3999,
@@ -86,18 +89,18 @@ const products = [
     mrp: 3500,
     price: 2199,
     discount: "37% OFF",
-    image: cs2,
+    image: co4,
   },
   {
     id: 8,
     name: "Cotton Casual Co-ord Set",
-    category: "Cotton Co-Ord",
+    category: "New Arrivals",
     color: "#6b8e6b",
     sizes: ["M", "L", "XL"],
     mrp: 3200,
     price: 1999,
     discount: "37% OFF",
-    image: cs3,
+    image: co1,
   },
   {
     id: 9,
@@ -119,7 +122,7 @@ const products = [
     mrp: 5000,
     price: 3499,
     discount: "30% OFF",
-    image: cs5,
+    image: co2,
   },
   {
     id: 11,
@@ -130,19 +133,19 @@ const products = [
     mrp: 3800,
     price: 2499,
     discount: "34% OFF",
-    image: cs6,
+    image: co3,
   },
-  {
-    id: 12,
-    name: "Ivory Lace Co-ord Set",
-    category: "Embroidered",
-    color: "#fff",
-    sizes: ["S", "M", "L"],
-    mrp: 4500,
-    price: 2999,
-    discount: "33% OFF",
-    image: css1,
-  },
+  // {
+  //   id: 12,
+  //   name: "Ivory Lace Co-ord Set",
+  //   category: "Embroidered",
+  //   color: "#fff",
+  //   sizes: ["S", "M", "L"],
+  //   mrp: 4500,
+  //   price: 2999,
+  //   discount: "33% OFF",
+  //   image: css1,
+  // },
 ];
 
 const categories = ["New Arrivals", "Co-Ord Sets", "Cotton Co-Ord", "Printed Sets", "Embroidered"];

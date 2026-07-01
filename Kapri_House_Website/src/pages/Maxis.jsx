@@ -20,7 +20,7 @@ const products = [
   {
     id: 1,
     name: "Floral Print Maxi Dress",
-    category: "Printed Maxis",
+    category: "Party Wear",
     color: "#ff69b4",
     sizes: ["S", "M", "L"],
     mrp: 4999,
@@ -31,7 +31,7 @@ const products = [
   {
     id: 2,
     name: "Solid Flared Maxi",
-    category: "Solid Maxis",
+    category: "Casual Maxis",
     color: "#000",
     sizes: ["M", "L", "XL"],
     mrp: 4500,
@@ -42,7 +42,7 @@ const products = [
   {
     id: 3,
     name: "Tiered Cotton Maxi Dress",
-    category: "Casual Maxis",
+    category: "Printed Maxis",
     color: "#6b8e6b",
     sizes: ["S", "M", "L"],
     mrp: 3999,
@@ -53,7 +53,7 @@ const products = [
   {
     id: 4,
     name: "Embroidered Maxi Gown",
-    category: "Party Wear",
+    category: "Printed Maxis",
     color: "#b8860b",
     sizes: ["L", "XL", "XXL"],
     mrp: 6999,
@@ -64,7 +64,7 @@ const products = [
   {
     id: 5,
     name: "Off-Shoulder Maxi Dress",
-    category: "New Arrivals",
+    category: "Party Wear",
     color: "#d97882",
     sizes: ["S", "M", "L"],
     mrp: 4200,
@@ -75,7 +75,7 @@ const products = [
   {
     id: 6,
     name: "Printed Wrap Maxi Dress",
-    category: "Printed Maxis",
+    category: "Party Wear",
     color: "#4a6fa5",
     sizes: ["M", "L", "XL"],
     mrp: 3800,
@@ -86,7 +86,7 @@ const products = [
   {
     id: 7,
     name: "Ruffle Sleeve Maxi Dress",
-    category: "Party Wear",
+    category: "New Arrivals",
     color: "#800080",
     sizes: ["M", "L", "XL"],
     mrp: 4600,
@@ -108,7 +108,7 @@ const products = [
   {
     id: 9,
     name: "Tie-Dye Maxi Dress",
-    category: "Printed Maxis",
+    category: "Casual Maxis",
     color: "#ff0000",
     sizes: ["S", "M", "L"],
     mrp: 3900,
@@ -118,8 +118,8 @@ const products = [
   },
   {
     id: 10,
-    name: "Boho Printed Maxi Dress",
-    category: "New Arrivals",
+    name: "Boho Maxi Dress",
+    category: "Solid Maxis",
     color: "#ffa500",
     sizes: ["M", "L", "XL"],
     mrp: 4400,
@@ -141,7 +141,7 @@ const products = [
   {
     id: 12,
     name: "Pastel Chiffon Maxi Dress",
-    category: "Solid Maxis",
+    category: "New Arrivals",
     color: "#fff",
     sizes: ["S", "M", "L"],
     mrp: 5500,

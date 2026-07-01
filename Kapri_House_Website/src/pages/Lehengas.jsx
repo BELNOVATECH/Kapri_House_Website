@@ -42,7 +42,7 @@ const products = [
   {
     id: 3,
     name: "Floral Print Lehenga Set",
-    category: "New Arrivals",
+    category: "Bridal Lehengas",
     color: "#ff69b4",
     sizes: ["S", "M", "L"],
     mrp: 6999,
@@ -63,8 +63,8 @@ const products = [
   },
   {
     id: 5,
-    name: "Pastel Net Lehenga",
-    category: "Net Lehengas",
+    name: "Georgette Flared Lehenga",
+    category: "New Arrivals",
     color: "#e8c9a0",
     sizes: ["S", "M", "L"],
     mrp: 7999,
@@ -75,7 +75,7 @@ const products = [
   {
     id: 6,
     name: "Sequin Designer Lehenga",
-    category: "Party Wear",
+    category: "Embroidered",
     color: "#d97882",
     sizes: ["M", "L", "XL"],
     mrp: 10999,
@@ -96,7 +96,7 @@ const products = [
   },
   {
     id: 8,
-    name: "Georgette Flared Lehenga",
+    name: "Pastel Net Lehenga",
     category: "Net Lehengas",
     color: "#4a6fa5",
     sizes: ["S", "M", "L"],
@@ -119,7 +119,7 @@ const products = [
   {
     id: 10,
     name: "Organza Layered Lehenga",
-    category: "New Arrivals",
+    category: "Embroidered",
     color: "#00ced1",
     sizes: ["S", "M", "L"],
     mrp: 8499,
@@ -130,7 +130,7 @@ const products = [
   {
     id: 11,
     name: "Maroon Embroidered Lehenga",
-    category: "Embroidered",
+    category: "New Arrivals",
     color: "#8b4513",
     sizes: ["M", "L", "XL"],
     mrp: 9999,
